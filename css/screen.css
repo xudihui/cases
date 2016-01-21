@@ -1,0 +1,38 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video,i {border: 0 none;margin: 0;outline: 0 none;padding: 0;}
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {}
+section.head{height:94px;background:#21b101;color:#fff;}
+section.head h2{text-align:center;font-weight:normal;padding:10px 0}
+.btn-wrap{width:195px;margin:0 auto;overflow:hidden;}
+.page{background:#ecf0f3}
+.btn_white{height:35px;line-height:35px;width:65px;color:#21b101;padding:0 65px;border-radius:5px;letter-spacing:0.1em;background:#fff;margin:0 auto;display:inline-block;text-align:center}
+.layout{margin-top:11px;letter-spacing:0.1em;color:#555}
+.layout h3{height:30px;line-height:30px;text-indent:10px;background:#fff;font-weight:normal;border-bottom:1px solid #f3f3f3}
+.layout aside .layItem{width:33.3%;float:left;;color:#555;background:#fff;text-align:center;border-bottom:1px solid #f3f3f3;padding:25px 0;height:104px;;box-sizing:border-box}
+.layout aside .layItem:nth-child(2){border-left:1px solid #f3f3f3;border-right:1px solid #f3f3f3;width:33.4%}
+.layout aside .layItem img{width:29px;}
+.tab-link img{width:22px;}
+.tabbar a.active{color:#21b101}
+
+.list-block .item-text {
+line-height: 21px;
+padding-top: 5px;
+height: 22px;
+}
+
+.infinite-scroll-preloader {
+  margin-top:-20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.infinite-scroll-preloader .preloader {
+  width:34px;
+  height:34px;
+}   
+.list-block{
+margin:10px 0
+}
+.item-content .item-media img.i{width:30px}
+.tabbar i.icon {
+height: 25px;
+padding-top: 5px;
+}

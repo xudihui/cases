@@ -1,0 +1,41 @@
+
+    <div class="page" data-page="my-page1">
+        <div class="page-content">
+				<div class="row">
+					<div class="col-100">
+						  <div class='item-public'>
+							   <a class='item-public-title'>
+								<img src='images/public_icon_01.png' />
+								<span>智慧医疗</span>
+								<div class="dot"></div>
+							   </a>
+							   <ul>
+								<li class='first'><a href="javascript:void 0">业务介绍</a></li>
+								<li><a href="javascript:void 0">网点查询</a></li>
+								<li><a href="javascript:void 0">FAQ</a></li>
+							   </ul>
+						  </div>	
+					</div>
+				</div> 
+        </div>
+    </div>
+  
+
+<script type="text/javascript">
+$(function(){
+
+  jQuery.prototype.progress=function(){var i=jQuery.queue(this[0]);return!i||i&&0==i.length?!1:!0}
+  
+  $('.item-public a.item-public-title').bind('click',function(){
+     var that = $(this);
+     var parent = $(this).parent();
+	 var ul = parent.children('ul');
+	 ul.css('display') == 'none' ? ( !ul.progress() ? ul.slideDown(500,function(){that.addClass('show')}) : '' ) : ul.slideUp(50,function(){that.removeClass('show')});
+  });
+  
+  $('.item-public li').bind('click',function(){
+        alert('请添加对应链接实现菜单--'+$(this).children('a').html()+'--的跳转！') //提示代码，开发人员阅毕直接删除覆盖即可。
+  })
+  
+});
+</script>

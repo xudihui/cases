@@ -3,6 +3,7 @@ var myApp = new Framework7({
     animateNavBackIcon: true,
 	pushState:true,
 	template7Pages: true,
+	precompileTemplates: true,
 });
 
 // Expose Internal DOM library
@@ -12,6 +13,7 @@ var $$ = Dom7;
 var mainView = myApp.addView('.view-main', {
     // Enable Dynamic Navbar for this view
  //   dynamicNavbar: true,
+	domCache: true,
 });
 
 
@@ -26,94 +28,47 @@ $$(document).on('ajaxComplete', function () {
 
 
 
+$$('#hospital').on('click', function(e){
+	myApp.ajaxLoad({
+		target:$$(this),//当前点击的对象 Object
+		data:{username:'foo', password: 'bar'}, // 传递给后台的数据 Object
+		url:'js/json2.js', //请求地址 String
+		view:'smk-list-ajax.html' //目标视图 String
+	});		
+});
+
+
+
 myApp.onPageInit('smk-list', function (page) {
-	
-	
-	
-	$$(document).on('click', '.item-link', function(e){
-	var self = $$(this);		
-	if(!self.data('context')){ //请求过一次之后缓存下来
-	        var date = new Date();
-			$$.ajax({
-			  async:false, //同步请求
-			  method:'GET',	
-			  url: 'js/json.js?'+date.getTime(), //增加随机数防止请求缓存
-			  data: {username:'foo', password: 'bar'},
-			  dataType:'json',
-			  success:function (data) {
-		        console.log(data[0]);
-				self.data('context',data[0]);
-		     }
-			});  			
-	}
-	
-	mainView.router.load({
-		url: 'smk-detail.html',
-		context:self.data('context')
-	});
-		
+	$$(document).on('click', '.page[data-page="smk-list"] .item-link', function(e){
+		myApp.ajaxLoad({
+			target:$$(this),//当前点击的对象 Object
+			data:{username:'foo', password: 'bar'}, // 传递给后台的数据 Object
+			url:'js/json.js', //请求地址 String
+			view:'smk-detail.html' //目标视图 String
+		});
 	});
 
+	myApp.ajaxNextPage({
+		target:"smk-list",//当前点击的对象 String
+		data:{username:'foo', password: 'bar'}, // 传递给后台的数据 Object
+		url:'js/json2.js', //请求地址 String
+		tips: '真的没有了哎!'//加载完毕提示文字，可不填，默认为'已经没有更多了~'
+	});	
 	
-	
-	
-	var loading = false;
-	 
-	// 上次加载的序号
-	var lastIndex = $$('.list-block li').length;
-	// 最多可加载的条目
-	var maxItems = 60;
-	 
-	// 每次加载添加多少条目
-	var itemsPerLoad =5;
-	 
-	// 注册'infinite'事件处理函数
-	$$('.infinite-scroll').on('infinite', function () {
-	 
-	  // 如果正在加载，则退出
-	  if (loading) return;
-	 
-	  // 设置flag
-	  loading = true;
-	 
-	  // 模拟200ms的加载过程
-	  setTimeout(function () {
-		// 重置加载flag
-		loading = false;
-	 
-		if (lastIndex >= maxItems) {
-		  // 加载完毕，则注销无限加载事件，以防不必要的加载
-		  myApp.detachInfiniteScroll($$('.infinite-scroll'));
-		  // 删除加载提示符
-		  $$('.infinite-scroll-preloader').remove();
-		  return;
-		}
-	    var date = new Date();	     
-		$$.ajax({ //ajax回调完成之后，再把返回的数据填进去
-			  async:true, //异步请求
-			  method:'GET',	
-			  url: 'js/json.js?'+date.getTime(), //增加随机数防止请求缓存
-			  data: {username:'foo', password: 'bar'}, //模拟传递参数
-			  dataType:'json',
-			  success:function (data) {
-				// 生成新条目的HTML
-				var html = '';
-				for (var i = lastIndex + 1; i <= lastIndex + itemsPerLoad; i++) {
-				  html += '<li><a href="#" class="item-link item-content"><div class="item-media"><img src="images/logo.png" data-src="img/beach.jpg" class="lazy" width="80"/></div><div class="item-inner"><div class="item-title-row"><div class="item-title">市中医院</div><div class="item-after">'+i+'m</div></div><div class="item-text">类型:市级医院服务网点</div><div class="item-text">地址:浙江省杭州市 上城区 庆春路173号</div></div></a></li>';
-				}
-				// 添加新条目
-				$$('.list-block ul').append(html);
-				$$('img.lazy').trigger('lazy'); //主动触发懒加载
-			 
-				// 更新最后加载的序号
-				lastIndex = $$('.list-block li').length;
-		     }
-		});   
-		 
-		 
+       
+});
 
-	   }, 200);
-	});          
+
+myApp.onPageInit('smk-detail', function (page) {
+	$$(document).on('click', '.page[data-page="smk-detail"] #map', function(e){
+		    var self = $$(this);
+			mainView.router.load({  //此处切记，主视图初始化的变量名必须是mainView，不然跳转不了
+				url: 'smk-detail-map.html',
+				context:{url:self.attr('url')}
+			});			
+	});
+    
 });
 
 $$(document).on('pageInit', function (e) {

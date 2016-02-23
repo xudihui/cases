@@ -145,7 +145,94 @@
         // Template7 lib
         var t7 = Template7;
         app._compiledTemplates = {};
-    
+		
+		//ajaxLoad
+		app.ajaxLoad = function (config){
+			var self = config.target,
+			    data = config.data,
+				url = config.url,
+				view = config.view;
+			if(!self.data('context')){ //请求过一次之后缓存下来
+					var date = new Date();
+					$$.ajax({
+					  async:false, //同步请求
+					  method:'GET',	
+					  url: url+'?'+date.getTime(), //增加随机数防止请求缓存
+					  data: data,
+					  dataType:'json',
+					  success:function (data) {
+						self.data('context',data[0]);
+					  }
+					});  			
+			}
+			
+			mainView.router.load({  //此处切记，主视图初始化的变量名必须是mainView，不然跳转不了
+				url: view,
+				context:self.data('context')
+			});		
+		}		
+		
+		//ajaxNextPage
+		app.ajaxNextPage = function (config){
+			var data = config.data,
+				url = config.url,
+				tips = config.tips || '已经没有更多了~',
+				loading = false,
+				el = '.page[data-page="' + config.target + '"]';
+				el = $$(el);
+				var current = el.find('input.currentPage');  	 
+				var max = el.find('input.maxPage'); 
+				// 注册'infinite'事件处理函数
+				$$(el).find('.infinite-scroll').on('infinite', function () {
+					// 上次加载的序号
+						
+				  var currentPage = parseInt(current.val() || 1);
+					
+					// 最多可加载的条目
+				  var maxPage = parseInt(max.val() || 2);		 
+				  // 如果正在加载，则退出
+				  if (loading) return;
+				 
+				  // 设置flag
+				  loading = true;
+				 
+				  // 模拟200ms的加载过程
+				  //setTimeout(function () {
+
+					if (currentPage >= maxPage) {
+					  // 加载完毕，则注销无限加载事件，以防不必要的加载
+					  myApp.detachInfiniteScroll($$('.infinite-scroll'));
+					  // 删除加载提示符
+					  $$(el).find('.infinite-scroll-preloader').remove();
+					  
+					  $$(el).find('.infinite-scroll').append('<p style="text-align:center;padding-bottom:30px;color:#aaa">' + tips + '</p>');
+					  
+					  return;
+					}
+					var date = new Date();	     
+					$$.ajax({ //ajax回调完成之后，再把返回的数据填进去
+						  async:true, //异步请求
+						  method:'GET',	
+						  url: url+'?'+date.getTime(), //增加随机数防止请求缓存
+						  data: {pageno:++currentPage}, //模拟传递参数
+						  dataType:'json',
+						  success:function (data) {
+							// 重置加载flag
+							loading = false;  
+							// 生成新条目的HTML
+							var html = '';
+							current.val(data[0]['currentPage']);
+							max.val(data[0]['maxPage']);
+							html = SMK.templates.hospitalList(data[0]);
+							// 添加新条目
+							$$(el).find('.list-block ul').append(html);
+							$$('img.lazy').trigger('lazy'); //主动触发懒加载
+						 }
+					}); 
+				  // }, 200);
+				});   		
+		} 
+		
         // Touch events
         app.touchEvents = {
             start: app.support.touch ? 'touchstart' : 'mousedown',
@@ -2267,6 +2354,7 @@
                             $(pagesInView[i]).remove();
                         }
                         else {
+							
                             $(pagesInView[i]).addClass('cached');
                         }
                     }
@@ -11387,7 +11475,7 @@
     /*===========================
     Template7 Template engine
     ===========================*/
-    window.Template7 = (function () {
+    window.Template7 = window.SMK = (function () {
         function isArray(arr) {
             return Object.prototype.toString.apply(arr) === '[object Array]';
         }

@@ -1,0 +1,37 @@
+
+  <div data-page="smk-list" class="page">
+    <div class="page-content infinite-scroll" >
+      <div class="content-block-title">医院列表</div>
+      <div class="list-block media-list">
+        <ul> 
+		{{#if flag}}
+				  <li style='padding:10px'>木有医院哦</li>
+				  </ul>
+		{{else}}
+				  {{#each hospital}}		  
+				  <li><a href="#"  class="item-link item-content" >
+					  <div class="item-media"><img   data-src="{{img}}" class="lazy" width="80"/></div>
+					  <div class="item-inner">
+						<div class="item-title-row">
+						  <div class="item-title">{{name}}</div>
+						  <div class="item-after">{{meter}}m</div>
+						</div>
+						<div class="item-text">类型:{{type}}</div>
+						<div class="item-text">地址:{{location}}</div>
+					  </div></a></li>
+				  {{/each}}
+				  </ul>
+					<div class="infinite-scroll-preloader" >
+					  <div class="preloader"></div>
+					</div>
+					<input type="hidden" class="currentPage" />
+					<input type="hidden" class="maxPage" />
+		{{/if}}  
+        
+      </div>
+	  
+
+		
+	   
+    </div>
+  </div>

@@ -9,6 +9,18 @@ var myApp = new Framework7({
 // Expose Internal DOM library
 var $$ = Dom7;
 
+
+//tips Function
+window.showTips = function(content,t) {
+   var p = $$('<p class="showTips zoomInDown"><span>'+content+'</span></p>');
+   $$('body').append(p);
+   setTimeout(function(){
+	 //  p.transform('scale(0,0)');
+	   p.remove();
+   },t||1000)
+};
+
+
 // Add main view
 var mainView = myApp.addView('.view-main', {
     // Enable Dynamic Navbar for this view
@@ -38,6 +50,23 @@ $$('#hospital').on('click', function(e){
 });
 
 
+//申领进度查询
+myApp.onPageInit('smk-application-progress', function (page) {
+	$$(document).on('click', '.page[data-page="smk-application-progress"] .button ', function(e){
+		showTips('我是提示信息！')
+	});
+  
+});
+
+
+
+//绑定卡
+myApp.onPageInit('smk-binding', function (page) {
+	$$(document).on('click', '.page[data-page="smk-binding"] .button ', function(e){
+		showTips('我是提示信息！')
+	});
+  
+});
 
 myApp.onPageInit('smk-list', function (page) {
 	$$(document).on('click', '.page[data-page="smk-list"] .item-link', function(e){
@@ -51,12 +80,11 @@ myApp.onPageInit('smk-list', function (page) {
 
 	myApp.ajaxNextPage({
 		target:"smk-list",//当前点击的对象 String
+		view:'hospitalList',//翻页模板 String
 		data:{username:'foo', password: 'bar'}, // 传递给后台的数据 Object
 		url:'js/json2.js', //请求地址 String
 		tips: '真的没有了哎!'//加载完毕提示文字，可不填，默认为'已经没有更多了~'
-	});	
-	
-       
+	});	  
 });
 
 

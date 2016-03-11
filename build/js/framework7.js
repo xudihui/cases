@@ -176,6 +176,7 @@
 		app.ajaxNextPage = function (config){
 			var data = config.data,
 				url = config.url,
+				view = config.view,
 				tips = config.tips || '已经没有更多了~',
 				loading = false,
 				el = '.page[data-page="' + config.target + '"]';
@@ -223,7 +224,7 @@
 							var html = '';
 							current.val(data[0]['currentPage']);
 							max.val(data[0]['maxPage']);
-							html = SMK.templates.hospitalList(data[0]);
+							html = SMK.templates[view](data[0]);
 							// 添加新条目
 							$$(el).find('.list-block ul').append(html);
 							$$('img.lazy').trigger('lazy'); //主动触发懒加载

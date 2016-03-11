@@ -2823,8 +2823,8 @@ html.android .label-switch input[type="checkbox"] + .checkbox:before {
   transition-duration: 0;
 }
 .button {
-  border: 1px solid #007aff;
-  color: #007aff;
+  border: 1px solid #38b25d;
+  color: #38b25d;
   text-decoration: none;
   text-align: center;
   display: block;
@@ -2859,7 +2859,7 @@ html:not(.watch-active-state) .button:active,
   border-radius: 27px;
 }
 .button.active {
-  background: #007aff;
+  background: #38b25d;
   color: #fff;
 }
 .button.button-big {

@@ -35,7 +35,7 @@ $scope.games = [   //dataModel
 		 },
 		{"id": "a02",
 		 "href": "mobile_smk01",
-		 "name": "杭州市民卡",
+		 "name": "杭州市民卡2.2",
 		 "lib": "Bt、Jq",	
 		 "time": "2015/04/29"
 		 },
@@ -80,6 +80,12 @@ $scope.games = [   //dataModel
 		 "name": "杭州通优惠",
 		 "lib": "Jq",	
 		 "time": "2015/08/30"
+		 },	
+		{"id": "a10",
+		 "href": "mobile_smk06",
+		 "name": "杭州市民卡2.4",
+		 "lib": "Framework7",	
+		 "time": "2016/04/29"
 		 },		 
 		];
 	  $scope.pcs = [   //dataModel

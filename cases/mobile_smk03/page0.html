@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title></title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="" name="Keywords">
+	<meta content="" name="Description">
+	<!-- Mobile Devices Support @begin -->
+	<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+	<!-- Mobile Devices Support @end -->
+	
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/screen.css" />
+
+</head>
+<body class="home-template">
+<nav>
+ <a>德克士</a>
+ <a>味千拉面</a>
+ <a>窝里快够</a>
+ <a>咖啡陪你</a>
+</nav>
+
+<section class='gray'>
+	<div class="item">
+		 <div class="left">
+		   <img src='images/test.png' /> <!--上传图片大小：436*220-->
+		   <article>
+		    <h1 class='setover'>我是标题</h1>
+		     <ul>
+		     	<li><span>现价:￥9.9</span><i>￥13.9</i></li>
+		     	<li>有效期至:2015/08/18</li>
+		     </ul>
+		   </article>
+		 </div>
+		 <div class="right">
+			<a class='dui01'></a>
+			<a class="detail"></a>
+		 </div> 
+		 <div class='detaiPage_wrap'>
+		 这个容器里面放详情！
+		 
+		 </div>
+	</div>
+    <div class="div"></div>
+</section>
+
+<section class='gray'>
+	<div class="item">
+		 <div class="left">
+		   <img src='images/test.png' /> <!--上传图片大小：436*220-->
+		   <article>
+		    <h1 class='setover'>我是标题</h1>
+		     <ul>
+		     	<li><span>现价:￥9.9</span><i>￥13.9</i></li>
+		     	<li>有效期至:2015/08/18</li>
+		     </ul>
+		   </article>
+		 </div>
+		 <div class="right">
+			<a class='dui01'></a>
+			<a class="detail"></a>
+		 </div> 
+		 <div class='detaiPage_wrap'>
+		 这个容器里面放详情！
+		 
+		 </div>
+	</div>
+    <div class="div"></div>
+</section>
+
+<section class=''>
+	<div class="item">
+		 <div class="left">
+		   <img src='images/test.png' /> <!--上传图片大小：436*220-->
+		   <article>
+		    <h1 class='setover'>我是标题</h1>
+		     <ul>
+		     	<li><span>现价:￥9.9</span><i>￥13.9</i></li>
+		     	<li>有效期至:2015/08/18</li>
+		     </ul>
+		   </article>
+		 </div>
+		 <div class="right">
+			<a class='dui01'></a>
+			<a class="detail"></a>
+		 </div> 
+		 <div class='detaiPage_wrap'>
+		 这个容器里面放详情！
+		 
+		 </div>
+	</div>
+    <div class="div"></div>
+</section>
+<section class='gray'>
+	<div class="item">
+		 <div class="left">
+		   <img src='images/test.png' /> <!--上传图片大小：436*220-->
+		   <article>
+		    <h1 class='setover'>我是标题</h1>
+		     <ul>
+		     	<li><span>现价:￥9.9</span><i>￥13.9</i></li>
+		     	<li>有效期至:2015/08/18</li>
+		     </ul>
+		   </article>
+		 </div>
+		 <div class="right">
+			<a class='dui01'></a>
+			<a class="detail"></a>
+		 </div> 
+		 <div class='detaiPage_wrap'>
+		 这个容器里面放详情！
+		 
+		 </div>
+	</div>
+    <div class="div"></div>
+</section>
+
+<footer>
+<div class="wrap_55"><a class='btn_red'>我的卡券</a></div>
+</footer>
+
+<script src="../../lib/bootstrap/js/jquery.js"></script>
+<script type="text/javascript">
+	 $('.detail').click(function(){
+	       var scrollTop = $(window).scrollTop();
+	       $('body,html').css({'overflow':'hidden','height':$(window).height(),'paddingBottom':'0'});
+		   $('body').css('height',$(window).height())
+	       if($('.frame').length == 0){
+		         var dialog = "<div class='frame' ></div><div id='dialog' ><div class='dialog_top'><span></span><a class='close'></a></div><div class='dialog_content'></div></div>"
+		         $('body').append(dialog)
+		   }
+
+			 $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()));
+			 $('#dialog a.close,#dialog a#dialog_ok,.frame').click(function(){
+				 $('.frame,#dialog').fadeOut();
+	       $('body,html').css({'overflow':'auto','height':'auto','paddingBottom':'40px'});
+		   $(window).scrollTop(scrollTop)
+			 })	 
+	 		 var html =  $(this).parents('.item').first().find('.detaiPage_wrap').html();
+			 var title =  $(this).parents('.item').first().find('h1').html()
+			 $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()));
+			 $('#dialog').width(parseInt($(window).width())-40);
+			 $('.dialog_content').height(parseInt($(window).height())*2/3);
+			 $('.dialog_top span').width(parseInt($(window).width())-70);
+			 
+			 $('.dialog_top span').html(title);
+			 $('#dialog .dialog_content').css('display','').empty();
+			 $('#dialog .dialog_content').append(html)
+			 $('.frame,#dialog').fadeIn();	
+	 });
+	 $('section.gray').find('.detail').unbind('click')
+
+</script>
+
+</body>
+</html>

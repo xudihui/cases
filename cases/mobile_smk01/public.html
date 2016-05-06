@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title></title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="" name="Keywords">
+	<meta content="" name="Description">
+	<!-- Mobile Devices Support @begin -->
+	<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+	<!-- Mobile Devices Support @end -->
+	<link href="favourite.ico" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="icon.png" />
+	<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+	<!--iPad 1 72x72 像素-->
+	<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+	<!--iPhone 4 114x114 像素-->
+	<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+    <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-precomposed.png?v=211d96120f">
+    <link rel="icon" href="/assets/ico/favicon.ico?v=211d96120f">
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/screen.css" />
+
+</head>
+<body class="home-template">
+<div class="container">
+   <div class="row">
+      <div class="col-xs-12">
+		  <div class='item-public'>
+			   <a class='item-public-title'>
+				<img src='images/public_icon_01.png' />
+				<span>智慧医疗</span>
+				<div class="dot"></div>
+			   </a>
+			   <ul>
+				<li class='first'><a href="javascript:void 0">业务介绍</a></li>
+				<li><a href="javascript:void 0">网点查询</a></li>
+				<li><a href="javascript:void 0">FAQ</a></li>
+			   </ul>
+		  </div>
+	  </div>
+      <div class="col-xs-12">
+		  <div class='item-public'>
+			   <a class='item-public-title'>
+				<img src='images/public_icon_02.png' />
+				<span>智慧医疗</span>
+				<div class="dot"></div>
+			   </a>
+			   <ul>
+				<li class='first'><a href="javascript:void 0">业务介绍</a></li>
+				<li><a href="javascript:void 0;">网点查询</a></li>
+				<li><a href="javascript:void 0">FAQ</a></li>
+			   </ul>
+		  </div>
+	  </div>
+      <div class="col-xs-12">
+		  <div class='item-public'>
+			   <a class='item-public-title'>
+				<img src='images/public_icon_03.png' />
+				<span>智慧医疗</span>
+				<div class="dot"></div>
+			   </a>
+			   <ul>
+				<li class='first'><a href="javascript:void 0">业务介绍</a></li>
+				<li><a href="javascript:void 0">网点查询</a></li>
+				<li><a href="javascript:void 0">FAQ</a></li>
+			   </ul>
+		  </div>
+	  </div>
+	  
+   </div>
+
+     
+</div>
+
+
+<script src="../../lib/bootstrap/js/jquery.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+  jQuery.prototype.progress=function(){var i=jQuery.queue(this[0]);return!i||i&&0==i.length?!1:!0}
+  
+  $('.item-public a.item-public-title').bind('click',function(){
+     var that = $(this);
+     var parent = $(this).parent();
+	 var ul = parent.children('ul');
+	 ul.css('display') == 'none' ? ( !ul.progress() ? ul.slideDown(500,function(){that.addClass('show')}) : '' ) : ul.slideUp(50,function(){that.removeClass('show')});
+  });
+  
+  $('.item-public li').bind('click',function(){
+        alert('请添加对应链接实现菜单--'+$(this).children('a').html()+'--的跳转！') //提示代码，开发人员阅毕直接删除覆盖即可。
+  })
+  
+});
+</script>
+
+
+</body>
+</html>

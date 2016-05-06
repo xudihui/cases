@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title></title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="" name="Keywords">
+	<meta content="" name="Description">
+	<!-- Mobile Devices Support @begin -->
+	<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+	<!-- Mobile Devices Support @end -->
+	<link href="favourite.ico" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="icon.png" />
+	<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+	<!--iPad 1 72x72 像素-->
+	<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+	<!--iPhone 4 114x114 像素-->
+	<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+    <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-precomposed.png?v=211d96120f">
+    <link rel="icon" href="/assets/ico/favicon.ico?v=211d96120f">
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/screen.css" />
+
+</head>
+<body class="home-template" style='overflow-x:hidden'>
+<section class='section_user_center'>
+	<div class="container-fluid right_nearby">
+	   <div class="row">
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a class='item-public-title'>
+					<span>请选择您需要挂失的卡</span>
+				   </a>
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a class='item-public-title active'>
+					<div class="blank"></div>
+					<img class='gray_circle' src='images/green_circle.png' />
+					<span>w123123199</span>
+				   </a>
+				  
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a class='item-public-title'>
+					<div class="blank"></div>
+					<img class='gray_circle' src='images/gray_circle.png' />
+					<span>w12316612</span>
+				   </a>
+				  
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a class='item-public-title'>
+					<div class="blank"></div>
+					<img class='gray_circle' src='images/gray_circle.png' />
+					<span>w123122322</span>
+				   </a>
+				  
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public noborder'>
+				   <a class='item-public-title'>
+					<div class="blank"></div>
+					<img class='gray_circle' src='images/gray_circle.png' />
+					<span>w123123113</span>
+				   </a>
+				  
+			  </div>
+		  </div>		  
+
+	  
+	   </div>
+
+		 
+	</div>
+</section>
+
+
+
+<div class="container">
+   <div class="row">
+      <div class="col-xs-12">
+            <a  class="btn_red">挂失</a>
+			<a href="" class="btn_red_light">挂失它卡</a>
+	  </div>
+     
+            
+			  
+   </div>
+
+</div>
+
+
+<div class='frame' >
+
+</div>	
+
+<div id='dialog' >
+	<div class='dialog_top'><span>请输入服务密码</span><a class='close'></a></div>
+	<div class='dialog_content'>
+        	 <div class='item-public'>
+			   <a class='item-public-title'>		   
+				<table>
+					<tr>
+						<td class='td_first_middle'>服务密码:</td>
+						<td><input type='text'  value=''/></td>
+					</tr>
+				</table>
+				</a>
+				
+		  </div>
+		  <span class="gray">查询服务密码可致电96225或至市民卡服务网点查询</span> 
+	   <a class="btn_blue" id='dialog_ok_first'>确定</a>
+	</div>	
+	<div class='dialog_content' style='display:none'>
+	<ul class="list-unstyled">
+		<li>您的市民卡:已挂失</li>
+		<li>挂失内容:*****</li>
+		<li>挂失时间:2015/05/12</li>
+	</ul>
+	   <a class="btn_blue" id='dialog_ok'>确定</a>
+	</div>
+</div>	
+
+<script src="../../lib/bootstrap/js/jquery.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/bootstrap.dialog.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('section .item-public-title').click(function(){
+	  $('.item-public-title').removeClass('active');
+	  $('img.gray_circle').attr('src','images/gray_circle.png');
+	  $(this).find('img.gray_circle').attr('src','images/green_circle.png');
+	  $(this).addClass('active');
+	})
+
+     $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()));
+	 $('#dialog a.close,#dialog a#dialog_ok').click(function(){
+	   	 $('.frame,#dialog').fadeOut();
+	 })
+	 $('.btn_red').click(function(){
+	 
+		 if($('.item-public-title.active').attr('done')){
+		   	     $.teninedialog({
+					title:'系统提示',
+					content:'此卡已经挂失，请勿重复操作！'//
+                });
+		 }	 
+		 else{	 
+			 $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()))
+			 $('#dialog .dialog_content').css('display','')
+			 $('#dialog .dialog_content input').val('');
+			 $('#dialog .dialog_content').eq(1).css('display','none')
+			 $('.frame,#dialog').fadeIn();		 
+		 }
+	 })
+	$(window).resize(function(){
+		if($('.frame').css('display') !='none'){
+		$('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()))
+		}
+	});
+  $('.item-public input').bind('focus',function(){
+	 $('.item-public').css('border','1px solid #e5e5e5');
+	 $(this).parents('.item-public').css('border','1px solid #38b25d');
+  }).bind('blur',function(){ $('.item-public').css('border','1px solid #e5e5e5');});
+  $('#dialog_ok_first').click(function(){
+     $('.dialog_content').eq(0).fadeOut(20);
+     $('.dialog_content').eq(1).fadeIn(200);	 
+     $('.item-public-title.active').attr('done','true');
+  })
+
+});
+</script>
+
+
+</body>
+</html>

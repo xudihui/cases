@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html ng-app = 'helooApp'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<title></title>
+<link media="all" href="i/base.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="i/data.js"></script>
+<script type="text/javascript" src="i/angular.min.js"></script>
+<script type="text/javascript" src="i/angular-sanitize.min.js"></script>
+</head>
+<body>
+<div id="main"  ng-controller = 'Chat'>
+ <div style='position:absolute;width:1px;height:1px;overflow:hidden;top:-2px;left:0'>
+ <img ng-src='{{shareImg}}'  alt="" />
+ </div>
+ <section id="top">
+  <img ng-src='{{logoImg}}'  alt="" />
+  <p class='setover' ng-bind='shopName'></p>
+  </section>
+  <div id="page1"   >
+	  <img src="i/ts.png" alt="" class="ts" />
+	  <p class="tl" ng-bind='shopText01'></p>
+	  <p class="tr" ng-bind='shopText02'></p>
+	  <input type="" class='text' id='typer' ng-model="yourname" ng-blur='done()' placeholder='姓名' />
+	  <div id="selectWrap">
+	  <select  class='text' id='select'  placeholder='性别' >
+	  <option value="1">男</option>
+	  <option value="2">女</option>
+	  <option value="3">中性人</option>
+	  </select>	  
+	  </div>
+
+	  <input type="button" class='y' id='go' ng-click='go()' value='众里寻TA' />  
+  </div>
+  <div id="page2" style='text-align:center;display:none' >
+	  <img src="i/ts2.png" alt="" class="ts" />
+	  <p class="c" ng-bind='result.name'></p>
+	  <img ng-src='{{result.img}}'  alt="" class="result" />
+	  <p class="l">{{yourname}},<span ng-bind='result.text'> </span></p>
+	  <a ng-click='back()' class="y">我也要约</a><a href="" class="g">约会攻略</a>
+  </div>
+  <a href="{{bannerHref}}" class='banner' id='banner' ><img ng-src='{{bannerImg}}'  alt="" /></a>
+  
+  <section id="frame">
+	  <div id="content">
+		 <img ng-src='{{logoImg}}'  alt="" />
+		 <p ng-bind='shopName'></p>
+		 <p ng-bind='shopLoadText' class='setover' ></p>
+		 <div id="pro"></div>
+		 <div id="pro_i"></div>
+	  </div>
+  </section>
+</div>
+
+
+
+<script type="text/javascript">
+
+        function getId(el){
+		  return document.getElementById(el);
+		}
+
+			var i = getId('pro_i'),
+			 f = getId('frame'),
+			 go = getId('go'),
+			 main = getId('main'),
+			 page1 = getId('page1'),
+			 page2 = getId('page2'),
+			 banner = getId('banner'),
+			 select = getId('select'),
+			 typer = getId('typer');
+
+             var timer, windowInnerHeight;
+			
+			
+			//安卓软键盘定时检查判断是否点击了隐藏按钮
+			function eventCheck(e) {
+				if (e) { //blur,focus事件触发的
+				    main.style.height = 'auto';
+				    banner.style.display = 'none';
+					if (e.type == 'click') {//如果是点击事件启动计时器监控是否点击了键盘上的隐藏键盘按钮，没有点击这个按钮的事件可用，keydown中也获取不到keyCode值
+						setTimeout(function () {//由于键盘弹出是有动画效果的，要获取完全弹出的窗口高度，使用了计时器
+							windowInnerHeight = window.innerHeight;//获取弹出android软键盘后的窗口高度
+							timer = setInterval(function () { eventCheck() }, 100);
+							
+						}, 500);
+					}
+					else clearInterval(timer);
+				}
+				else { //计时器执行的，需要判断窗口可视高度，如果改变说明android键盘隐藏了
+				
+					if (window.innerHeight > windowInnerHeight) {
+						clearInterval(timer);
+						main.style.height = '100%';
+				        banner.style.display = 'block';	
+					}
+				}
+			}	
+			typer.onclick = function(e){eventCheck(e)};
+			
+			
+			
+		//angular begin
+        var helooApp = angular.module('helooApp',['ngSanitize']); //先把应用定义成一个模块名
+
+	    helooApp.controller('Chat',function($scope,$timeout){
+		
+		var timer = $timeout(function(){i.style.width='96%'},14000);
+		angular.element(window).bind('load', function() {  //loading等待页面
+			  $timeout(function(){i.style.width='0%';frame.style.display = 'none';},3200);
+		      $timeout.cancel( timer );
+        });
+		   //数据初始化
+           $scope.shareImg = 'i/share.jpg'; //分享图片,尺寸：400*400
+		   $scope.logoImg = 'i/logo.png'; //商家logo,尺寸：88*88
+		   $scope.shopName = 'bonobo银饰'; //商家名
+		   $scope.shopText01 = '又是一年情人节';   //第一行文字
+		   $scope.shopText02 = '你将和谁一起度过？' || ''; //第二行文字
+		   $scope.bannerImg = 'i/banner.png'; //广告图片地址,尺寸：637*96
+		   $scope.bannerHref = 'http://www.heloo.com.cn';//广告链接地址
+		   $scope.shopLoadText = '纽约潮流设计 精致手工打造';//loading文字
+		   
+		   var result = { //结果数据
+			   name:'黑寡妇',
+			   img:'i/temp.jpg', //如果不显示图片，直接去掉img,尺寸：460*370
+			   text:'年轻人,平时要多出去参加社交活动,少在家撸.你的生活需要来点刺激啦!'
+		    }
+
+		   
+		   $scope.go = function(){ //显示结果
+		          var result = {}; 
+		          
+				  var value = typer.value;
+				  var sex = select.value;
+				  var number = test(value);		  
+		          if(value == '') {alert('请输入姓名'); return};  
+
+				  if(sex==2){
+				       if(number<10){
+					      result = result_boy[0]
+					   }
+					   else if(number>29){
+					      result = result_boy[19]
+					   }
+					   else{
+					      result = result_boy[29-number]
+					   } 
+				  }
+				  else if(sex==1){
+				       if(number<10){
+					      result = result_girl[0]
+					   }
+					   else if(number>31){
+					      result = result_girl[21]
+					   }
+					   else{
+					      result = result_girl[31-number]
+					   } 
+				  }
+				  
+				  else if(sex==3){
+				       if(number<15){
+					      result = result_middler[0]
+					   }
+					   else if(number>20){
+					      result = result_middler[5]
+					   }
+					   else{
+					      result = result_middler[20-number]
+					   } 
+				  }
+				  location.hash = value+'?'+sex;
+				  document.title = '快围观！情人节,' + value + '的约会对象竟然是' + result.name;
+                  $scope.result = result;//传入数据，亦可ajax进行获取
+		          frame.style.display = 'block';
+				  $timeout(function(){
+				  i.style.width='0%';frame.style.display = 'none';
+				  page1.style.display='none';
+				  page2.style.display='block';
+				  },1000);  				  
+		    }	
+			
+		   $scope.done = function(){
+					main.style.height = '100%';
+					banner.style.display = 'block';	
+		   };
+		   $scope.back = function(){
+		          typer.value = '';
+				  page2.style.display='none';
+				  page1.style.display='block';
+		   };
+
+		   var arr = location.href.split('#');
+		   if(arr[1]){
+		      var arr1 = arr[1].split('?');
+			  typer.value = arr1[0];
+			  $scope.yourname = arr1[0];
+			  select.value = arr1[1];
+		      $scope.go();
+		   }
+		});
+	
+ 
+ 
+ 
+
+ 
+    </script>
+</body>
+</html>

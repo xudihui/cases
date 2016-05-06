@@ -1,0 +1,260 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link media="all" href="../css/base.css" type="text/css" rel="stylesheet">
+<link media="all" href="../css/index.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/swipe.js"></script>
+<title>超级派单员-何乐而不为</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="favourite.ico" rel="shortcut icon">
+</head>
+<style type="text/css">
+html,body{overflow-x:hidden}
+.discocunt_top{background:url(../images/discount_bg.png) 0 0 no-repeat;background-size:100% 274px;text-align:center;padding-top:10px}
+.discocunt_top img{width:122px}
+.discocunt_top p {padding: 4px 0;font-weight:bold}
+a.block_red{background:#db5252;color:#fff;width:100%;display:inline-block;height:35px;line-height:35px;text-align:center}
+span#code_detail{position:absolute;left:143px;top:0px;color:#000;font-size:20px;font-weight:bold}
+.relative{position:relative}
+table.grid09 tr td {
+background: none;
+}
+.discocunt_h1{border-bottom:2px solid #db5252;text-align:center;margin:0 7px;margin-bottom:15px;}
+.discocunt_h1 span{background:#fff;display:inline-block;color:#db5252;position:relative;top:12px;padding:0 15px}
+.discocunt_h3{height:31px;background:url(../images/discount_bg_bottom.png) 0 0 repeat-x;background-size:31px auto;text-align:center;position:fixed;bottom:0;left:0;width:100%;}
+.discocunt_h3 span{background:#fff;display:inline-block;color:#db5252;padding:0 15px;font-size:15px}
+
+
+
+.img_gallery{width:auto;height:auto;float:left;margin-left:0px;position:relative}
+.img_gallery_div{width:80px;height:80px;float:left;overflow:hidden;margin-left:10px;}
+#banner_box ul li{vertical-align:middle!important;overflow:hidden;text-align:center}
+ol#slidelist{height:25px;opacity:1;position:fixed;bottom:0px;left:0;width:100%;z-index:999;text-align:center;overflow:hidden;margin:0;margin-top:-35px;padding:0;padding-bottom:10px;}
+ol#slidelist>li{display:inline-block;margin:5px;width:5px;height:5px;background-color:#ffffff;border-radius: 50%;opacity:.5;}
+ol#slidelist>li.on{opacity:1;width:5px;height:5px;border:none;background-color:#ffffff;}
+</style>
+<body class='' style='padding-bottom:31px'>
+    <div class="discocunt_top discocunt_top_noimg">
+	    
+	    <p class='setover'><img class='detail_head' src="../images/main_logo_red.png" alt=""  /><!-- 头像大小80*80--><span >Uco咖啡咖啡店咖啡店咖啡店咖啡店咖啡店店</span></p>  <!-- 如果是认证商户，请添加class=ident -->
+		<div class="wrap_7">
+		<a class="block_red">指定8元饮品买一送一</a>
+		</div>
+		<div class="wrap_7 relative" >
+			<table class='grid04 grid09'>
+				<tr>
+					<td><img  src="../images/ewm.png" alt="" /></td>
+					<td style='vertical-align:bottom;line-height:1.3;font-weight:normal'>
+					<span id='code_detail'>YDSDKJFLDKJFLKD</span>		
+					凭优惠码享受U-Co咖啡指定
+					商品买一送一优惠活动！
+					将你的优惠码分享给你的好友，
+					消费既得现金奖励！
+					</td>		
+				</tr>
+			</table>
+		</div>	
+        <a class="red_back"></a>
+        <a class="white_share"></a>		
+	</div>
+	
+
+	<h1 class="discocunt_h1"><span>优惠不独享，派发有2元奖励  </span></h1>
+	<h1 class='border_top02'>优惠详情</h1>
+	<div class="wrap_7 colorGrey">
+		<div id="img_gallery_wrap">
+			<div id="img_gallery">
+				<img src="../images/test.png" alt="" class="img_gallery" />
+				<img src="../images/test2.jpg" alt="" class="img_gallery" />
+				<img src="../images/test1.jpg" alt="" class="img_gallery" />
+				<img src="../images/discount_bg.png" alt="" class="img_gallery" />
+				<img src="../images/test.png" alt="" class="img_gallery" />		
+			</div>
+		</div>
+		<div class="discount_title">Uco咖啡店</br>
+		指定8元饮品买一送一
+		</div>
+	</div>
+	<h1 class='border_top02'>使用须知</h1>
+	<h1 class="name_gray02">商家信息</h1>
+	<div class="wrap_7">
+         	 <ul class='address_detail03'>
+         	 	<li>地址:定安路30号(银泰百货对面)</li>
+         	 	<li>营业时间：10:00-21:00</li>
+         	 </ul>
+	</div>	
+
+<script type="text/javascript" src="../js/heloo.guide.js"></script>
+<script type="text/javascript">
+   $(function(){
+	 
+	var start_x, start_y, end_x, end_y, move_num, move_num_;
+	var gallery_x, gallery_y, gallery_end_x, gallery_end_y, gallery_move_num, gallery_move_num_;
+	var t_time=null,t_time_=null;
+	var client_height = $(window).height();		  
+	$('#img_gallery').width($('.img_gallery').length*90)  //初始化长度
+	$('.slide_page_cur').html('1');
+	$('.slide_page_total').html($('.img_gallery').length);
+	
+	$('.img_gallery').wrap("<div class='img_gallery_div'></div>"); //包裹图片，让图片能等比居中
+	
+	var showPic = function(index){
+		$('#banner_box ul,#banner_box ul li').css('height',client_height)
+		var index = index;
+		$('.slide_page_cur').html(index+1);
+		$('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()))
+		$('.frame,#dialog,#slidelist').fadeIn(100,function(){
+		$('#banner_box li img').each(function(){
+		if($(this).height()>client_height){  //惊现瘦高图片的情况
+		var scale = $(this).width()/$(this).height()  //瘦高图片的比例
+		$(this).css('height',client_height).css('width',client_height*scale);//瘦高图片的时候，让它左右留白，高度是屏幕高度
+		}
+		})
+		});		
+		$('ol li').eq(index).addClass('on');
+		var slide = new Swipe(document.getElementById('banner_box'), {
+		speed:500,
+		auto:false,
+		callback: function(){
+			$('ol li').removeClass('on');
+			$('ol li').eq(this.index).addClass('on');
+		}
+		});	
+		slide.slide(index,0)
+	}
+	
+	setInterval(function(){ //延迟50ms去计算图片尺寸，亲测不延迟会出现一定几率尺寸出入
+	$('.img_gallery').each(function(){
+	     var x = $(this).width();
+		 var y = $(this).height();
+	     if(x>y){
+		   $(this).height(80);
+		   x = $(this).width();
+		   $(this).css('marginLeft','-'+(x-80)/2+'px')
+		 }
+		 else{
+		   $(this).width(80);
+		    y = $(this).height();
+		   $(this).css('marginTop','-'+(y-80)/2+'px')	 
+		 }
+	})	
+	},50)
+    $('.img_gallery').on("touchstart", function(e) {
+        gallery_x = e.originalEvent.targetTouches[0].clientX;
+        gallery_y = e.originalEvent.targetTouches[0].clientY;
+        console.log(gallery_x+'@@'+gallery_y);
+		var index = $(this).parent().index();
+		t_time_ = setTimeout(function(){
+		   showPic(index)
+		},200)
+    });
+    $('.img_gallery').on("touchmove", function(e) {
+	    if(t_time_){
+		clearTimeout(t_time_)
+		}
+        gallery_end_x = e.originalEvent.targetTouches[0].clientX;
+        gallery_end_y = e.originalEvent.targetTouches[0].clientY;
+        gallery_move_num = Math.abs((gallery_y - gallery_end_y).toFixed(0));
+		gallery_move_num_ = Math.abs((gallery_x - gallery_end_x).toFixed(0));
+		gallery_move_num = Math.max(gallery_move_num_,gallery_move_num) //选择x轴跟y轴移动的最大距离
+    });	
+	$('.img_gallery').on('touchend',function(){ //由于使用click会有200ms左右的延迟，导致点透现象
+	    console.log(gallery_move_num+'###')
+	    if (gallery_move_num < 2 || !gallery_move_num ) {
+		   var index = $(this).parent().index();
+           showPic(index)
+        }
+	    
+	});
+	
+
+    $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()));
+	 
+    $('.frame,#dialog').on("touchstart", function(e) {
+        start_x = e.originalEvent.targetTouches[0].clientX;
+        start_y = e.originalEvent.targetTouches[0].clientY;
+		t_time = setTimeout(function(){
+		  $('.frame,#dialog,#slidelist').fadeOut();
+		},200)
+        console.log(start_x+'@@'+start_y);
+    });
+    $('.frame,#dialog').on("touchmove", function(e) {
+	    if(t_time){
+		clearTimeout(t_time)
+		}
+        end_x = e.originalEvent.targetTouches[0].clientX;
+        end_y = e.originalEvent.targetTouches[0].clientY;
+        move_num = Math.abs((end_y - start_y).toFixed(0));
+		move_num_ = Math.abs((end_x - start_x).toFixed(0));
+		move_num = Math.max(move_num,move_num_) //选择x轴跟y轴移动的最大距离
+    });
+    $('.frame,#dialog').on("touchend", function() {    
+        if (move_num < 2) {
+         $('.frame,#dialog,#slidelist').fadeOut();
+        }
+    });
+	 
+	 
+	 $('.btn_icon_personal').click(function(){
+	     $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()))
+	     $('.frame,#dialog').fadeIn();
+	 })
+	 
+     $(window).resize(function(){
+	   if($('.frame').css('display') !='none'){
+	     $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()))
+	   }
+	 });
+	 
+	showGuide([
+	{src:'../images/guide/guide_d.png',position:'right:20px;top:25px',element:'a.white_share'}
+	])
+			  
+   });
+</script>	
+    <a class='favourite'></a>	
+    <h3 class="discocunt_h3"><span>点击关注超级派单员，获取更多优惠！</span></h3>
+	<div class='frame' style='z-index:998' ></div>	 <!-- 遮罩-->	
+
+	<div id='dialog' style='z-index:999;top:0'  >
+		<div class='dialog_content' style='top:0'>
+			<div class="slide">
+				<div class="box_swipe" id="banner_box">
+					<ul>
+						<li><img src="../images/test_big.png"></li>
+						<li><img src="../images/test2.jpg"></li>
+						<li><img src="../images/test1.jpg"></li>
+						<li><img src="../images/discount_bg.png"></li>		
+						<li><img src="../images/test_big.png"></li>					
+					</ul>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>	
+	<ol id='slidelist' style='display:none'>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>						
+	</ol>	
+</body>
+</html>

@@ -1,0 +1,153 @@
+
+<!doctype html>
+<html ng-app>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="renderer" content="webkit"> 
+	<link media="all" href="screen.css" type="text/css" rel="stylesheet">
+    <script src="../lib/bootstrap/js/angular.min.js"></script>
+    <script src="temp.js"></script>
+	</head>
+	<body ng-controller="caseDetail" >
+	<div class="title">
+	<a class='a_block' href="#caseGame">趣味交互</a> <a class='a_block' href="#caseMobiContent">手机端</a>  <a class='a_block' href="#casePcContent">电脑端</a>
+	</div>
+		<div class="caseMobiContent" >
+		
+			<h1  id="caseGame">趣味交互</h1>
+			<div class="wrap">
+			<div class="caseForm" ng-repeat="game in games | orderBy:orderProp" >
+					<div class="casePic">
+						<a class="casePicLink"  target="_blank" href="{{game.href + '/index.html'}}" title="使用的项目编号：{{game.id}}">
+							<img class='imgShow' ng-src='{{"image/works/" + game.id + ".png"}}'>
+						<div class="div_opacity" ></div>
+						<div class="two_dimension_code">
+							<p class="two_dimension_code_p">扫一扫，手机访问</p>			
+							<img class="imgBorder" ng-src='{{"image/works/" + game.id + "_.png"}}' >
+						</div>
+						</a>
+					</div>
+					<div class="caseText">
+						<a class="caseCompanyName" title="{{game.name}}" >名称:{{game.name}}</a>
+						<p class="grayContent" ><span class='gray'>框架:</span>{{game.lib}}</p>
+						<p class="grayContent" ><span class='time'>{{game.time}}</span></p>
+					</div>
+			</div>
+            </div>
+			
+			<h1  id="caseMobiContent">手机页面</h1>
+			<div class="wrap">
+			<div class="caseForm" ng-repeat="mobi in mobis | orderBy:orderProp" >
+					<div class="casePic">
+						<a class="casePicLink"  target="_blank" href="{{mobi.href + '/index.php'}}" title="使用的项目编号：{{mobi.id}}">
+							<img class='imgShow' ng-src='{{"image/works/" + mobi.id + ".png"}}'>
+						<div class="div_opacity" ></div>
+						<div class="two_dimension_code">
+							<p class="two_dimension_code_p">扫一扫，手机访问</p>			
+							<img class="imgBorder" ng-src='{{"image/works/" + mobi.id + "_.png"}}' >
+							
+						</div>
+						
+						</a>
+					</div>
+					<div class="caseText">
+						<a class="caseCompanyName" title="{{mobi.name}}" >名称:{{mobi.name}}</a>
+						<p class="grayContent" ><span class='gray'>框架:</span>{{mobi.lib}}</p>
+						<p class="grayContent" ><span class='time'>{{mobi.time}}</span></p>
+					</div>
+			</div>
+            </div>
+
+			<h1  id="casePcContent">电脑页面</h1>
+			<div class="wrap">
+			<div class="caseForm" ng-repeat="pc in pcs " >
+					<div class="casePic casePic_">
+						<a class="casePicLink" href="{{pc.href}}" target="_blank" title="使用的项目编号：{{pc.id}}">
+							<img class='imgShow' ng-src='{{"image/works/" + pc.id + ".png"}}'>
+						<div class="div_opacity" ></div>
+						<div class="two_dimension_code">
+							<p class="two_dimension_code_p">点击访问>></p>
+						</div>
+						</a>
+					</div>
+					<div class="caseText">
+						<a class="caseCompanyName" title="{{pc.name}}" >{{pc.name}}</a>
+						<p class="grayContent" ><span class='gray'>介绍:</span>{{pc.ps||'暂无'}}</p>
+						<p class="grayContent" ><span class='time'>{{pc.time}}</span></p>
+						
+					</div>
+			</div>
+			</div>
+		</div>
+		<footer>
+		备注:为减少服务器负载(资金不雄厚，买的服务器比较简陋)以及页面的完整性，以上项目都尽可能提供部署在正式环境的URL.同理，由于网站不定期改版可能也会与最初设计图产生出入.
+		<br />勘误:如果以上地址有误，欢迎留言或者直接联系tuy,勘误成功的小伙伴可以获得一份神秘奖励哦！
+		<br />
+		需求:如果需要纯静态的前端代码包也可发送项目编号至xudihui@xudihui.com进行索取.
+		
+		<!--
+		<table cellpadding='0' cellspacing='0'>
+			<tr class='head'>
+				<td width='50'>姓名</td>
+				<td>简介</td>
+			</tr>
+			<tr>
+				<td>女巫</td>
+				<td>工作导师，资深UI、UE、前端</td>
+			</tr>	
+			<tr>
+				<td>shirly</td>
+				<td>宁波国际物流同事，曾任百度UE</td>
+			</tr>	
+			<tr>
+				<td>月亮鱼</td>
+				<td>宁波国际物流同事，资深UI设计师</td>
+			</tr>
+			<tr>
+				<td>岳莎莉</td>
+				<td>乐道科技metro风格资深UI</td>
+			</tr>
+			<tr>
+				<td>王夫人</td>
+				<td>宁波国际物流同事，资深UI设计师</td>
+			</tr>			
+		</table>
+		-->
+		</footer>
+	</body>
+	
+	<script type="text/javascript">
+	window.onload = function(){
+	   function resize(){
+	   var left = top.$('.weibo-show').attr('style');
+	   if(left.indexOf('-200')==-1){
+	   //top.$('.wider-switch').trigger('click');
+	   }
+	   setTimeout(function(){
+	   top.document.getElementById('rightFrame').setAttribute('height','auto');
+	   var height = document.body.scrollHeight;
+	   //var id = window.frameElement.Id;
+	   top.document.getElementById('rightFrame').setAttribute('height',height+'px');
+	   },100)	   
+	   }
+		   resize();
+		   top.$('.wider-switch').bind('click',function(){
+		   setTimeout(function(){
+		   top.document.getElementById('rightFrame').setAttribute('height','auto');
+		   var height = document.body.scrollHeight;
+		   //var id = window.frameElement.Id;
+		   top.document.getElementById('rightFrame').setAttribute('height',height+'px');
+		   },100)
+		   })	   
+	  
+
+	}
+
+	
+	
+
+
+	
+	</script>
+</html>

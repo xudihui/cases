@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<link media="all" href="css/home.css" type="text/css" rel="stylesheet">
+<title>海商网手机页面</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="大型企业提供过网络品牌建设、行业网站平台、个性化APP定制解决方案、电子商贸平台网站专案；" name="Keywords">
+<meta content="大型企业提供过网络品牌建设、行业网站平台、个性化APP定制解决方案、电子商贸平台网站专案；" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="bckjapp.ico" rel="shortcut icon">
+<link rel="apple-touch-icon" href="icon.png" />
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<!--iPad 1 72x72 像素-->
+<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+<!--iPhone 4 114x114 像素-->
+<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+</head>
+<body>
+<div id="main">
+	<div class="top_menu">
+	    <!-- 原稿
+        <span class="return"><a href="javascript:history.go(-1)">返回</a></span>
+        <span class="cen"><img src="images/logo.png"></span>
+        <span class="right"><a href="index.html">首页</a></span>
+		-->
+		<a href="javascript:history.go(-1)" class='return'>返回</a>
+		<a href='index.html' class='index'>首页</a>
+		
+    </div>
+    <!-- 产品相册 begin-->
+   	<div id="slideBox" class="slideBox">
+
+				<div class="bd">
+					<ul>
+						<li>
+							<a class="pic" href="#"><img src="images/product01.png" /></a>	
+						</li>
+						<li>
+							<a class="pic" href="#"><img src="images/product01.png" /></a>	
+						</li>
+						<li>
+							<a class="pic" href="#"><img src="images/product01.png" /></a>
+						</li>
+						<li>
+							<a class="pic" href="#"><img src="images/product01.png" /></a>	
+						</li>
+						
+					</ul>
+				</div>
+
+				<div class="hd">
+					<a class="prev"></a>
+					<a class="next"></a>
+				</div>
+				<p><b></b>/<b class='total_pages'></b></p>
+
+			</div>
+            <!-- 产品相册 end-->			
+			<script type="text/javascript" src="js/jquery.min.js"></script>
+	        <script src="js/6daoSlide.js"></script>
+			<script type="text/javascript">
+			$(function(){
+			    LeDaoSlide({ slideCell:"#slideBox", mainCell:".bd ul", effect:"leftLoop",pnLoop:"true",endFun:function(i,c){	
+				$('.slideBox').find('p b').eq(0).html(i+1);$('.slideBox').find('p b').eq(1).html($('.bd .pic').length-2)
+				}});
+				
+				/*
+				var slideBox_page_length= $('.bd .pic').length-2;
+				$('.prev').click(function(){var slideBox_page=$('.slideBox').find('p b').html(); 
+				if(slideBox_page>1)
+				{$('.slideBox').find('p b').html(parseInt(slideBox_page)-1)}   
+				else{$('.slideBox').find('p b').html(slideBox_page_length)}
+				
+				
+				});
+				$('.next').click(function(){var slideBox_page=$('.slideBox').find('p b').html(); 
+				if(slideBox_page<slideBox_page_length)
+				{$('.slideBox').find('p b').html(parseInt(slideBox_page)+1)   }
+				else{$('.slideBox').find('p b').html(1)  }
+				
+				
+				});
+			    */
+			
+			});
+				
+			</script>
+	<!-- 产品详细描述 begin-->
+    <div class="list_box">
+        <h3 class="list_box_title_product">巧音天盒+</h3>
+        <p class='default'>单价：<b class='color_orange'>￥288.00</b></p>
+		<div class='line_product'></div>
+		<p class='default'>270度旋转屏，让你用各种视角创照更独特的自拍；F1.8大光
+圈 让你在夜晚也能拍出清晰动人的照片。270度旋转屏，让你
+用各种视角创照更独特的自拍；F1.8大光圈 让你在夜晚也能
+拍出清晰动人的照片随...</p>
+    </div>
+	<!-- 产品详细描述 end-->
+</div>
+</body>
+</html>

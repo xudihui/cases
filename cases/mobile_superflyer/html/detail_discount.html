@@ -1,0 +1,209 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link media="all" href="../css/base.css" type="text/css" rel="stylesheet">
+<link media="all" href="../css/index.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/swipe.js"></script>
+<title>超级派单员-何乐而不为</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="favourite.ico" rel="shortcut icon">
+</head>
+<style type="text/css">
+html,body{overflow-x:hidden}
+</style>
+<body class=''>
+	<header class='index'>
+	       <a class='address'>
+      	    <span class='title'>优惠详情</span>
+           </a>
+		   <div class="logo"></div>
+    </header>
+
+	<div class="banner_discount wrap_7">
+			   <img class='discount_img' src="../images/temp02.png" alt="" />
+			   <div class="discount_title">Uco咖啡店</div>
+			   <div class="discount_red">指定8元饮品买一送一</div>
+	</div>
+	<h1 class="border_top"></h1>
+	<div class="wrap_7">
+		<table class='grid04'>
+			<tr>
+				<td>您的优惠码</td>
+				<td>YDSDKJFLDKJFLKD</td>		
+			</tr>
+			<tr>
+				<td><img  src="../images/ewm.png" alt="" /></td>
+				<td>凭优惠码享受U-Co咖啡指定
+商品买一送一优惠活动！
+将你的优惠码分享给你的好友，
+消费既得现金奖励！
+</td>		
+			</tr>
+		</table>
+	</div>
+	<h1 class="name border_top">优惠详情</h1>
+	<div class="wrap_7 colorGrey">
+		<div id="img_gallery_wrap">
+			<div id="img_gallery">
+				<img src="../images/test.png" alt="" class="img_gallery" />
+				<img src="../images/test.png" alt="" class="img_gallery" />
+				<img src="../images/test.png" alt="" class="img_gallery" />
+				<img src="../images/test.png" alt="" class="img_gallery" />
+				<img src="../images/test.png" alt="" class="img_gallery" />		
+			</div>
+		</div>
+		<div class="discount_title">Uco咖啡店</br>
+		指定8元饮品买一送一
+		</div>
+	</div>
+	<h1 class="name border_top">使用须知</h1>
+	<h1 class="name_gray">使用须知</h1>
+	<div class="wrap_7">
+         	 <ul class='address_detail'>
+         	 	<li>地址:定安路30号(银泰百货对面)</li>
+         	 	<li>营业时间：10:00-21:00</li>
+         	 </ul>
+	</div>	
+<script type="text/javascript">
+   $(function(){
+
+	var client_height = $(window).height();		  
+	$('#img_gallery').width($('.img_gallery').length*90)//初始化长度
+	$('.slide_page_cur').html('1');
+	$('.slide_page_total').html($('.img_gallery').length);
+	$('.img_gallery').on('touchstart',function(){ //由于使用click会有200ms左右的延迟，导致点透现象
+	     $('#banner_box ul,#banner_box ul li').css('height',client_height)
+
+		 
+	     var index = $(this).index();
+		 $('.slide_page_cur').html(index+1);
+	     $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()))
+	     $('.frame,#dialog').fadeIn(100,function(){
+		 	$('#banner_box li img').each(function(){
+		    if($(this).height()>client_height){
+			    var scale = $(this).width()/$(this).height()
+			    $(this).css('height',client_height).css('width',client_height*scale);;
+				
+			}
+		 
+		 
+		  // console.log($(this).attr('src'))
+		 })
+		 });		
+         $('ol li').eq(index).addClass('on');
+		 var slide = new Swipe(document.getElementById('banner_box'), {
+				speed:500,
+				auto:false,
+				callback: function(){
+					//$('.slide_page_cur').html(this.index+1);
+					$('ol li').removeClass('on');
+					$('ol li').eq(this.index).addClass('on');
+				//	$('.slide_page_cur').html(this.index+1);
+				}
+			});	
+		// slide.slide(index,0)
+        
+	});
+
+     $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()));
+	 
+	 $('#dialog').click(function(){
+	   //	 $('.frame,#dialog').fadeOut();
+	 })
+	 
+	 
+	var start_x, start_y, end_x, end_y, move_num;
+	var t_time=null;
+ 
+    $('.frame,#dialog').on("touchstart", function(e) {
+        start_x = e.originalEvent.targetTouches[0].clientX;
+        start_y = e.originalEvent.targetTouches[0].clientY;
+		t_time = setTimeout(function(){
+		  $('.frame,#dialog').fadeOut();
+		},300)
+        console.log(start_x+'@@'+start_y);
+    });
+    $('.frame,#dialog').on("touchmove", function(e) {
+	    if(t_time){
+		clearTimeout(t_time)
+		}
+        end_x = e.originalEvent.targetTouches[0].clientX;
+        end_y = e.originalEvent.targetTouches[0].clientY;
+        move_num = Math.abs((end_y - start_y).toFixed(0));
+		move_num_ = Math.abs((end_x - start_x).toFixed(0));
+		move_num = Math.max(move_num,move_num_)
+        console.log('$$'+move_num);
+      
+ 
+    });
+    $('.frame,#dialog').on("touchend", function() {    
+        if (move_num < 2) {
+         $('.frame,#dialog').fadeOut();
+        }
+    });
+	 
+	 
+	 $('.btn_icon_personal').click(function(){
+	     $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()))
+	     $('.frame,#dialog').fadeIn();
+	 })
+	 
+     $(window).resize(function(){
+	   if($('.frame').css('display') !='none'){
+	     $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()))
+	   }
+	 });
+			  
+   });
+</script>	
+<style type="text/css">
+#banner_box ul li{vertical-align:middle!important;overflow:hidden;text-align:center}
+ol#slidelist{height:25px;opacity:1;position:fixed;bottom:0px;left:0;width:100%;z-index:999;text-align:center;overflow:hidden;margin:0;margin-top:-35px;padding:0;padding-bottom:10px;}
+ol#slidelist>li{display:inline-block;margin:5px;width:5px;height:5px;background-color:#ffffff;border-radius: 50%;opacity:.5;}
+ol#slidelist>li.on{opacity:1;width:5px;height:5px;border:none;background-color:#ffffff;}
+</style>
+    <div id="Watermark">我是水印</div>
+	<div class='frame' style='z-index:998' ></div>	 <!-- 遮罩-->	
+
+	<div id='dialog' style='z-index:999;top:0'  >
+		<div class='dialog_content' style='top:0'>
+			<div class="slide">
+				<div class="box_swipe" id="banner_box">
+					<ul>
+						<li><img src="../images/test_big.png"></li>
+						<li><img src="../images/test_big.png"></li>
+						<li><img src="../images/test1.jpg"></li>
+						<li><img src="../images/discount_bg.png"></li>		
+						<li><img src="../images/test_big.png"></li>					
+					</ul>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>		
+			<ol id='slidelist' style='display:block'>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>						
+		</ol>
+</body>
+</html>

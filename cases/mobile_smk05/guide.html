@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title></title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="" name="Keywords">
+	<meta content="" name="Description">
+	<!-- Mobile Devices Support @begin -->
+	<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+	<!-- Mobile Devices Support @end -->
+	<link href="favourite.ico" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="icon.png" />
+	<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+	<!--iPad 1 72x72 像素-->
+	<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+	<!--iPhone 4 114x114 像素-->
+	<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+    <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-precomposed.png?v=211d96120f">
+    <link rel="icon" href="/assets/ico/favicon.ico?v=211d96120f">
+    <link rel="stylesheet" type="text/css" href="css/screen.css" />
+	<script src="bootstrap/js/jquery.js"></script>
+</head>
+<body class="gray" style='overflow-x:hidden'>
+
+	   
+	
+	<div class="wrap14">
+	    <a href="" class="item_recharge">
+		 <span class="item_recharge_l">
+		   <img src="images/2015-09-01/12.png" alt="" />
+		 </span>
+		 <span class="item_recharge_r">
+		   <b>微店</b>
+		   <i>在线购买手环/异形卡</i>		   
+		 </span>		 
+		</a>
+
+	    <a href="" class="item_recharge">
+		 <span class="item_recharge_l">
+		   <img src="images/2015-09-01/13.png" alt="" />
+		 </span>
+		 <span class="item_recharge_r">
+		   <b>市民卡服务厅</b>
+		   <i>购卡/充值一键搞定</i>		   
+		 </span>		 
+		</a>
+
+	    <a href="" class="item_recharge">
+		 <span class="item_recharge_l">
+		   <img src="images/2015-09-01/14.png" alt="" />
+		 </span>
+		 <span class="item_recharge_r">
+		   <b>代理售卡点</b>
+		   <i>方便查询家门口的售卡点</i>		   
+		 </span>		 
+		</a>		
+
+	</div>
+	
+
+	
+  <script>
+     $(function(){
+       
+		var init = function(){
+		    var w_width = $(window).width();
+			$('.ellipsis').width(( w_width < 640 ? w_width : 640 )/2 -80)
+		
+		}
+		init();
+		var resizeTimer = null;
+		window.onresize=function(){
+			if (resizeTimer) {
+			clearTimeout(resizeTimer)
+			}
+			resizeTimer = setTimeout(function(){
+				init();
+			}, 400);
+		}
+	 });
+  </script>
+
+
+
+
+</body>
+</html>

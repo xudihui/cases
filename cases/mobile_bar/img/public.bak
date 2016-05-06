@@ -1,0 +1,325 @@
+var checkStickLong = {
+	
+	init:function(){
+		var self = this;
+		self.oldHeight = screenHeight*0.3*0.4;
+		self.newHeight = screenHeight*0.7*0.4;
+		self.newWidth = screenWidth*0.2;
+		self.newMargin = screenWidth*0.3; //保留三位有效数字
+		self.corner = self.angle({x:0,y:self.oldHeight-self.newHeight},{x:self.newMargin,y:0})		
+   
+ 	
+	},
+	
+	check:function(){
+		var self = this;
+		var stickLong = this.getWidthNumber($(".stick").css('width'));
+		var minLong = Math.sqrt(Math.pow((Math.abs(self.oldHeight-self.newHeight)),2)+Math.pow(self.newMargin,2));
+		if(self.oldHeight > self.newHeight){
+			var maxLong = Math.sqrt(Math.pow((self.oldHeight-self.newHeight),2)+Math.pow((self.newMargin+self.newWidth),2));
+            if (stickLong<maxLong&&stickLong>minLong){
+			 self.corner = -180*Math.asin((Math.abs(self.oldHeight-self.newHeight)/stickLong))/(Math.PI);
+		    }
+            if(stickLong>maxLong){
+			 self.corner = self.angle({x:0,y:self.oldHeight-self.newHeight},{x:self.newMargin+self.newWidth,y:0})			
+			}	
+            if(stickLong<minLong){ 
+			 self.corner = -90  			
+			}				
+		}
+		else{
+			var maxLong = Math.sqrt(Math.pow(Math.abs(self.oldHeight-self.newHeight)*(self.newMargin+self.newWidth)/self.newMargin,2)+Math.pow((self.newMargin+self.newWidth),2));
+           
+		    if(stickLong<minLong&&stickLong>=self.newMargin ){ 
+			 self.corner = 180*Math.acos((self.newMargin/stickLong))/(Math.PI);  			 
+			}		    
+			if(stickLong<self.newMargin ){ 
+			 self.corner = -90			 
+			}		
+		}
+		self.maxLong = maxLong;
+		self.minLong = minLong;
+		
+		$('.stick').css('transition','.6s');
+    	$('.stick').css('transform','rotate('+(-self.corner)+'deg)');
+		
+		setTimeout(function(){
+			//alert(minLong);
+			if (stickLong<maxLong&&stickLong>minLong) {
+				self.run();
+				setTimeout(function(){
+					self.getPoint();
+					self.getNewWall();
+				},1600);
+			} else if(stickLong>maxLong){
+				clearBind();
+				self.getDown();
+			} else {
+				clearBind();
+				self.getDown();
+			}			
+			
+		},600);
+
+	},
+	run:function(){
+		var self = this;
+		$(".stickMan img").attr({'src':'img/stick.gif'});
+		
+		var stickLong = self.getWidthNumber($(".stick").css('width'));
+	    var moveNumber = stickLong*self.newMargin/self.minLong;
+		var bottom = self.oldHeight+(stickLong*(self.newHeight-self.oldHeight)/self.minLong);
+		if(self.oldHeight>self.newHeight){
+			bottom = self.newHeight;
+			moveNumber = Math.sqrt(Math.pow(stickLong,2) - Math.pow((self.oldHeight-self.newHeight),2));
+		}		
+	//	var moveNumber = this.getWidthNumber($(".wall").eq(1).css('left'))+this.getWidthNumber($(".wall").eq(1).css('width'))-screenWidth*0.2;
+	    $(".stickMan").css({'bottom':self.oldHeight+'px','left':screenWidth*.2+'px'});//微信端不设置这个第一次撑杆的时候会有一个落差，其他手机浏览器正常
+	
+		/*
+		$(".stickMan").animate({left:'+='+moveNumber+'px',bottom:bottom+'px'},900,function(){
+			$(".stickMan img").attr({'src':'img/stick2.gif'});
+			
+			$(".stickMan").animate({left:self.getWidthNumber($(".wall").eq(1).css('left'))+self.getWidthNumber($(".wall").eq(1).css('width'))-screenWidth*0.1+'px',bottom:self.newHeight+'px'},600)
+		});
+		*/
+		$(".stickMan").css('-webkit-transition','all .9s');
+		$(".stickMan").css({left:'+='+moveNumber+'px',bottom:bottom+'px'});
+		setTimeout(function(){
+			$(".stickMan").css('-webkit-transition','all .6s');
+			$(".stickMan").css({left:self.getWidthNumber($(".wall").eq(1).css('left'))+self.getWidthNumber($(".wall").eq(1).css('width'))-screenWidth*0.1+'px',bottom:self.newHeight+'px'})
+		},900);		
+		
+		
+		$("body").css('background-position-x', '-'+(point+1)*50+'px').css('-webkit-transition','all 1.5s ease-in-out');
+		setTimeout(function(){
+			$(".stickMan").css('-webkit-transition','all 0s');
+			$(".stickMan img").attr({'src':'img/stick_stand.gif'});
+		},1600);
+	},
+	getDown:function(){
+		$(".stickMan img").attr({'src':'img/stick.gif'});
+		var self = this;
+	//	var moveNumber = self.getWidthNumber($(".wall").eq(1).css('left'))+self.getWidthNumber($(".wall").eq(1).css('width'))-screenWidth*0.2;
+	//	
+	    var stickLong = self.getWidthNumber($(".stick").css('width'));
+	    var moveNumber = stickLong*(self.newMargin+self.newWidth)/self.maxLong;
+		var bottom = self.oldHeight -(stickLong*(self.oldHeight-self.newHeight)/(self.oldHeight<=self.newHeight ? self.minLong : self.maxLong ));
+		var t1 = 1500;
+		if(self.corner == -90){
+			$(".stickMan").css('-webkit-transition','all .2s');
+			$(".stickMan").css({left:'+=5px'});		
+			t1 = 300;			
+		}
+		else{
+			/*
+			$(".stickMan").animate({left:'+='+moveNumber+'px',bottom:bottom+'px'},1500,function(){	
+				$(".stickMan img").attr({'src':'img/down.gif'});
+			});
+			*/
+			if(self.oldHeight<=self.newHeight&&stickLong<self.minLong&&stickLong>=self.newMargin ){ 
+			  moveNumber = self.newMargin;
+			  bottom = self.oldHeight + Math.sqrt(Math.pow(stickLong,2) - Math.pow(self.newMargin,2));
+			}	
+			$(".stickMan").css('-webkit-transition','all 1.5s');
+			$(".stickMan").css({left:'+='+moveNumber+'px',bottom:bottom+'px'});	
+			
+		}
+			setTimeout(function(){	
+				$(".stickMan img").attr({'src':'img/down.gif'});
+				$(".stickMan").css('-webkit-transition','all 0s');
+			},t1);
+			setTimeout(function(){
+				$('.stick').css('transform','rotate(90deg)');
+				$(".stickMan").css('-webkit-transition','all .5s');
+				$(".stickMan").css({bottom:'-'+$(".stickMan").css('height')});
+			},t1+500);
+			
+			$("body").css('background-position-x', '-'+(point+1)*50+'px').css('-webkit-transition','all 1.5s ease-in-out');
+
+			setTimeout(function(){
+				$(".stickMan img").attr({'src':'img/wakeup.gif'});
+				self.showResult();
+				
+				
+			},t1+800);	
+	},
+	getPoint:function(){
+		point++;
+		$(".point").addClass('bounceIn').html(point);
+		setTimeout(function(){
+			$(".point").removeClass('bounceIn');
+		},500);	
+		//parseInt(len)-4
+		//$(")
+	},
+	getNewWall:function(){
+		this.setNewWall();
+		//$('.stick').css('transition','0');
+		//$(".wall").animate({left:'-='+$(".new").eq(0).css('left')},500);
+		//$(".stick").animate({left:'-='+$(".new").eq(0).css('left')},500);
+		//$(".stick").css('transform','translateX(-'+$(".new").eq(0).css('left')+')');
+		setTimeout(this.resetWall,550);
+		
+	},
+	resetWall:function(){
+		addBind();
+		$('.wall').eq(0).remove();
+		//$('.new').eq(0).removeClass('new');
+		$('.init').eq(0).removeClass('init');
+	},	
+	getWidthNumber:function(ele){
+   		if (ele) {
+   			var WidthNumber = ele.substr(0,ele.length-2);
+   			WidthNumber = Number(WidthNumber);
+   			return WidthNumber;
+   		}
+    },
+	
+	wallArr:['img/wall/z1.png','img/wall/z2.png','img/wall/z3.png','img/wall/q1.png','img/wall/q2.png','img/wall/q3.png'],
+	
+    setNewWall:function(){
+    	//新墙设置
+		var self = this;
+    	var newWallSpacing = Math.random()*55+5+20;
+		var newWall = self.wallArr[Math.floor(Math.random()*self.wallArr.length)];
+		console.log(newWall);
+   		var newWallWidth = Math.random()*Math.min(90-newWallSpacing,35)+5; //
+        var tpl = '<img class="wall new init" src="'+newWall+'" style="width:'+newWallWidth+'%;left:100%;height:auto;background:none"></img>';
+		$("#main").append(tpl);
+		if($(".wall").last().height() > screenHeight*.5){
+			var height = $(".wall").last().height();
+			var width = $(".wall").last().width();
+			$(".wall").last().height(screenHeight*.5);
+			$(".wall").last().width(screenHeight*.5*width/height);
+		}
+		//移动设置
+		//var moveNumber = this.getWidthNumber($(".wall").eq(1).css('left'))+this.getWidthNumber($(".wall").eq(1).css('width'))-screenWidth*0.2;
+		var moveNumber = this.getWidthNumber($(".wall").eq(1).css('left'))+this.getWidthNumber($(".wall").eq(1).css('width'))-screenWidth*0.2;
+		var moveStick = moveNumber+this.getWidthNumber($(".wall").eq(1).css('width'))-screenWidth*0.2;
+		$(".wall").eq(0).css({left:'-='+moveNumber+'px'});
+		$(".wall").eq(1).css({left:'-='+moveNumber+'px'});
+		$(".wall").eq(2).css({left:newWallSpacing+'%'});
+		$('.stick').css('transition','0');
+		$(".stick").css({left:'-='+moveNumber+'px',bottom:parseInt($(".wall").eq(1).css('height')) + 'px'});
+		$(".stickMan").css('-webkit-transition','all .5s');
+		$(".stickMan").css({left:'-='+moveNumber+'px'});
+		setTimeout(function(){
+		self.oldHeight = parseInt($(".wall").eq(1).css('height'));
+		self.newHeight = parseInt($(".wall").eq(2).css('height')) - $(window).width()*0.005;
+		self.newWidth = parseInt($(".wall").eq(2).css('width'));
+		self.newMargin = parseInt($(".wall").eq(2).css('left'))-parseInt($(".wall").eq(1).css('width')) - parseInt($(".wall").eq(1).css('left')); //保留三位有效数字
+		self.corner = self.angle({x:0,y:self.oldHeight-self.newHeight},{x:self.newMargin,y:0});
+		
+	//	$('#debug').html(moveNumber+';'+moveStick+'旧墙高度:<b>'+self.oldHeight+'</b>;'+'新墙高度:<b>'+self.newHeight+';'+'墙间距:<b>'+self.newMargin.toFixed(0)+'</b>;'+'角度:<b>'+self.corner.toFixed(0)+'</b>;')
+			
+			
+		},520)
+
+    },
+	
+	angle: function(start,end){
+		var diff_x = end.x - start.x,
+			diff_y = end.y - start.y;
+		//返回角度,不是弧度
+		return 180*Math.atan(diff_y/diff_x)/(Math.PI);
+    },
+	
+    showResult: function() {
+    	$(".point,.tips").css('display','none');
+    	$(".newPoint").html(point);
+    	$(".gameOver").css('display','block');
+    	this.setBestPoint();
+    },
+    
+    setBestPoint: function() {
+    	var bestPoint = window.sessionStorage.getItem('stickManPoint');
+        if(!bestPoint){
+        	bestPoint = point;
+        	window.sessionStorage.setItem('stickManPoint',point);
+        } else if(bestPoint<point){
+        	bestPoint = point;
+        	window.sessionStorage.setItem('stickManPoint',point);
+        }
+        $(".bestPoint").html(bestPoint);
+        shareToWeixin();
+    }
+};
+
+
+function shareToWeixin(){
+WeixinApi.ready(function(Api) {
+
+                // 微信分享的数据
+                var desc = '哎哟，不错哦！！！！';
+                var bestPoint = window.sessionStorage.getItem('stickManPoint');
+                if(!bestPoint||bestPoint==0){
+                	desc ='哎哟，不错哦！！！！';
+                } else {
+					if(bestPoint>=40){
+						desc ='我居然获得了'+bestPoint+'分！去和和商城分享比拼喽！';
+					}else if(bestPoint<40){
+						desc ='我才得了'+bestPoint+'分！还需要继续努力哦！';
+					}
+                }
+				/*
+                var wxData = {
+                    "appId": wxcfdc424062594fbe, // 服务号可以填写appId
+                    "imgUrl" : 'http://smartmercado.com/wxsc/puzzle/img/img/paolu.jpg',
+                    "link" : 'http://smartmercado.com/wxsc/puzzle/img/index.html',
+                    "desc" : desc,
+                    "title" : desc
+                };
+*/
+                // 分享的回调
+                var wxCallbacks = {
+                    // 收藏操作是否触发回调，默认是开启的
+                    favorite : false,
+
+                    // 分享操作开始之前
+                    ready : function() {
+                        // 你可以在这里对分享的数据进行重组
+                        //alert("准备分享");
+                    },
+                    // 分享被用户自动取消
+                    cancel : function(resp) {
+                        // 你可以在你的页面上给用户一个小Tip，为什么要取消呢？
+                        //alert("分享被取消，msg=" + resp.err_msg);
+                    },
+                    // 分享失败了
+                    fail : function(resp) {
+                        // 分享失败了，是不是可以告诉用户：不要紧，可能是网络问题，一会儿再试试？
+                        //alert("分享失败，msg=" + resp.err_msg);
+                    },
+                    // 分享成功
+                    confirm : function(resp) {
+                        // 分享成功了，我们是不是可以做一些分享统计呢？
+                        //alert("分享成功，msg=" + resp.err_msg);
+                        $("#mask").css('display','none');
+                    },
+                    // 整个分享过程结束
+                    all : function(resp,shareTo) {
+                        // 如果你做的是一个鼓励用户进行分享的产品，在这里是不是可以给用户一些反馈了？
+                        //alert("分享" + (shareTo ? "到" + shareTo : "") + "结束，msg=" + resp.err_msg);
+                    }
+                };
+
+                // 用户点开右上角popup菜单后，点击分享给好友，会执行下面这个代码
+                Api.shareToFriend(wxData, wxCallbacks);
+
+                // 点击分享到朋友圈，会执行下面这个代码
+                Api.shareToTimeline(wxData, wxCallbacks);
+
+                // 点击分享到腾讯微博，会执行下面这个代码
+                Api.shareToWeibo(wxData, wxCallbacks);
+
+                // iOS上，可以直接调用这个API进行分享，一句话搞定
+                Api.generalShare(wxData,wxCallbacks);
+
+                // 有可能用户是直接用微信“扫一扫”打开的，这个情况下，optionMenu是off状态
+                // 为了方便用户测试，我先来trigger show一下
+                //var elOptionMenu = document.getElementById('optionMenu');
+                //elOptionMenu.click(); // 先隐藏
+                //elOptionMenu.click(); // 再显示
+            });
+} 

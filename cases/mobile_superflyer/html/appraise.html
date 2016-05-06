@@ -1,0 +1,147 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link media="all" href="../css/base.css" type="text/css" rel="stylesheet">
+<link media="all" href="../css/index.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<title>超级派单员-何乐而不为</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="favourite.ico" rel="shortcut icon">
+</head>
+<body >
+	<header class='index'>
+	       <a class='address'>
+      	    <span class='title'>评价</span>
+           </a>
+		   <div class="logo"></div>
+    </header>
+
+
+	<div class="appraise_top">
+	    <p id='neat'><span>整洁</span><i></i><i></i><i></i><i></i><i></i></p>
+		<p id='product'><span>产品</span><i></i><i></i><i></i><i></i><i></i></p>
+		<p id='service'><span>服务</span><i></i><i></i><i></i><i></i><i></i></p>
+	</div>	
+	
+	<div class="wrap_20 appraise_list">
+	    <span class="appraise_tips">宾至如归</span>
+		<span class="appraise_tips">福如东海</span>
+		<span class="appraise_tips">寿比南山</span>
+		<span class="appraise_tips">牛逼</span>
+		<span class="appraise_tips">土豪</span>
+		<span class="appraise_tips">矮矬穷逼</span>
+	</div>
+	<div class="wrap_20">
+	    <div class="appraise_wrap">
+		  <i>还可以添加<em>3</em>个印象</i>
+		</div>
+	</div>	
+	<div class="wrap_20">
+	    <a id='submit' class="btn_red">提交</a>
+	</div>
+		
+<script type="text/javascript">
+
+   $(function(){
+      $('i','.appraise_top').bind('click',function(){ //评价五角星事件
+	      var index = $(this).index();
+	      var i = $(this).parent().children();
+		  i.removeClass('on bounceIn');
+		  while(index>0){
+		     i.eq(index--).addClass('on bounceIn');
+		  }
+	  });
+	  
+	  
+	  $('.appraise_wrap').bind('click',function(){//自定义输入印象事件
+	     if($('.appraise_wrap span.appraise_tips_self').length==0 && $('.appraise_wrap span.appraise_tips').length<3 ){
+	     var input = $('<input type="text" />');
+	     var wrap = $('<span class="appraise_tips appraise_input appraise_tips_self"></span>');
+		 var em = $('<em></em>');
+		 wrap.append(em).append(input);
+	     $(this).append(wrap);
+		 input.focus();
+		 input.bind('input',function(){
+		   wrap.find('em').remove();
+		   em.html(input.val().slice(0,10));
+		   input.before(em);
+		 })
+		 .bind('blur',function(){
+		 if(em.html()==''){
+		  wrap.remove();
+		  return;
+		 }
+		 wrap.removeClass('appraise_input');
+		 wrap.html(em.html());
+		 input.remove();
+		 });
+		 $('.appraise_wrap i em').html(3-$('.appraise_wrap span.appraise_tips').length);
+		 }
+	  });
+   
+      $('.appraise_wrap').delegate('span.appraise_tips','click',function(e){//印象存放标签绑定事件
+	        e ? e.stopPropagation() : window.event.cancelBubble = true; //阻止冒泡
+	        var html = $(this).html();
+			$(this).remove();
+			var el = '.appraise_list span[html='+ html + ']';
+			$(el).removeClass('selected');
+			$('.appraise_wrap i em').html(3-$('.appraise_wrap span.appraise_tips').length);
+	  });
+      
+   
+      $('.appraise_list span.appraise_tips').bind('click',function(){ //印象选择标签绑定事件
+	    var wrap = $('.appraise_wrap'),
+	        that = $(this),
+		    html = that.html(),
+			i = wrap.find('i em')
+			length = wrap.find('span').length;
+		that.toggleClass('selected');
+		if(that.hasClass('selected')){ 
+		  if(length>2){
+		     that.removeClass('selected');
+		     return;
+		  }
+		  wrap.append($("<span html='" + html + "' class='appraise_tips bounceIn'>" + html + "</span>"));
+		  that.attr('html',html);
+		}
+		else{
+		  var el = '.appraise_wrap span[html='+ that.attr('html') + ']';
+		  $(el).remove();
+		}
+		i.html(3-$('.appraise_wrap span.appraise_tips').length);
+	  });
+	 
+	 
+	 $('#submit').bind('click',function(){ //取数据
+	    var p = $('.appraise_top p'),tips = $('.appraise_wrap span.appraise_tips'),arr = [], temp = {}, data = {};
+		p.each(function(){
+		  var that = $(this); 
+		  temp[that.attr('id')] = that.find('i.on').length;
+		});
+		tips.each(function(){
+		  var that = $(this); 
+		  arr.push(that.html());
+		});		 
+		data['appraise_stars'] = temp;
+		data['appraise_tips'] = arr;
+		console.log(data);
+	 })
+   });
+</script>	
+</body>
+</html>

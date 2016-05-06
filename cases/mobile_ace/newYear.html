@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<title>ACE诠美 尽善尽美</title>
+<link media="all" href="i/animate.min.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="i/zepto.js"></script>
+</head>
+<body>
+ <style type="text/css">
+ /*-webkit-animation-iteration-count:infinite;*/
+ 
+.circle {
+	background-color: rgba(0,0,0,0);
+	border:5px solid rgba(0,183,229,0.9);
+	opacity:.9;
+	border-right:5px solid rgba(0,0,0,0);
+	border-left:5px solid rgba(0,0,0,0);
+	border-radius:50px;
+	box-shadow: 0 0 35px #2187e7;
+	width:50px;
+	height:50px;
+	margin:0 auto;
+	-moz-animation:spinPulse 1s infinite ease-in-out;
+	-webkit-animation:spinPulse 1s infinite linear;
+}
+.circle1 {
+	background-color: rgba(0,0,0,0);
+	border:5px solid rgba(0,183,229,0.9);
+	opacity:.9;
+	border-left:5px solid rgba(0,0,0,0);
+	border-right:5px solid rgba(0,0,0,0);
+	border-radius:50px;
+	box-shadow: 0 0 15px #2187e7; 
+	width:30px;
+	height:30px;
+	margin:0 auto;
+	position:relative;
+	top:-50px;
+	-moz-animation:spinoffPulse 1s infinite linear;
+	-webkit-animation:spinoffPulse 1s infinite linear;
+}
+
+@-moz-keyframes spinPulse {
+	0% { -moz-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7;}
+	50% { -moz-transform:rotate(145deg); opacity:1; }
+	100% { -moz-transform:rotate(-320deg); opacity:0; }
+}
+@-moz-keyframes spinoffPulse {
+	0% { -moz-transform:rotate(0deg); }
+	100% { -moz-transform:rotate(360deg);  }
+}
+@-webkit-keyframes spinPulse {
+	0% { -webkit-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7; }
+	50% { -webkit-transform:rotate(145deg); opacity:1;}
+	100% { -webkit-transform:rotate(-320deg); opacity:0; }
+}
+@-webkit-keyframes spinoffPulse {
+	0% { -webkit-transform:rotate(0deg); }
+	100% { -webkit-transform:rotate(360deg); }
+}
+ 
+ .page img.step2{-webkit-animation-delay:2s;-webkit-animation-duration:3.5s;}
+ </style>   
+
+    <div class="content" style='position:absolute;left: 50%;margin-left: -30px;bottom: 20px;'>
+		<img src="i/share.jpg" alt="" style='width:0px;height:0px;overflow:hidden' />
+		<div class="circle"></div>
+		<div class="circle1"></div>
+		<p>loading</p>
+    </div> 
+    <div id="rect1"><canvas id="projector" style='position:absolute;z-index:1;opacity:.3' width="100%" height="100%">Your browser does not support the Canvas element.</canvas>
+	
+	<article class="page">
+	 <img src="i/happy_new_year.jpg"/>
+     <section class="u-arrow-bottom slideInUp animated" style="bottom: 30px;display:none"><div class="pre-wrap"><div class="pre-box1"><div class="pre1"></div></div><div class="pre-box2"><div class="pre2"></div></div></div></section>
+	</article>
+	
+	<article class="page" style='display:none'>
+	 <div id='top'>
+		 <h2>5年深耕细作，收获第101个赞誉</h2>
+		 <h3>盛诗诠美为客户创造无可估量的价值</h3>
+	 </div>
+	 <aside style='position:relative;margin-top:20px;'>
+	 	 <img src="i/b1.png" alt="" class='b'/>
+	     <img src="i/b2.png" alt="" class='b'/>
+		 <img src="i/b3.png" alt="" class='b'/>
+		 <img src="i/b4.png" alt="" class='b'/>
+	 	 <img src="i/c1.png" alt="" class_='rotateIn animated ' class='c'/>
+	     <img src="i/c2.png" alt="" class_='rotateIn animated ' class='c'/>
+		 <img src="i/c3.png" alt="" class_='rotateIn animated ' class='c'/>
+		 <img src="i/c4.png" alt="" class_='rotateIn animated ' class='c'/>
+		 <img src="i/c5.png" alt="" class_='rotateIn animated ' class='c'/>
+		 <img src="i/c6.png" alt="" class_='rotateIn animated ' class='c'/>
+		 <p id='text' style='text-align:center;color:#fff;font-weight:bold;font-size:90px'></p>
+	 </aside>
+	 <footer>
+	     <h3 class='h3'>6个行业世界第一</h3>
+		 <h3 class='h3'>11个知名上市集团</h3>
+		 <h3 class='h3'>20个创新概念项目</h3>
+		 <h3 class='h3' id='guid_last'>70个本地民营企业</h3>
+	 	 <img id='bottom' src="i/bottom.png"  alt="" />	 
+	 </footer>
+     <section class="u-arrow-bottom slideInUp animated" style="bottom: 30px;"><div class="pre-wrap"><div class="pre-box1"><div class="pre1"></div></div><div class="pre-box2"><div class="pre2"></div></div></div></section>
+	</article>	    
+	
+    </div>
+   <div id="rect" style='display:none'>
+	<article class="page"  style='background:#d0101b'>
+	 <img src="i/p01.jpg" alt="" class_='flipInY animated' />
+	</article>	    
+	
+	<article class="page" style='display:none'  >
+	 <img src="i/p02.jpg" style='height:100%' alt="" class_='flipInY animated' />
+	</article>	 
+	<article class="page"  style='display:none;'>
+		<img src="i/p03.jpg" alt="" class_='flipInY animated' />
+		<img src="i/p03_a.png" class='d' alt="" style='display:block' class_='flipInY animated' />
+		<img src="i/p03_b.png" class='d' alt="" class_='flipInY animated' />
+		<img src="i/p03_c.png" class='d' alt="" class_='flipInY animated' />
+		<img src="i/p03_d.png" class='d' alt="" class_='flipInY animated' />
+		<img src="i/p03_e.png" class='d' alt="" class_='flipInY animated' />
+	</article>	 
+	
+	<article class="page"  style='display:none'>
+		<img src="i/p04_.jpg" alt="" class_='flipInY animated' />	
+	</article>
+	
+	
+	<article class="page"  style='display:none'>
+		<img src="i/p_new02.png" class='e' alt="" class_='zoomIn animated fastAnimate' style='-webkit-animation-delay:0s;' />
+		<img src="i/p_new03.png" class='e' alt="" class_='bounceIn animated' style='-webkit-animation-delay:.8s;'/>
+		<img src="i/p_new04.png" class='e' id='flash' alt="" class_='bounceIn animated' style='-webkit-animation-delay:1.5s;' />
+		<img src="i/p_new01.png" class='e' alt="" class_='slideInUp animated fastAnimate' style='-webkit-animation-delay:2.2s!important;' />		
+	</article>
+	
+	<article class="page"  style='display:none'>
+		<img src="i/p04_f.png" alt="" class_='flipInY animated' />		
+	</article>
+	<article class="page"  style='display:none'>
+		<img src="i/p04_g.png" alt="" class_='flipInY animated' />		
+	</article>
+	<article class="page"  style='display:none'>
+		<img src="i/p04_h.png" alt="" class_='flipInY animated' />		
+	</article>
+	
+	<article class="page" style='background:#d0101b;display:none'  style=''>
+	 <img src="i/p05.jpg" />
+	</article>	
+	
+	<article class="page"  style='display:none'>
+	 <img src="i/p06.jpg" />
+	</article>	
+	<article class="page"  style='display:none'>
+	 <img src="i/p07.jpg" />
+	</article>	
+	<article class="page"  style='display:none'>
+	 <img src="i/p08.jpg" />
+	</article>	
+	<article class="page"  style='display:none'>
+	 <img src="i/p09.jpg" />
+	</article>	
+	<article class="page"  style='display:none'>
+	 <img src="i/p10.jpg" />
+	</article>	
+	<article class="page"  style='display:none'>
+	 <img src="i/p11.jpg" />
+	</article>	
+	<article class="page"  style='display:none'>
+	 <img src="i/p12.jpg" />
+	</article>	
+	<article class="page"  style='display:none'>
+	 <img src="i/p13.jpg" />
+	</article>	
+	<article class="page"  style='display:none'>
+	 <img src="i/p15.jpg" />
+	</article>	
+	<article class="page"  style='display:none'>
+	 <img src="i/p16.jpg" />
+	</article>
+	<article class="page"  style='display:none'>
+	 <img src="i/p18.jpg" />
+	</article>	
+	<article class="page"  style='display:none'>
+	 <img src="i/p19.jpg" />
+	</article>		
+	<article class="page"  style='display:none'>
+	 <img src="i/p20.jpg" />
+	</article>		
+	<article class="page"  style='display:none'>
+	 <img src="i/p21.jpg" />
+	</article>
+	<article class="page"  style='display:none'>
+	 <img src="i/p22.jpg" />
+	</article>
+
+	
+	<article class="page" style='background:#d0101b;display:none'  style=''>
+	 <img src="i/p24.jpg" />
+	</article>	
+
+	<section class="u-arrow-bottom slideInUp animated" style="bottom: 30px;"><div class="pre-wrap"><div class="pre-box1"><div class="pre1"></div></div><div class="pre-box2"><div class="pre2"></div></div></div></section>
+    </div>     
+	<script type="text/javascript">
+    var VELOCITY = 1;
+    var PARTICLES = 50;
+
+    var mouse = {
+    	x: 0,
+    	y: 0
+    };
+    var particles = [];
+    var colors = ["#f9fc07", "#dfc280", "#eea90d"];
+    var canvas = document.getElementById('projector');
+    var context;
+
+    if (canvas && canvas.getContext) {
+    	context = canvas.getContext('2d');
+
+    	for (var i = 0; i < PARTICLES; i++) {
+    		particles.push({
+    			x: Math.random() * window.innerWidth,
+    			y: Math.random() * window.innerHeight,
+    			vx: ((Math.random() * (VELOCITY * 2)) - VELOCITY),
+    			vy: ((Math.random() * (VELOCITY * 2)) - VELOCITY),
+    			size: 1 + Math.random() * 3,
+    			color: colors[Math.floor(Math.random() * colors.length)]
+    		});
+    	}
+
+    	Initialize();
+    }
+
+    function Initialize() {
+    	canvas.addEventListener('mousemove', MouseMove, false);
+    	window.addEventListener('mousedown', MouseDown, false);
+    	window.addEventListener('resize', ResizeCanvas, false);
+    	setInterval(TimeUpdate, 40);
+
+    	ResizeCanvas();
+    }
+
+    function TimeUpdate(e) {
+
+    	context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    	var len = particles.length;
+    	var particle;
+
+    	for (var i = 0; i < len; i++) {
+    		particle = particles[i];
+
+    		if (!particle.frozen) {
+    			particle.x += particle.vx;
+    			particle.y += particle.vy;
+
+    			if (particle.x > window.innerWidth) {
+    				particle.vx = -VELOCITY - Math.random();
+    			} else if (particle.x < 0) {
+    				particle.vx = VELOCITY + Math.random();
+    			} else {
+    				particle.vx *= 1 + (Math.random() * 0.005);
+    			}
+
+    			if (particle.y > window.innerHeight) {
+    				particle.vy = -VELOCITY - Math.random();
+    			} else if (particle.y < 0) {
+    				particle.vy = VELOCITY + Math.random();
+    			} else {
+    				particle.vy *= 1 + (Math.random() * 0.005);
+    			}
+
+    			var distanceFactor = DistanceBetween(mouse, particle);
+    			distanceFactor = Math.max(Math.min(15 - (distanceFactor / 10), 10), 1);
+
+    			particle.currentSize = particle.size * distanceFactor;
+    		}
+
+    		context.fillStyle = particle.color;
+    		context.beginPath();
+    		context.arc(particle.x, particle.y, particle.currentSize, 0, Math.PI * 2, true);
+    		context.closePath();
+    		context.fill();
+
+    	}
+    }
+
+    function MouseMove(e) {
+    	mouse.x = e.layerX;
+    	mouse.y = e.layerY;
+    }
+
+    function MouseDown(e) {
+    	var len = particles.length;
+
+    	var closestIndex = 0;
+    	var closestDistance = 1000;
+
+    	for (var i = 0; i < len; i++) {
+    		var thisDistance = DistanceBetween(particles[i], mouse);
+
+    		if (thisDistance < closestDistance) {
+    			closestDistance = thisDistance;
+    			closestIndex = i;
+    		}
+
+    	}
+
+    	if (closestDistance < particles[closestIndex].currentSize) {
+    		particles[closestIndex].frozen = true;
+    	}
+    }
+
+    function ResizeCanvas(e) {
+    	canvas.width = window.innerWidth;
+    	canvas.height = window.innerHeight;
+    }
+
+    function DistanceBetween(p1, p2) {
+    	var dx = p2.x - p1.x;
+    	var dy = p2.y - p1.y;
+    	return Math.sqrt(dx * dx + dy * dy) * 10;
+    }
+
+    window.onload = function() {
+    	var a;
+    	var touch;
+    	var u_arrow = $('.u-arrow-bottom');
+    	var content = $('.content');
+    	u_arrow.fadeIn();
+    	content.fadeOut();
+    	$(function() {
+    		var page = $('#rect1 .page');
+    		var image_01 = page.first().find('img');
+    		var image_02 = page.last().find('.c');
+
+    		var h3 = $('#rect1 h3.h3');
+    		var b = $('#rect1 img.b');
+    		var bottom = $('img#bottom');
+    		var top = $('#top');
+    		var text = $('#text');
+    		var i = 0;
+    		var n = 0;
+    		image_01.each(function() {
+    			var class_ = $(this).attr('class_');
+    			$(this).attr('class', class_);
+    		});
+
+
+    		//数字跳动
+    		var doChange = function(config) {
+    				var o = config.o;
+    				var h = config.h;
+    				var t = setInterval(function() {
+    					if (n == config.number) {
+    						text.html('');
+    						clearInterval(t);
+    						o.css('display', 'none');
+    						h.css('display', 'none');
+    						o.eq(i).fadeIn(100).addClass('bounceIn animated')
+    						var temp = i;
+    						setTimeout(function() {
+    							o.eq(temp).addClass('bounceOut');
+    						}, 2000);
+    						n++;
+    						h.eq(i).fadeIn(100).addClass('flip animated');
+    						i++;
+    						showStep(o, h);
+    						return;
+    					}
+    					n++;
+    					text.html(n)
+    				}, config.time);
+
+    			}
+
+
+    			//步骤执行
+    		var showStep = function(o, h) {
+    				if (i == 0) {
+    					doChange({
+    						number: 5,
+    						time: 100,
+    						o: o,
+    						h: h
+    					});
+    				} else if (i == 1) {
+    					setTimeout(function() {
+    						doChange({
+    							number: 10,
+    							time: 100,
+    							o: o,
+    							h: h
+    						});
+    					}, 3500)
+
+    				} else if (i == 2) {
+    					setTimeout(function() {
+    						doChange({
+    							number: 19,
+    							time: 100,
+    							o: o,
+    							h: h
+    						});
+    					}, 3500)
+
+    				} else if (i == 3) {
+    					setTimeout(function() {
+    						var t = setInterval(function() {
+    							if (n == 69) {
+    								text.html('');
+    								clearInterval(t);
+    								o.css('display', 'none');
+    								h.css('display', 'none');
+    								o.eq(i).fadeIn(100).addClass('bounceIn animated');
+    								h.eq(i).fadeIn(10).addClass('flip animated');
+    								i++;
+    								showStep(o, h);
+    								return;
+    							}
+    							n++;
+    							text.html(n);
+    						}, 20);
+    					}, 3500)
+
+    				} else {
+    					return
+    				}
+
+
+
+    			}
+
+
+    			// setTimeout(function(){
+    			a = new TUYtouch({
+    				bind: document.getElementById("rect1"),
+    				// 绑定的DOM对象
+    				dire_h: false,
+    				//true 判断左右， false 判断上下
+    				backfn: function(o) { //回调事件
+
+    					if (o.dire == 'U' && page.last().css('display') == 'none') {
+    						$('#projector').css('display', 'none');
+    						// alert(1)
+    						bottom.addClass('zoomInUp animated');
+    						top.addClass('zoomInDown animated');
+    						page.css('display', 'none').last().css('display', 'block');
+    						text.css('lineHeight', $('.c').get(0).offsetHeight + 'px');
+    						image_02.each(function() {
+    							var class_ = $(this).attr('class_');
+    							//	 $(this).attr('class',class_);
+    						});
+    						image_02.removeClass('rotateIn').addClass('infinite_');
+    						image_02.first().addClass('infinite__').removeClass('infinite_');
+    						setTimeout(function() {
+    							image_02.removeClass('rotateIn').addClass('infinite_');
+    							bottom.removeClass('zoomInUp').addClass('pulse infinite');
+    							showStep(b, h3);
+    						}, 2500);
+    						//  a.remove();					
+    					} else if (o.dire == 'U' && $('#guid_last').css('display') == 'block') {
+    						a.remove();
+    						i = 0;
+    						n = 0;
+    						b.attr('style', '').attr('class', 'b');
+    						h3.css('display', 'none');
+    						if (touch) {
+    							touch.init();
+    						}
+    						$('#flash').attr('class', 'e')
+    						$('body').css('background', '#ffffff');
+    						$('#rect1').css('display', 'none');
+    						$('#rect').css('display', 'block');
+    					}
+    				}
+    			});
+
+    		var self = image_01;
+    		//  self.attr('class','rubberBand animated');
+    		image_01.attr('style', '-webkit-animation-duration:.8s')
+    		image_01.bind('click', function() {
+    			self.attr('class', '');
+    			setTimeout(function() {
+    				self.attr('class', 'rubberBand animated');
+    			}, 0)
+
+    		})
+    		// },5500)
+
+    	});
+
+
+
+
+    	var height = $(window).height();
+    	var page = $('#rect .page');
+    	var img = $('#rect .page img');
+    	var image_01 = page.first().find('img');
+    	var image_02 = page.last().find('.c');
+    	var u_arrow = $('.u-arrow-bottom');
+    	var h3 = $('h3.h3');
+    	var b = $('#rect img.b');
+    	var d = $('#rect img.d');
+    	var bottom = $('img#bottom');
+    	var top = $('#top');
+    	var text = $('#text');
+    	var i = 0;
+    	var n = 0;
+
+    	page.each(function(index) {
+    		$(this).attr('id', ++index);
+    	})
+    	image_01.each(function() {
+    		var class_ = $(this).attr('class_');
+    		$(this).attr('class', class_);
+    	});
+
+
+    	//数字跳动
+    	var doChange = function(config) {
+    			var o = config.o;
+    			var h = config.h;
+    			var t = setInterval(function() {
+    				if (n == config.number) {
+    					text.html('');
+    					clearInterval(t);
+    					o.css('display', 'none');
+    					h.css('display', 'none');
+    					o.eq(i).fadeIn(100).addClass('bounceIn animated')
+    					var temp = i;
+    					setTimeout(function() {
+    						o.eq(temp).addClass('bounceOut');
+    					}, 2000);
+    					n++;
+    					h.eq(i).fadeIn(100).addClass('flip animated');
+    					i++;
+    					showStep(o, h);
+    					return;
+    				}
+    				n++;
+    				text.html(n)
+    			}, config.time);
+
+    		}
+
+
+		var t1;
+    	var doChange2 = function(config) {
+    			//touch.remove();
+    			var n = 0;
+    			var o = config.o;
+    			var style = config.classes;
+    			setTimeout(function() {
+    				o.css('display', 'none');
+    				o.eq(n).css('display', 'block').addClass(style);
+    				n++;
+    			}, 50);
+    			t1 = setInterval(function() {
+    				if (n == o.length - 1) {
+    					clearInterval(t1);
+    				//	touch.init();
+    				}
+    				o.css('display', 'none');
+    				o.eq(n).css('display', 'block').addClass(style);
+    				var temp = n;
+    				n++;
+    				// setTimeout(function(){},2000)
+    			}, config.time);
+    		}
+
+
+
+    	touch = new TUYtouch({ //全局滑动
+    		bind: document.getElementById("rect"),
+    		// 绑定的DOM对象
+    		dire_h: false,
+    		//true 判断左右， false 判断上下
+    		backfn: function(o) { //回调事件
+    			var id = parseInt($('.page:visible').last().attr('id'));
+    			// alert(id)
+    			if (o.dire == 'U') {
+					 clearInterval(t1);
+    				if (id == page.length) {
+						page.attr('class','page');
+    					page.css('display', 'none').eq(0).css('display', 'block').addClass('zoomInUp fastAnimate animated');
+    					d.css('display', 'none');
+    					$('#rect1').css('display', 'block');
+    					$('#rect').css('display', 'none');
+    					touch.remove();
+    					a.init();
+    					$('#projector').css('display', 'block');
+    					$('body').css('background', '#20203f');
+    					$('#rect1 .page').last().css('display', 'none');
+    					$('#rect1 .page').first().css('display', 'block')
+    					return
+    				}
+
+    				page.css('display', 'none');
+    				if (id == 3) {
+					    $('#' + id).css('display', 'block').css('position', 'absolute');
+                        var dd = $('#' + id).find('.d');
+						var dd_i = $('#' + id).find('img');
+						var dd_l = dd.length;
+						var dd_v = $('#' + id).find('.d:visible').index();
+						if(dd_v==-1){
+						dd_v = 0;
+						}
+						dd_v = dd_v+1;
+						if(dd_v <= dd.length){
+						     dd.css('display', 'none');
+						     dd_i.eq(dd_v).css('display', 'block').addClass('zoomIn fastAnimate animated');
+							 return
+						}
+						else{
+						 dd.css('display', 'none');
+						 dd_i.eq(0).css('display', 'block');
+						 $('#' + id).css('display', 'none');
+						}
+    				}
+					id++;
+    				if (id == 4) {
+    					$('#' + id).css('display', 'block').css('position', 'absolute');
+    					setTimeout(function() {
+    						$('#5').css('display', 'block').addClass('zoomInUp fastAnimate animated');
+    						$('#5').find('.e').each(function() {
+    							var class_ = $(this).attr('class_');
+    							$(this).attr('class', class_)
+    						});
+    					}, 300);
+    					setTimeout(function() {
+    						$('#flash').attr('class', 'flash animated');
+    					}, 3000)
+    				} else if (id == 2) {
+    					$('#' + id).css('display', 'block').addClass('fadeInUp  animated').attr('style', '-webkit-animation-duration:2s;-webkit-animation-delay:0s;');
+    				} else if (4 < id && id < 9) {
+    					$('#4').css('display', 'block')
+    					$('#' + id).css('display', 'block').addClass('zoomInUp fastAnimate animated');
+    				} else if (9 < id && id < 26) {
+    					$('#' + id).css('display', 'block').addClass('slideInUp fastAnimate animated');
+    				} else {
+    					$('#' + id).css('display', 'block').addClass('zoomInUp fastAnimate animated');
+    				}
+
+
+    			} else if (o.dire == 'D') {
+                    clearInterval(t1);
+					if(id==1){
+						page.attr('class','page');
+    					page.css('display', 'none').eq(0).css('display', 'block').addClass('zoomInUp fastAnimate animated');
+    					d.css('display', 'none');
+    					$('#rect1').css('display', 'block');
+    					$('#rect').css('display', 'none');
+    					touch.remove();
+    					a.init();
+    					$('#projector').css('display', 'block');
+    					$('body').css('background', '#20203f');
+    					$('#rect1 .page').last().css('display', 'none');
+    					$('#rect1 .page').first().css('display', 'block')
+    					return;						
+					}
+ 				    
+					page.css('display','none');
+    				if (id == 5) {
+    					$('#4').css('display', 'none');
+    					$('#3').css('display','block').attr('class','page').addClass('slideInDown fastAnimate animated');
+						id=3;
+					    $('#' + id).css('display', 'block').css('position', 'absolute');
+                        var dd = $('#' + id).find('.d');
+						var dd_i = $('#' + id).find('img');
+						var dd_l = dd.length;
+						var dd_v = $('#' + id).find('.d:visible').index();
+						if(dd_v==-1){
+						dd_v = 0;
+						}						
+						dd_v = dd_v+1;
+						if(dd_v <= dd.length){
+						     dd.css('display', 'none');
+						     dd_i.eq(dd_v).css('display', 'block').addClass('zoomIn fastAnimate animated');
+							 return
+						}
+						else{
+						 $('#' + id).css('display', 'none');
+						}
+    				}
+					id--;
+					if (4 < id && id < 9) {
+					    					$('#4').css('display', 'block')
+					    					$('#' + id).css('display', 'block').attr('class','page').addClass('fadeIn fastAnimate animated');
+					}
+					else{
+	 					
+	 					$('#'+id).css('display','block').attr('class','page').addClass('slideInDown fastAnimate animated');						
+					}
+
+
+    			}
+				
+				
+				
+    		}
+    	});
+    	//步骤执行
+    	var showStep = function(o, h) {
+    			if (i == 0) {
+    				doChange({
+    					number: 5,
+    					time: 100,
+    					o: o,
+    					h: h
+    				});
+    			} else if (i == 1) {
+    				setTimeout(function() {
+    					doChange({
+    						number: 10,
+    						time: 100,
+    						o: o,
+    						h: h
+    					});
+    				}, 3500)
+
+    			} else if (i == 2) {
+    				setTimeout(function() {
+    					doChange({
+    						number: 19,
+    						time: 100,
+    						o: o,
+    						h: h
+    					});
+    				}, 3500)
+
+    			} else if (i == 3) {
+    				setTimeout(function() {
+    					var t = setInterval(function() {
+    						if (n == 69) {
+    							text.html('');
+    							clearInterval(t);
+    							o.css('display', 'none');
+    							h.css('display', 'none');
+    							o.eq(i).fadeIn(100).addClass('bounceIn animated');
+    							h.eq(i).fadeIn(10).addClass('flip animated');
+    							i++;
+    							showStep(o, h);
+    							return;
+    						}
+    						n++;
+    						text.html(n);
+    					}, 20);
+    				}, 3500)
+
+    			} else {
+    				return
+    			}
+
+
+
+    		}
+
+
+    	setTimeout(function() {
+
+    		u_arrow.first().fadeIn();
+    		var self = image_01;
+    		//  self.attr('class','rubberBand animated');
+    		image_01.attr('style', '-webkit-animation-duration:.8s')
+    		image_01.bind('click', function() {
+    			self.attr('class', '');
+    			setTimeout(function() {
+    				self.attr('class', 'rubberBand animated');
+    			}, 0)
+
+    		})
+    	}, 5500)
+    }
+	</script>
+</body>
+</html>

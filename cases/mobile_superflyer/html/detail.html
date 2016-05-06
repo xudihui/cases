@@ -1,0 +1,202 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link media="all" href="../css/base.css" type="text/css" rel="stylesheet">
+<link media="all" href="../css/index.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/swipe.js"></script>
+<title>超级派单员-何乐而不为</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="favourite.ico" rel="shortcut icon">
+</head>
+<style type="text/css">
+html,body{overflow-x:hidden}
+
+.img_gallery{width:auto;height:auto;float:left;margin-left:0px;position:relative}
+.img_gallery_div{width:80px;height:80px;float:left;overflow:hidden;margin-left:10px;}
+#banner_box ul li{vertical-align:middle!important;overflow:hidden;text-align:center}
+ol#slidelist{height:25px;opacity:1;position:fixed;bottom:0px;left:0;width:100%;z-index:999;text-align:center;overflow:hidden;margin:0;margin-top:-35px;padding:0;padding-bottom:10px;}
+ol#slidelist>li{display:inline-block;margin:5px;width:5px;height:5px;background-color:#ffffff;border-radius: 50%;opacity:.5;}
+ol#slidelist>li.on{opacity:1;width:5px;height:5px;border:none;background-color:#ffffff;}
+</style>
+<body class=''>
+	<header class='index'>
+	       <a class='address'>
+      	    <span class='title'>详情</span>
+           </a>
+		   <div class="logo"></div>
+    </header>
+
+	<div class="banner ident"><!-- 如果是认证商户，请添加class=ident -->
+			   <img class='index_img' src="../images/temp02.png" alt="" />
+			   <div class="index_company_bg"></div>
+			   <div class="index_company_words setover">店铺里面的优惠店铺里面的优惠店铺里面的优店铺里面的优惠店铺里面的优惠店铺里面的优惠惠</div>
+	</div>
+	<h1 class="name">商家介绍</h1>
+	<div class="wrap_7 colorGrey">
+		U-Co咖啡就是要研发适合国人的意式咖啡和饮品，做老百姓日
+常生活离不开的咖啡小店，我们的口号是：您再忙，也要让您喝
+到我们的现磨咖啡！
+	</div>
+	<h1 class="name">商家图片</h1>
+	<div class="wrap_7 colorGrey">
+		<div id="img_gallery_wrap">
+			<div id="img_gallery">
+				<img src="../images/test.png" alt="" class="img_gallery" />
+				<img src="../images/test2.jpg" alt="" class="img_gallery" />
+				<img src="../images/test1.jpg" alt="" class="img_gallery" />
+				<img src="../images/discount_bg.png" alt="" class="img_gallery" />
+				<img src="../images/test.png" alt="" class="img_gallery" />		
+			</div>
+		</div>
+	</div>
+	<h1 class="name">优惠活动</h1>
+	<div class="wrap_7">
+         <a class="red_circle"><span>指定8元饮品买一送一指定8元饮品买一送一</span></a>
+         <a class="red_circle"><span>指定8元饮品买一送一指定8元饮品买一送一</span></a>	
+         <a class="red_circle"><span>指定8元饮品买一送一指定8元饮品买一送一指定8元饮品买一送一指定8元饮品买一送一</span></a>		 
+	</div>	
+<script type="text/javascript">
+   $(function(){
+   
+         $('.index_company_words').width($(window).width()); 
+		$('.red_circle span').width($(window).width()-120);
+		var resizeTimer = null;
+		window.onresize=function(){
+			if (resizeTimer) {
+			clearTimeout(resizeTimer)
+			}
+			resizeTimer = setTimeout(function(){
+              $('.red_circle span').width($(window).width()-120);
+			}, 400);
+		}
+			  
+var start_x, start_y, end_x, end_y, move_num, move_num_;
+	var t_time=null;
+	var client_height = $(window).height();		  
+	$('#img_gallery').width($('.img_gallery').length*90)  //初始化长度
+	$('.slide_page_cur').html('1');
+	$('.slide_page_total').html($('.img_gallery').length);
+	
+	$('.img_gallery').wrap("<div class='img_gallery_div'></div>"); //包裹图片，让图片能等比居中
+	setInterval(function(){ //延迟50ms去计算图片尺寸，亲测不延迟会出现一定几率尺寸出入
+	$('.img_gallery').each(function(){
+	     var x = $(this).width();
+		 var y = $(this).height();
+	     if(x>y){
+		   $(this).height(80);
+		   x = $(this).width();
+		   $(this).css('marginLeft','-'+(x-80)/2+'px')
+		 }
+		 else{
+		   $(this).width(80);
+		    y = $(this).height();
+		   $(this).css('marginTop','-'+(y-80)/2+'px')	 
+		 }
+	})	
+	},50)
+
+	
+	$('.img_gallery').on('touchstart',function(){ //由于使用click会有200ms左右的延迟，导致点透现象
+	     $('#banner_box ul,#banner_box ul li').css('height',client_height)
+	     var index = $(this).parent().index();
+		 $('.slide_page_cur').html(index+1);
+	     $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()))
+	     $('.frame,#dialog,#slidelist').fadeIn(100,function(){
+		 	$('#banner_box li img').each(function(){
+		    if($(this).height()>client_height){  //惊现瘦高图片的情况
+			    var scale = $(this).width()/$(this).height()  //瘦高图片的比例
+			    $(this).css('height',client_height).css('width',client_height*scale);//瘦高图片的时候，让它左右留白，高度是屏幕高度
+			}
+		 })
+		 });		
+         $('ol li').eq(index).addClass('on');
+		 var slide = new Swipe(document.getElementById('banner_box'), {
+				speed:500,
+				auto:false,
+				callback: function(){
+					$('ol li').removeClass('on');
+					$('ol li').eq(this.index).addClass('on');
+				}
+			});	
+		 slide.slide(index,0)
+        
+	});
+
+    $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()));
+	 
+    $('.frame,#dialog').on("touchstart", function(e) {
+        start_x = e.originalEvent.targetTouches[0].clientX;
+        start_y = e.originalEvent.targetTouches[0].clientY;
+		t_time = setTimeout(function(){
+		  $('.frame,#dialog,#slidelist').fadeOut();
+		},300)
+        console.log(start_x+'@@'+start_y);
+    });
+    $('.frame,#dialog').on("touchmove", function(e) {
+	    if(t_time){
+		clearTimeout(t_time)
+		}
+        end_x = e.originalEvent.targetTouches[0].clientX;
+        end_y = e.originalEvent.targetTouches[0].clientY;
+        move_num = Math.abs((end_y - start_y).toFixed(0));
+		move_num_ = Math.abs((end_x - start_x).toFixed(0));
+		move_num = Math.max(move_num,move_num_) //选择x轴跟y轴移动的最大距离
+    });
+    $('.frame,#dialog').on("touchend", function() {    
+        if (move_num < 2) {
+         $('.frame,#dialog,#slidelist').fadeOut();
+        }
+    });
+     $(window).resize(function(){
+	   if($('.frame').css('display') !='none'){
+	    $('.frame').width(parseInt($(window).width())).height(parseInt($(window).height()))
+	   }
+	 });
+			  
+   });
+</script>	
+
+	<div class='frame' style='z-index:998' ></div>	 <!-- 遮罩-->	
+
+	<div id='dialog' style='z-index:999;top:0'  >
+		<div class='dialog_content' style='top:0'>
+			<div class="slide">
+				<div class="box_swipe" id="banner_box">
+					<ul>
+						<li><img src="../images/test_big.png"></li>
+						<li><img src="../images/test2.jpg"></li>
+						<li><img src="../images/test1.jpg"></li>
+						<li><img src="../images/discount_bg.png"></li>		
+						<li><img src="../images/test_big.png"></li>					
+					</ul>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>	
+	<ol id='slidelist' style='display:none'>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>						
+	</ol>		
+</body>
+</html>

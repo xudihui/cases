@@ -1,0 +1,239 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link media="all" href="../css/base.css" type="text/css" rel="stylesheet">
+<link media="all" href="../css/index.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<title>超级派单员-何乐而不为</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="favourite.ico" rel="shortcut icon">
+</head>
+<body >
+	<header class='index'>
+	       <a class='address'>
+      	    <span class='title'>评价</span>
+           </a>
+		   <div class="logo"></div>
+    </header>
+
+
+	<div class="appraise_top">
+	    <p id='neat'><span>整洁</span><i></i><i></i><i></i><i></i><i></i></p>
+		<p id='product'><span>产品</span><i></i><i></i><i></i><i></i><i></i></p>
+		<p id='service'><span>服务</span><i></i><i></i><i></i><i></i><i></i></p>
+	</div>	
+	
+	<div class="wrap_20 appraise_list"></div>
+	<div class="wrap_20">
+	    <div class="appraise_wrap">
+		  <i id='appraise_number'></i>
+		</div>
+	</div>	
+	<div class="wrap_20">
+	    <a id='submit' class="btn_red">提交</a>
+	</div>
+		
+<script type="text/javascript">
+
+;
+/**
+ * 用户评价功能
+ * @param config.number <number> 印象可选的最多个数
+ * @param config.limit <number> 自定义印象的最长字数限制
+ * @param config.tips <Array> 数组，印象标签数组
+ * @date 2015.11.03
+ */
+
+(function ($) {
+
+  window.Heloo = window.Heloo || {};
+  
+  Heloo.Appraise = function(config){
+	   this.config = config;
+	   this.run();
+  };
+  
+  Heloo.Appraise.prototype = {
+		// 启动
+		run : function () {
+			// 生成dom元素
+			this.initDom ();
+			// 绑定事件
+			this.initEvents ();
+		},
+		
+		//初始化DOM 最好确保只执行一次
+		initDom : function () {
+		   this.list = $('.appraise_list'); //存放初始标签的容器
+		   this.number = $('#appraise_number'); //存放总数目的容器
+		   this.wrap = $('.appraise_wrap'); //存放评价的目标容器
+		   this.setNumber();
+		   var self = this;
+		   this.config.tips.forEach(function(el){
+		      self.list.append($(' <span class="appraise_tips"></span>').html(el));
+		   });
+        },
+		
+		//初始化事件
+		initEvents: function () {
+		      var self = this;
+			  $('i','.appraise_top').bind('click',function(){ //评价五角星事件
+				  var index = $(this).index(),
+		              i = $(this).parent().children();
+				  i.removeClass('on bounceIn');
+				  while(index>0){
+					 i.eq(index--).addClass('on bounceIn');
+				  }
+			  });	
+			  
+		      self.list.delegate('.appraise_tips','click',function(){ //印象选择标签绑定事件
+					var that = $(this),
+						html = that.html(),
+						length = self.wrap.find('span').length;
+					that.toggleClass('selected');
+					if(that.hasClass('selected')){ 
+					  if(length>self.config.number-1){
+						 that.removeClass('selected');
+						 return;
+					  }
+					  self.wrap.append($("<span html='" + html + "' class='appraise_tips bounceIn'>" + html + "</span>"));
+					  that.attr('html',html);
+					}
+					else{
+					  var el = '.appraise_wrap span[html='+ that.attr('html') + ']';
+					  $(el).remove();
+					}
+					self.setNumber();			 
+			  });
+			   
+		     self.wrap.delegate('span.appraise_tips','click',function(e){//存放评价的目标容器绑定事件
+					e ? e.stopPropagation() : window.event.cancelBubble = true; //阻止冒泡
+					var state = $(this).hasClass('appraise_tips_self');
+					var html = $(this).html();
+					$(this).remove();
+					var el = '.appraise_list span[html='+ html + ']';
+					$(el).removeClass('selected');
+					if(state){
+					 self.setInput(html);
+					}
+					else{
+					 self.setNumber();
+					}
+					
+					
+	          });
+			  
+			  self.wrap.bind('click',function(){//自定义输入印象事件
+					if($('.appraise_wrap span.appraise_tips_self').length==0 && $('.appraise_wrap span.appraise_tips').length<self.config.number ){
+					 self.setInput();
+					}
+			  });			  
+		},
+		
+		//设置自定义标签
+		setInput: function (html) {             
+		             var self = this,
+					     html = html||'',
+						 b = $('<b></b>'),
+						 input = $('<input type="text" value="" maxlength="'+self.config.limit+'" />'),
+						 wrap = $('<span class="appraise_tips appraise_input appraise_tips_self"></span>'),
+					     em = $('<em>'+html+'</em>');
+					 b.append(input);
+					 console.log(b.html())
+					 //wrap.append(em);
+					 wrap.append(b);
+					 wrap.prepend(em);
+					 self.wrap.append(wrap);
+					 input.val('');
+					 input.focus();
+					 input.val(html);//重新赋值，让焦点跑到文本框的末尾
+					 
+					 
+					 self.setLimitNumber();
+					 input.bind('input',function(){ 
+					
+					   wrap.find('em').remove();
+					   em.html(input.val().slice(0,self.config.limit));
+					   b.before(em);
+					   self.setLimitNumber();
+					 })
+					 .bind('blur',function(){
+					 var val = em.html().replace( / /g, '' );
+					 if(val==''){
+					  wrap.remove();
+					  self.setNumber();
+					  return;
+					 }
+					 wrap.removeClass('appraise_input');
+					 wrap.html(em.html());
+					 input.remove();
+					 self.setNumber();
+					 
+					 })
+					 .bind('focus',function(){	
+					 })
+					 .bind('click',function(evt){
+					 evt ? evt.stopPropagation() : window.event.cancelBubble = true
+					 });				 
+		},			
+		
+		//设置剩余个数
+		setNumber: function () {
+			this.number.html('还可以添加<em>'+((this.config.number-$('.appraise_wrap span.appraise_tips').length)||0)+'</em>个印象');			 
+		},	
+		
+		//设置剩余字数
+		setLimitNumber: function () {
+		    this.number.html('还可以输入<em>'+(this.config.limit-$('.appraise_tips_self em').html().length||0)+'</em>个字');
+		},	
+		
+		//获取页面数据
+		getData:function(){
+			var p = $('.appraise_top p'),tips = $('.appraise_wrap span.appraise_tips'),arr = [], temp = {}, data = {};
+			p.each(function(){
+			  var that = $(this); 
+			  temp[that.attr('id')] = that.find('i.on').length;
+			});
+			tips.each(function(){
+			  var that = $(this); 
+			  arr.push(that.html());
+			});		 
+			data['appraise_stars'] = temp;
+			data['appraise_tips'] = arr;
+			return data;
+		}
+  } 
+
+})(jQuery, window);	
+
+   
+   $(function(){
+   
+     var x = new Heloo.Appraise({
+	      number:4,//总评价数量
+		  limit:5, //自定义印象最长字数
+	      tips:['牛','气','冲','天','啊','牛啊','气牛','冲气牛','天冲气牛','啊发生大发'] //印象数组
+	 });
+	 
+	 $('#submit').bind('click',function(){ //取数据
+		console.log(x.getData());
+	 })
+   });
+</script>	
+</body>
+</html>

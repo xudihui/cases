@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title></title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="" name="Keywords">
+	<meta content="" name="Description">
+	<!-- Mobile Devices Support @begin -->
+	<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+	<!-- Mobile Devices Support @end -->
+	<link href="favourite.ico" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="icon.png" />
+	<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+	<!--iPad 1 72x72 像素-->
+	<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+	<!--iPhone 4 114x114 像素-->
+	<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+    <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-precomposed.png?v=211d96120f">
+    <link rel="icon" href="/assets/ico/favicon.ico?v=211d96120f">
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/screen.css" />
+
+</head>
+<body class="home-template" style='overflow-x:hidden'>
+<section class='section_user_center'>
+	<div class="container-fluid right_nearby">
+	   <div class="row">
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a class='item-public-title'>
+					<span>个人账户：shimingka@126.com</span>
+					<div class="dot"></div>
+				   </a>
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a class='item-public-title'>
+					<div class="blank"></div>
+					<img src='images/user_center_01.png' />
+					<span>账户总资产</span>
+					<span class="money">￥66.66</span>
+					<div class="dot"></div>
+				   </a>
+				  
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a href='user_center_card.html' target='_self' class='item-public-title'>
+					<div class="blank"></div>
+					<img src='images/user_center_02.png' />
+					<span>我的卡</span>
+					<div class="dot"></div>
+				   </a>
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a class='item-public-title'>
+					<div class="blank"></div>
+					<img src='images/user_center_03.png' />
+					<span>交易明细</span>
+					<div class="dot"></div>
+				   </a>
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a class='item-public-title'>
+					<div class="blank"></div>
+					<img src='images/user_center_04.png' />
+					<span>网上支付</span>
+					<div class="switch" >
+						<input type="checkbox" id="control" class="control">
+						<label for="control" class="checkbox"></label>
+					</div>
+				   </a>
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public noborder'>
+				   <a class='item-public-title'>
+					<div class="blank"></div>
+					<img src='images/user_center_05.png' />
+					<span>智慧医疗结算</span>
+					<div class="switch checked" > <!-- 如果默认是打开的，这里要加上class名 checked -->
+						<input type="checkbox" checked='checked' id="control" class="control"> <!-- 如果默认是打开的，这里要加上 checked -->
+						<label for="control" class="checkbox"></label>
+					</div>
+				   </a>
+			  </div>
+		  </div>	  
+	   </div>
+
+		 
+	</div>
+</section>
+
+
+
+<div class="container">
+   <div class="row">
+      <div class="col-xs-12">
+            <a href="" class="btn_red">退出登录</a>
+	  </div>	  
+   </div>
+</div>
+
+<script src="../../lib/bootstrap/js/jquery.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+ $('.switch input').bind('click',function(){
+    var that = $(this);
+	setTimeout(function(){that.parent().css('background',that.prop('checked') ? '#4cd764' : '#fff')},250)
+ })
+</script>
+
+
+</body>
+</html>

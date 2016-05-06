@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<link media="all" href="css/home.css" type="text/css" rel="stylesheet">
+<title>海商网手机页面</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="大型企业提供过网络品牌建设、行业网站平台、个性化APP定制解决方案、电子商贸平台网站专案；" name="Keywords">
+<meta content="大型企业提供过网络品牌建设、行业网站平台、个性化APP定制解决方案、电子商贸平台网站专案；" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="bckjapp.ico" rel="shortcut icon">
+<link rel="apple-touch-icon" href="icon.png" />
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<!--iPad 1 72x72 像素-->
+<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+<!--iPhone 4 114x114 像素-->
+<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+</head>
+<body>
+<div id="main">
+	<div class="top_menu">
+	    <!-- 原稿
+        <span class="return"><a href="javascript:history.go(-1)">返回</a></span>
+        <span class="cen"><img src="images/logo.png"></span>
+        <span class="right"><a href="index.html">首页</a></span>
+		-->
+		<a href="javascript:history.go(-1)" class='return'>返回</a>
+	<!--<a href='index.html' class='index'>首页</a>-->
+		
+    </div>
+    <div class="title">
+	   <span class="pink">问题反馈<em></em></span>	
+	</div>
+	
+	
+    <div class="backfeed">
+	<!-- 表单 begin-->
+	<form>
+    <textarea id='words' autocomplete="off" placeholder="请输入问题反馈内容"></textarea>
+    <input id='author' name="" type="text" class="all" autocomplete="off" placeholder="请输入联系人" />
+	<input id='contact' name="" type="text" class="short" autocomplete="off" placeholder="请输入联系方式" />
+	<input id='email_address' name="" type="text" class="short" autocomplete="off" placeholder="请输入联系邮箱" />
+	<input type='submit' href='' value='提交' class='submit'></input>
+	</form>
+	<!-- 表单 end-->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+    $(function(){
+	   var backfeed={};
+	   backfeed.Check=(function(){
+	      var Unit=function(){
+		  $("form").submit(function(e){
+	        var reg_email = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/; 
+			var reg_contact=  /^((\(\d{3}\))|(\d{3}\-))?13\d{9}|14[57]\d{8}|15\d{9}|18\d{9}$/;
+			//var isMobile=/^(?:13\d|15\d)\d{5}(\d{3}|\*{3})$/;   
+            // var isPhone=/^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;
+			if($("#email_address").val()==''|| $("#contact").val()==''|| $("#author").val()==''|| $("#words").val()=='')
+			{alert('亲，您还有未填选项哦！')}
+			else{
+			//alert(!(reg_contact.test($("#contact").val())&&$("#contact").val().length==11))
+			try{
+			 if(!(reg_contact.test($("#contact").val())&&$("#contact").val().length==11))
+			 throw "Err1"
+			 else if(!reg_email.test($("#email_address").val()))
+			 throw "Err2"
+			 else((reg_contact.test($("#contact").val()))&&reg_email.test($("#email_address").val()))
+			 throw 'Success'
+			}
+			catch(er)
+			{
+            if(er == "Err1") 
+            	alert('亲，请输入正确的手机号码哦！')//这块固话号码现在还没进行校验，乐总，如果这里要增加固话号码校验的话，最好输入框就能分成两个，然后中间用一根小横线表示区号跟号码的连接。			
+            if(er=="Err2") 
+            	alert('亲，邮箱格式不正确哦！')
+            if(er=="Success") 
+            	alert('提交成功！感谢您的问题反馈。')
+             }
+			}
+            });
+		  
+		  }
+		  return{
+		  Unit:Unit
+		  }
+	   
+	   
+	   
+	   })()
+	   backfeed.Check.Unit();//问题反馈页面初始化
+	  
+			
+			
+	});
+				
+	</script>
+	</div>
+</div>
+</body>
+</html>

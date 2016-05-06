@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video,i {border: 0 none;margin: 0;outline: 0 none;padding: 0;}
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {color:#fff}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+body {color: #000;font: 16px/1.5 "Microsoft Yahei","helvetica","arial";min-width: 320px;max-width:640px;overflow:hidden;margin:0 auto}
+html,body{ height:100%;}
+h1, h2, h3, h4, h5, h6 {font-size: 100%;}
+form {display: inline;}
+ul, ol {list-style: outside none none;}
+a {color: #000;text-decoration: none;}
+a:hover {color: #1c5aa2;text-decoration: none;}
+img {border: 0 none;vertical-align: middle;}
+button, input, select, textarea {font-family: "Microsoft Yahei","helvetica","arial";font-size: 100%;outline: medium none;vertical-align: middle;}
+textarea {resize: none;}
+button, input[type="button"], input[type="reset"], input[type="submit"] {-moz-appearance: button;cursor: pointer;}
+button::-moz-focus-inner, input::-moz-focus-inner {border: 0 none;padding: 0;}
+table {border-collapse: collapse;border-spacing: 0;}
+.setover{white-space:nowrap;text-overflow: ellipsis;overflow: hidden;}
+
+#main{overflow:hidden;height:100%;background:url(bg.jpg) 0 0 no-repeat;background-size:100% 100%;position:Relative}
+section#top{height:24px;background:#edecec;box-shadow:0 3px 13px #333;position:relative;line-height:24px;width:100%;}
+section#top img{border-radius:50%;border:1px solid #edecec;width:42px;height:42px;margin-left:10px;margin-top:4px}
+section#top p{position:absolute;left:0;top:0;text-indent:60px;color:#000;font-size:12px;width:100%}
+img.ts,a.banner img{width:100%}
+img.result{width:230px;margin:0 auto}
+a.banner img{position:Absolute;bottom:0;left:0}
+p.tl,p.tr,p.c{font-size:25px}
+p.tl{text-align:left;text-indent:30px;}
+p.tr{text-align:right;padding-right:30px;}
+p.c{text-align:center;margin-top:-90px;margin-bottom:10px}
+p.l{font-size:16px;text-align:left;padding:15px 20px}
+input,select.text{display:block;margin:0 auto;width:140px;height:30px;border:none;margin-top:10px;text-indent:5px}
+input.text{background:url(input.png) 0 0 no-repeat;background-size:100% 100%;color:#888}
+div#selectWrap{margin:0 auto;width:140px;height:28px;overflow:hidden;border-radius:20px;border:2px solid #fff;margin-top:10px;}
+select.text{border-radius:20px;color:#888;margin-top:-2px;height: 35px;background: #fff;margin-left:-2px;width:145px;}
+input.y{background:url(btn_y.png) 0 0 no-repeat;background-size:100% 100%;text-align:center;text-indent:0}
+a.y{background:url(btn_y.png) 0 0 no-repeat;background-size:100% 100%;width:140px;height:30px;line-height:30px;text-align:center;font-weight:bold;display:inline-block}
+a.g{background:url(btn_g.png) 0 0 no-repeat;background-size:100% 100%;width:140px;height:30px;line-height:30px;color:#fff;font-weight:bold;text-align:center;display:inline-block;margin-left:20px}
+
+section#frame{width:100%;height:100%;background:rgba(0,0,0,.8);position:Absolute;left:0;top:0}
+
+section#frame #content{width:190px;height:110px;background:#d6d3d3;padding:10px;text-align:center;margin:0 auto;border-radius:15px;top:50%;position:relative;margin-top:-60px}
+section#frame #content img{width:40px;height:40px;}
+section#frame #content p{color:#000;font-size:12px;font-weight:bold}
+section#frame #content p:nth-child(3){;font-size:14px;padding-bottom:8px}
+
+section#frame #content #pro{width:100%;height:3px;background:#fff;}
+section#frame #content #pro_i{width:0%;height:3px;background:#e60012;margin-top:-3px;-webkit-animation-name:pro;animation-name:pro;-webkit-animation-duration:14s;animation-duration:14s;-webkit-animation-delay:0s;animation-delay:0s;}
+
+
+
+
+@-webkit-keyframes pro {
+  from {
+    width:0%;
+  }
+
+  to {
+    width:80%;
+  }
+}
+
+@keyframes pro {
+  from {
+    width:0%;
+  }
+
+  to {
+    width:80%;
+  }
+}

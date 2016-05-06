@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+    <html ng-app="ngSanitize">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title></title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="" name="Keywords">
+	<meta content="" name="Description">
+	<!-- Mobile Devices Support @begin -->
+	<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+	<!-- Mobile Devices Support @end -->
+	<link href="favourite.ico" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="icon.png" />
+	<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+	<!--iPad 1 72x72 像素-->
+	<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+	<!--iPhone 4 114x114 像素-->
+	<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+    <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-precomposed.png?v=211d96120f">
+    <link rel="icon" href="/assets/ico/favicon.ico?v=211d96120f">
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/screen.css" />
+
+</head>
+<body class="home-template" style='overflow-x:hidden'>
+<!--
+	<header>
+		<a  class='return'>返回</a>
+		交易明细
+		<a  class='time'>时间筛选</a>
+    </header>
+-->
+	<div class="container" ng-controller="shoppingDetail" ng-model="shoppingDetail">
+	   <div class="row">
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a class='item-public-title'>
+					<span class='gray normal'>时间筛选:所有</span>
+					<div class="dot"></div>
+				   </a>
+					<ul class="list-unstyled">
+						<li class='first' ng-click="orderAdd()"><a href="javascript:void 0">正序排列</a></li>
+						<li ng-click="orderReduce()"><a href="javascript:void 0">逆序排列</a></li>
+				    </ul>
+					
+			  </div>
+		  </div>
+	   </div>
+	
+	   <div class="row" >
+		  <div class="col-xs-12 col-sm-6" ng-repeat="item in items | orderBy:orderProp">
+			  <div class='item-shopping-detail'>
+                 <div class="item-shopping-detail-top"></div>
+				 <dl>
+				 	<dt>账户余额：{{'￥'+item.balance}}</dt>
+				 	<dd>交易时间：{{item.time}}</dd>
+					<dd>商户名称：{{item.name}}</dd>
+					<dd>订单类型：{{item.type}}</dd>
+					<dd>订单金额：<span ng-bind-html="modifyStyle(item.money)"></span></dd>
+					<dd>订单状态：<span ng-bind-html="modifyStyle(item.state)"></span></dd>
+				 </dl>
+			  </div>
+		  </div>
+
+	   </div>
+		 
+	</div>
+
+
+
+<script src="../../lib/bootstrap/js/jquery.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap/js/angular.min.js"></script>
+<script src="../../lib/bootstrap/js/angular-sanitize.min.js"></script>
+<script src="../../lib/bootstrap/js/temp.js"></script>
+
+
+</body>
+</html>

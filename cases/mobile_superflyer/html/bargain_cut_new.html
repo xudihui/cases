@@ -1,0 +1,107 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link media="all" href="../css/base.css" type="text/css" rel="stylesheet">
+<link media="all" href="../css/index.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<title>超级派单员-何乐而不为</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="favourite.ico" rel="shortcut icon">
+</head>
+
+<body class='bargain_cut bargain_cut_new'>
+
+	<div class="bargain_top wrap_20 bargain_top_big ">
+			   <img  src="../images/temp2.png" alt="" />
+			   <div class="bargain_top_title setover ">miss 咖啡馆,咖啡就是要研发适合国人的意式咖啡和饮品</div> 
+	</div>
+	<div class="bargain_cut_new_banner">
+	 <img src="../images/temp3.png" alt="" />
+	 <a href="" class="detail_btn"></a>
+	</div>
+	
+	
+	
+	   <div class="bargain_title setover">50元抵价券优惠价40元</div>
+	   <div class="wrap_7">
+              <div class="item04 item05" >限量:100 剩余:10</div>
+	   </div>
+	   <div class="wrap_20">
+	   <div class="wrap_7">
+	   <div class="bargain_progress_type02" >
+	      <div class="progress_detail_wrap" >
+		    <i id='progress_detail' data='1%'></i>
+		  </div>
+		  <span>50元抵价券优惠价36元</span>
+	   </div>
+	   </div>
+	   <div class="bargain_btn_wrap">
+	      <a href="javascript:void(0)" class="radius_style radius_green">帮忙砍价</a>
+	   </div>
+	   <div class="bargain_btn_wrap">
+	     <a href="javascript:void(0)" class="radius_style radius_yellow">立即领券</a>
+	   </div>	
+	</div>
+	
+	
+	
+
+
+	<h1 class="border_top02">砍价榜单</h1>
+	<div class="wrap_20">
+         	<section class='bargain_list'>
+			   <img  src="../images/temp2.png" alt="" />
+			   <h1 class='setover'>小灰灰小灰灰小灰灰小灰灰小灰灰小灰灰小灰灰小灰灰</h1>
+			   <h2 class='setover'>帮朋友砍得，不要问我为什么！不要问我为什么！</h2>
+			   <i>砍了<span class='red'>1.00</span>元</i>
+			</section>	 
+         	<section class='bargain_list'>
+			   <img  src="../images/temp2.png" alt="" />
+			   <h1 class='setover'>小灰灰</h1>
+			   <h2 class='setover'>帮朋友砍得，不要问我为什么！</h2>
+			   <i>砍了<span class='red'>1.00</span>元</i>
+			</section>	
+         	<section class='bargain_list'>
+			   <img  src="../images/temp2.png" alt="" />
+			   <h1 class='setover'>小灰灰小灰灰小灰灰小灰灰小灰灰小灰灰小灰灰小灰灰</h1>
+			   <h2 class='setover'>帮朋友砍得，不要问我为什么！不要问我为什么！</h2>
+			   <i>砍了<span class='red'>1.00</span>元</i>
+			</section>				
+	</div>	
+<script type="text/javascript">
+   $(function(){
+       var data = $('#progress_detail').attr('data');
+	   
+	   var bargain = function(data){
+		   var tips = $('.bargain_progress_type02 span');
+		   var tips_width = tips.outerWidth();
+		   $('#progress_detail').width(data);
+		   setTimeout(function(){
+			  tips.css({display:'block',left:data,marginLeft:'-'+tips.outerWidth()/2+'px'}).addClass('bounceIn')   
+		   },1100)		   
+	   }
+	   
+	   bargain(data);
+  
+   });
+</script>	
+
+
+	
+</body>
+</html>

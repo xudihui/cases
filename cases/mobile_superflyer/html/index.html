@@ -1,0 +1,239 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link media="all" href="../css/base.css" type="text/css" rel="stylesheet">
+<link media="all" href="../css/index.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/zepto.js"></script>
+<title>超级派单员-何乐而不为</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="favourite.ico" rel="shortcut icon">
+</head>
+<body >
+	<section class='top'>
+      <div class='address_icon'>
+      	  
+      </div>
+      <div class='search_box'>
+		  <a title='搜索'></a>
+      	  <input type='text' autocomplete="off" placeholder="商家搜索"/>
+      </div>		
+	</section>
+	<header class='index'>
+	<table class='index_table' style='position:relative;z-index:999'>
+		<tr>
+			<td></td>
+			<td>
+			  <a class='index_b'>
+			    <span>全部类别</span>
+		      </a>
+			 
+			</td>
+			<td></td>
+
+			<td>
+			  <a class='index_b'>
+			    <span>全部地区</span>
+		      </a>
+			</td>
+			<td></td>			
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+  			  <div class='subnav'>
+  			  	<img src='../images/up.png'>
+				<div class='subnav_content'>
+				<a>餐饮美食</a>
+				<a>餐饮美食</a>
+				<a>餐饮美食</a>
+				<a>餐饮美食</a>
+			    </div>
+  			  </div>			  
+			 
+			</td>
+			<td></td>
+			<td>
+  			  <div class='subnav'>
+  			  	<img src='../images/up.png'>
+				<div class='subnav_content'>
+				<a>上城区</a>
+				<a>滨江区</a>
+				<a>拱墅区</a>
+				<a>下城区</a>
+			    </div>
+  			  </div>
+			</td>
+			<td></td>			
+		</tr>
+	</table>
+    </header>
+
+	<table class='index_table' id='detail_table'>
+			
+		
+	</table>
+	<div class="spinner" currentPage='00' style='height:0'>
+		<div class="double-bounce1"></div>
+		<div class="double-bounce2"></div>
+	</div>
+	
+<script type="text/javascript">
+   $(function(){
+   
+        $('.subnav a').bind('click',function(){
+		    if( $(this).attr('selected')){   //添加selected属性，判断是否已被点击
+			  return
+			}
+			else{
+		     $(this).parent().find('a').attr('select','')
+		     $(this).attr('selected','true')
+		     alert($(this).html())			
+			}
+
+		})
+	   $('.search_box').width($(window).width()-170)
+	   $('.search_box input').width($(window).width()-168)
+	   $('.index_company_bg,.index_company_words').width(($(window).width()-21)/2 -50);
+	   $('.index_company_words').each(function(){
+		     var that = $(this);
+	   	     var length = Math.floor(that.width()/22);
+			 if(that.html().length > length*2){
+			 	that.html(that.html().slice(0,length*2)+'..')
+			 }
+	   });
+	   $('.index_company_words_red').each(function(){
+	   	   if($(this).html().length<3){
+	   	   	  $(this).attr('style','line-height:50px;')
+	   	   }
+	   })
+	   
+	   $('a.index_b').parent().width($('a.index_b').width())
+	   $('a.index_b').click(function(e){
+		var evt = e ? e : window.event; 
+		if (evt.stopPropagation) { 
+		//W3C 
+		evt.stopPropagation(); 
+		} 
+		else { 
+		//IE 
+		evt.cancelBubble = true; 
+	    }
+	   	   var index = $(this).parent().index();
+		   if(index==1){
+			   if($('.subnav').eq(0).css('display') != 'none'){
+			   	  $('.subnav').eq(0).fadeOut(200)
+			   }
+			   else{
+			   $('.subnav').fadeOut(200)
+               $('.subnav').eq(0).fadeIn(500)			   	
+			   }
+
+			   
+		   }
+		   else{
+			   if($('.subnav').eq(1).css('display') != 'none'){
+			   	  $('.subnav').eq(1).fadeOut(200)
+			   }
+			   else{
+			   $('.subnav').fadeOut(200)
+		   	   $('.subnav').eq(1).fadeIn(500)				   	
+			   }
+
+		   }
+		
+	   })
+	   $('body').click(function(){
+	   	$('.subnav').fadeOut(200)
+	   });
+	   
+	   
+	   
+	   
+	   
+  var w_width = $(window).width();
+  var w_height = $(window).height();	   
+	
+  var heloo_ajax = function(){
+	var data = {};
+	data.currentPage = $('.spinner').attr('currentPage') || '01';  //把当前页面传进去  
+    $.ajax({ 
+            type: "post", 
+			url: "js/json2.js", 
+			dataType: "json", 
+			data:data,
+			success: function (data) { 
+			
+			    var html = '';
+				$('.spinner').height(0)
+			    for(var i = 0 ; i < (data[0].detail.length - (data[0].detail.length%2==0 ? 0 : 1)); i++){
+
+				     html +=  (i%2 == 0 ? '<tr>' : '')
+					          + '<td></td><td><a class="index_a" href="'
+							  + data[0].detail[i].alUrl
+							  + '"><img class="index_img" src="'
+							  + data[0].detail[i].imgUrl
+							  + '" /><div class="index_company_bg"></div><div class="index_company_words">'
+							  + data[0].detail[i].detailName
+							  + '</div><div class="index_company_words_red">'
+							  + data[0].detail[i].detailType
+			                  + '</div></a></td>'
+                              + (i%2 == 0 ? '' : '</tr>')						 
+						
+				}
+				//alert(html)
+			    $('#detail_table').append($(html));
+				jQuery('.index_company_bg,.index_company_words').width((jQuery(window).width()-21)/2 -50);
+				$('.index_company_words').each(function(){
+				var that = $(this);
+				var length = Math.floor(that.width()/22);
+				if(that.html().length > length*2){
+				that.html(that.html().slice(0,length*2)+'..')
+				}
+				});
+				$('.index_company_words_red').each(function(){
+				if($(this).html().length<3){
+				$(this).attr('style','line-height:50px;')
+				}
+				})
+				$('.spinner').attr('style','height:0')
+				 $('.spinner').attr('currentPage',data[0].pageNum)
+			
+			}, 
+			error: function (XMLHttpRequest, textStatus, errorThrown) { 
+					alert(errorThrown); 
+			} 
+        });  
+  }	
+
+   heloo_ajax();
+   $(window).scroll(function(){
+   if( ( $(document).scrollTop() +660 )>=$(document).height()-$(window).height() ){
+	     $('.spinner').animate({height:30},10);
+         heloo_ajax(); 
+		 
+		
+	 }
+   
+   
+   })
+
+   });
+</script>	
+</body>
+</html>

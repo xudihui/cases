@@ -1,0 +1,130 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link media="all" href="../css/base.css" type="text/css" rel="stylesheet">
+<link media="all" href="../css/index.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/juicer.js"></script>
+<title>超级派单员-何乐而不为</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="favourite.ico" rel="shortcut icon">
+</head>
+<style type="text/css">
+html,body{overflow-x:hidden}
+</style>
+<body class='gray'>
+	<header class='index'>
+	       <a class='address'>
+      	    <span class='title'>优惠券</span>
+           </a>
+		   <div class="logo"></div>
+    </header>
+    <nav id="discount_nav">
+	  <div><a href="" class="cur">全部</a></div>
+	  <div><a href="" class="">未发布</a></div>
+	  <div><a href="" class="">已生效</a></div>
+	  <div><a href="" class="">已领完</a></div>
+	  <div><a href="" class="">已失效</a></div>
+	</nav>
+	<section>
+
+    </section>
+	<input id='pageNumber' type='hidden' value='1' />
+<script type="text/javascript">
+
+   $(function(){
+   
+   
+   
+    /* 数据源结构
+	var data = {
+		list: [
+			{statu:'unable', img: '../images/temp2.png',name:'我是标题',detail:'我是详情',number:'88',startTime:'2015-09-01',endTime:'2015-09-10',statu_i:'已失效'},
+			{statu:'unstorage', img: '../images/temp2.png',name:'我是标题',detail:'我是详情',number:'88',startTime:'2015-09-01',endTime:'2015-09-10',statu_i:'已领完'},
+			{statu:'unpublish', img: '../images/temp2.png',name:'我是标题',detail:'我是详情',number:'88',startTime:'2015-09-01',endTime:'2015-09-10',statu_i:'未发布'},
+			{statu:'unable', img: '../images/temp2.png',name:'我是标题',detail:'我是详情',number:'88',startTime:'2015-09-01',endTime:'2015-09-10',statu_i:'已失效'},
+			{statu:'', img: '../images/temp2.png',name:'我是标题',detail:'我是详情',number:'88',startTime:'2015-09-01',endTime:'2015-09-10',statu_i:''},
+			{statu:'', img: '../images/temp2.png',name:'我是标题',detail:'我是详情',number:'88',startTime:'2015-09-01',endTime:'2015-09-10',statu_i:''},
+			{statu:'', img: '../images/temp2.png',name:'我是标题',detail:'我是详情',number:'88',startTime:'2015-09-01',endTime:'2015-09-10',statu_i:''},
+			{statu:'unpublish', img: '../images/temp2.png',name:'我是标题',detail:'我是详情',number:'88',startTime:'2015-09-01',endTime:'2015-09-10',statu_i:'未发布'},
+			{statu:'', img: '../images/temp2.png',name:'我是标题',detail:'我是详情',number:'88',startTime:'2015-09-01',endTime:'2015-09-10',statu_i:''}
+		],
+		pageNumber: '1',
+		totalNumber:'7'
+	}; 
+	*/
+   var tpl = document.getElementById('tpl').innerHTML; //此处用原生方法获取元素，如果jQ去拿会有问题，jq对html()方法进行了封装。
+   /*
+   Heloo.loadMore(config) 参数使用说明：
+	config.tpl:模板对象，属于原生的dom元素内容字符，常见于script标签,如 document.getElementById('tpl').innerHTML
+	var url:请求地址，字符串格式,如 "js/json3.js"
+	var postData:请求发送给服务器的数据，可以是对象类型，也可以是字符串类型,如 $('#pageNumber').val()
+	var wrapCon:装载新内容的容器，jQ对象，如果不填，默认是body，如 $('section')
+	var tips:当翻到最后一页的时出现的提示文字。
+   
+   */
+
+
+   Heloo.loadAjax({
+   tpl:tpl,
+   url:"js/json3.js",
+   data:{pageNo:$('#pageNumber').val()},
+   wrapCon:$('section'),
+   callback:function(){alert(1)}
+   })   
+   
+   Heloo.loadMore({
+   tpl:tpl,
+   url:"js/json3.js",
+   data:function(){
+    return{pageNo:$('#pageNumber').val()}
+   },
+   wrapCon:$('section'),
+   tips:'亲，真的没有啦~'
+   })
+ 
+        $('.setover').width($(window).width()-100);
+		var resizeTimer = null;
+		window.onresize=function(){
+			if (resizeTimer) {
+			clearTimeout(resizeTimer)
+			}
+			resizeTimer = setTimeout(function(){
+              $('.setover').width($(window).width()-100);
+			}, 400);
+		}
+   });
+</script>	
+
+	
+</body>
+<script id="tpl" type="text/template" >
+    {@each list as it}
+	<div class="item01 !${it.statu}">
+			   <img class='discount_img02' src="../images/temp2.png" alt="" />
+			   <div class="discount_title setover">!${it.name}</div>
+			   <div class="discount_red setover">!${it.detail}</div>
+			   <div class="discount_gray setover">剩余数量:!${it.number}</div>
+			   <div class="discount_gray setover">有效期:!${it.startTime}至!${it.endTime}</div>
+			   {@if it.statu_i!=''}
+               <i>!${it.statu_i}</i>
+                {@/if}
+	</div>
+    {@/each}
+</script>
+</html>

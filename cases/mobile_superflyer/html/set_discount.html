@@ -1,0 +1,132 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link media="all" href="../css/base.css" type="text/css" rel="stylesheet">
+<link media="all" href="../css/index.css" type="text/css" rel="stylesheet">
+<link media="all" href="../css/select.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/select.ui.js"></script>
+<title>超级派单员-何乐而不为</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="favourite.ico" rel="shortcut icon">
+</head>
+<body >
+	<header class='index'>
+	       <a class='address'>
+      	    <span class='title'>优惠券编辑</span>
+           </a>
+		   <div class="logo"></div>
+    </header>
+	<div class="wrap_7" id=''>
+	   <h1 class='name_noborder'>优惠券名称</h1>
+	   <input class='input02' type='text' />	
+	   <h1 class='name_noborder'>使用须知</h1>
+	   <textarea class='input02' ></textarea>
+	   <h1 class='name_noborder'>优惠券类型</h1>
+	   <select name="discount_type"  class="select1" ><option value="">普通</option><option value="">牛逼</option></select>    
+	   <h1 class='name_noborder'>上传图片</h1>
+       <div id='file_upload'>
+	   </div>
+	  
+	</div>	
+	<div class="wrap_7">
+		<table class="grid07">
+			<tr>
+				<td><a href='javascript:void(0)' class='btn_green'>保存</a></td>
+				<td></td>
+				<td><a href='javascript:void(0)' class='btn_red'>提交</a></td>
+			</tr>		
+		</table>
+	</div>
+	
+<script type="text/javascript">
+   $(function(){
+   	function selectInt(){
+   		$(".select1").uedSelect({
+   			width : parseInt($(window).width())-16			  
+   		});		
+		$(".ue-state-default").width(parseInt($(window).width())-16)
+   	}
+   	selectInt()
+
+	
+   	$(window).resize(function(){
+   		$(".ue-state-default").width(parseInt($(window).width())-16)
+   		$(".select1").width(parseInt($(window).width())-16)	
+   	})
+		
+   $('#file_upload').delegate('a.img_del','click',function(){
+	   $(this).parents('.upload_wrap').remove();
+	   if($('#file_upload .upload_wrap').last().find('.img_show').html()==''){
+	      $('#file_upload .upload_wrap').last().remove()
+	   }
+	   addFileUp();
+	
+   })
+   
+   var addFileUp = function(){
+
+   	   $('#file_upload').append($('<div class="upload_wrap" style=""><div class="upload">+<div class="img_show" ></div><input class="img_up" type="file" accept="image/*" /></div></div> '));
+	   imgEvent();
+	   
+	
+   }
+   
+   var imgEvent = function(){
+	   $('.img_up').change(function(){
+	   var that = $(this);
+	   var parent_ = that.parent().parent()
+	   var file = this.files[0]; //选择上传的文件
+	   var r = new FileReader();
+	   r.readAsDataURL(file); //Base64
+	   $(r).load(function(){
+	    that.parent().find('.img_show').html('<img src="'+ this.result +'" alt="" /><a class="img_del"></a>');
+		that.hide()
+	   });
+ 
+	   if(parent_.index()<3){
+		   addFileUp();
+	   }
+   
+	   });   	
+	
+   }
+   
+   if($('#file_upload .upload_wrap').length<4){
+	   addFileUp();
+   }   
+   $('.upload_wrap').eq(0).fadeIn(500);
+   
+   
+  
+   
+   //输出图片路径
+   $('.btn_red').click(function(){
+	   var result = [];
+	   $('.upload:visible').each(function(){
+		 var url = $(this).find('img').attr('src');		   
+	   	 url ? result.push(url) : null
+	   })
+	   console.log(result)
+	
+   })
+   
+});
+</script>	
+</body>
+</html>

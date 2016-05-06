@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title></title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="" name="Keywords">
+	<meta content="" name="Description">
+	<!-- Mobile Devices Support @begin -->
+	<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+	<!-- Mobile Devices Support @end -->
+	<link href="favourite.ico" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="icon.png" />
+	<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+	<!--iPad 1 72x72 像素-->
+	<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+	<!--iPhone 4 114x114 像素-->
+	<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+    <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-precomposed.png?v=211d96120f">
+    <link rel="icon" href="/assets/ico/favicon.ico?v=211d96120f">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+</head>
+<body class="home-template" style='overflow-y:hidden'>
+<div class="wrap">
+<div class="fl">
+ <p><a href=""><span>公共资讯</span>
+ <img  src="images/2015-09-01/21.png" alt="" />
+ </a></p>
+ <p><a href=""><span>网上展厅</span><img  src="images/2015-09-01/23.png" alt="" /></a></p>
+ <p><a href=""><img  src="images/2015-09-01/27.png" alt="" /><span class='bottom'>智慧医疗</span></a></p>
+</div>
+<div class="fr">
+ <p><a href=""><span>杭州通 纪念卡</span><img  src="images/2015-09-01/22.png" alt="" /></a></p>
+ <p><a href=""><span>公共服务</span><img  src="images/2015-09-01/24.png" alt="" /></a></p>
+ <p><a href=""><img  src="images/2015-09-01/25.png" alt="" /><span class='bottom'>充值 查余额</span></a></p> 
+ <p><a href=""><img  src="images/2015-09-01/26.png" alt="" /><span class='bottom'>个人中心</span></a></p> 
+</div>
+
+</div>
+
+
+<script src="bootstrap/js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+   var init = function(){
+	  var w_height = parseInt($(window).height());
+	  $('body').height(w_height);
+	  $('p').eq(0).height(w_height*188/480);
+	  $('p').eq(1).height(w_height*132/480);
+	  $('p').eq(2).height(w_height*120/480);
+	  $('p').eq(3).height(w_height*107/480);
+	  $('p').eq(4).height(w_height*100/480);
+	  $('p').eq(5).height(w_height*115/480);
+	  
+	  var x = $('p').eq(0).height()+$('p').eq(1).height()+$('p').eq(2).height()-$('p').eq(3).height()-$('p').eq(4).height()-$('p').eq(5).height()-10;
+	  $('p').eq(6).height(x);	  
+	
+  }
+
+  
+    init();
+	var resizeTimer = null;
+	window.onresize=function(){
+		if (resizeTimer) {
+		clearTimeout(resizeTimer)
+		}
+		resizeTimer = setTimeout(function(){
+		init(); 
+		}, 400);
+	}
+ 
+ 
+ 
+
+});
+</script>
+
+
+</body>
+</html>

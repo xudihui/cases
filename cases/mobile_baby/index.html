@@ -1,0 +1,119 @@
+<!doctype html>
+<html ng-app = 'helooApp'>
+<head>
+<meta charset="utf-8">
+<link media="all" href="wechat/css/base.css" type="text/css" rel="stylesheet">
+<title>angelababy结婚啦。。。</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="" name="Keywords">
+<meta content="" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="favourite.ico" rel="shortcut icon">
+</head>
+<body class=''>
+
+    <img id='load' src="wechat/images/load.png" alt=""  />
+	<div id='main' ng-controller = 'Chat' style='visibility:hidden' >
+	
+	<iframe id='f'  src="http://eptison.happydoit.com/goto" width='100%' frameborder="0"></iframe>
+	
+	<header ng-show='chat'>
+		   <span class='icon l'></span>
+		   Baby&晓明婚礼嘉宾群(28)
+		   <span class='icon r'></span>
+    </header>
+	<section id='c' ng-show='chat' >
+	    <p class='top'><span  ng-bind='time'></span></p>
+		<p class='top'><span  ng-bind='welcome'></span></p>
+		<article ng-repeat = 'chat in chats' ng-class='{me:chat.me}' >
+		    <p  class='top'><span ng-class='{hide:chat.no}'  ng-bind='chat.welcome'></span></p>
+			<img ng-class='{hide:chat.is}' ng-src='{{chat.img}}' />
+			<aside ng-class='{hide:chat.is}'>
+				<h4 ng-bind='chat.name'></h4>
+				<p><i class='icon' ></i><span ng-bind-html='chat.p'></span></p>
+			</aside>	
+		</article>
+	</section>
+	<footer ng-show='foot' >
+		   <span class='icon l'></span>
+		   <div class='wrap'><input type='text' readonly /></div>
+		   <span class='icon r'></span>
+    </footer>
+	
+	<div id="keyboard" ng-show='keyboard_' >
+	   <footer  class='bounceInUp'>
+		   <span class='icon l'></span>
+		   <div class='wrap'><input type='text' value='{{text}}'   readonly ></input></div>
+		   <span class='icon r'></span>
+       </footer>
+       <div class="preview_img" style="width:0px; height:0px; overflow:hidden">
+   		<img src="http://eptison.happydoit.com/savexm/res/icon.jpg?v=4" alt="">
+       </div>
+	   <img id='keyboard_' width='100%' ng-show='keyboard' src="wechat/images/keyboard.png" alt="" />	
+	   <div id='send' ng-click='refuse()' ng-style='send' ng-show='dot'>
+	   <img id='dot'  src="wechat/images/dot.gif" alt="" />
+	   <img id='hand'  src="wechat/images/hand.png" alt="" />
+	   </div>
+       
+	
+	</div>
+	
+	
+	<div id="dialog" ng-show='dialog'  >
+	 <div class="box zoomInDown">
+	  <div class="box_t">您去参加Angelababay的婚礼吗？</div>
+	  <div class="box_c">
+	   <a ng-click='go()'>去</a>
+	   <a >不去</a>
+	  </div>
+	 </div>
+	</div>
+	
+<video x-webkit-airplay='true' webkit-playsinline='true' height='100%' style='' preload="load" id='v'  ng-show='show' > <!--  preload 在游戏开始之初，先加载视频，保证用户体验-->
+  <source src="wechat/media/H5.ogg" type="video/ogg">
+  <source src="wechat/media/H5.mp4" type="video/mp4">
+您的手机不支持视频聊天
+</video>
+
+	
+	<div id="calling" ng-show='call' >
+	     <p>杨颖<br />Angelababay<br /><img src="wechat/images/baby.png" alt="" /></p>
+		 <img class='no' src="wechat/images/no.png" alt="" />
+		 <img class='yes' id='yes' ng-click='yes()' src="wechat/images/yes.png" alt="" />
+		 <img class='l'  src="wechat/images/l.png" alt="" />
+		 <img class='r'  src="wechat/images/r.png" alt="" />
+	</div>	
+	
+	
+</div>
+
+
+	<audio preload="load" id='a' src="wechat/media/i.mp3" ></audio>
+	<audio preload="load" loop='loop' id='ring' src="wechat/media/c.mp3" ></audio>
+</body>
+<script type="text/javascript">
+	var nickname = "tuy" ;
+	var userlogo = "wechat/images/baby.png";
+</script>
+<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?15802c96ab1aa7acb81e696ef1f6f61e";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+<script type="text/javascript" src="wechat/js/angular.min.js"></script>
+<script type="text/javascript" src="wechat/js/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="wechat/js/main.js"></script>
+</html>

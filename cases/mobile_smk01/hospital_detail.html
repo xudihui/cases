@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title></title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="" name="Keywords">
+	<meta content="" name="Description">
+	<!-- Mobile Devices Support @begin -->
+	<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+	<!-- Mobile Devices Support @end -->
+	<link href="favourite.ico" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="icon.png" />
+	<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+	<!--iPad 1 72x72 像素-->
+	<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+	<!--iPhone 4 114x114 像素-->
+	<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+    <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-precomposed.png?v=211d96120f">
+    <link rel="icon" href="/assets/ico/favicon.ico?v=211d96120f">
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/screen.css" />
+
+</head>
+<body class="home-template" style='overflow-x:hidden' id='gray'>
+<img class='item-public-img' src="images/temp/food.png" alt="" />
+<section class='section_user_center'>
+	<div class="container-fluid right_nearby topborder">
+	   <div class="row">
+
+		  <div class="col-xs-12">
+			  <div class='item-public '>
+				   <a class='item-public-title'>
+					<div class="blank"></div>
+					<img src='images/green_map.png' />
+					<span>名称:杭州第一医院</span>
+					
+				   </a>
+				  
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a href='user_center_card.html' target='_self' class='item-public-title'>
+					<div class="blank"></div>
+					<img src='images/green_square.png' />
+					<span>类型:88888</span>
+				   </a>
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public noborder'>
+				   <a class='item-public-title'>
+					<div class="blank"></div>
+					<img class='float' src='images/green_location.png' />
+					<div class='location_name'>地址：发生的发生法撒旦法师发生大法师打发斯蒂芬发生大法师打发斯蒂芬这是一段比较长的文字，用来测试是否文字溢出时会用省略号显示。
+					</div>
+				   </a>
+			  </div>
+		  </div>
+	  
+  
+	   </div>	 
+	</div>
+</section>	
+<section class='section_user_center'>	
+	<div class="container-fluid right_nearby topborder">
+	   <div class="row">
+
+		  <div class="col-xs-12">
+			  <div class='item-public'>
+				   <a class='item-public-title'>
+					<div class="blank"></div>
+					<img src='images/green_square.png' />
+					<span>适用范围:市区医保人群</span>
+				   </a>
+			  </div>
+		  </div>
+		  <div class="col-xs-12">
+			  <div class='item-public noborder'>
+				   <a class='item-public-title'>
+					<div class="blank"></div>
+					<img class='float' src='images/green_detail.png' />
+					<div class='location_name'>医院详情：发生的发生法撒旦法师发生大法师
+					</div>
+				   </a>
+			  </div>
+		  </div>		  
+  
+	   </div>	 
+	</div>	
+</section>
+
+
+
+
+<script src="../../lib/bootstrap/js/jquery.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(function(){
+     $('.location_name').smk_ellipsis({left:124,line:2})
+
+/*
+		function slice_h5(){
+		    $('.location_name').each(function(){
+			var that = $(this);
+			var h5_content = that.html();
+			var h5_length =  Math.floor(($(window).width()-124)/12)*2;
+			h5_content.length > h5_length ? that.html(h5_content.slice(0,h5_length)+'...') : null ;				   
+			});	
+		}
+		slice_h5();
+		var resizeTimer = null;
+			window.onresize=function(){
+			if (resizeTimer) {
+			clearTimeout(resizeTimer)
+			}
+			resizeTimer = setTimeout(function(){
+			slice_h5();
+			}, 400);
+        }
+*/
+
+});
+</script>
+
+
+</body>
+</html>

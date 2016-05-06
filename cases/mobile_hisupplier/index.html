@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<link media="all" href="css/home.css" type="text/css" rel="stylesheet">
+<title>海商网手机页面</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="大型企业提供过网络品牌建设、行业网站平台、个性化APP定制解决方案、电子商贸平台网站专案；" name="Keywords">
+<meta content="大型企业提供过网络品牌建设、行业网站平台、个性化APP定制解决方案、电子商贸平台网站专案；" name="Description">
+<!-- Mobile Devices Support @begin -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<!-- Mobile Devices Support @end -->
+<link href="bckjapp.ico" rel="shortcut icon">
+<link rel="apple-touch-icon" href="icon.png" />
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<!--iPad 1 72x72 像素-->
+<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+<!--iPhone 4 114x114 像素-->
+<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+</head>
+<body>
+<div id="main">
+	<div class="logo"><a href="#"><img src="images/logo.png"></a></div>
+    <div class="slide">
+        <div class="box_swipe" id="banner_box">
+            <ul>
+            	<li><a><img src="images/banner.png"></a></li>
+                <li><a><img src="images/banner.png"></a></li>
+                <li><a><img src="images/banner.png"></a></li>
+        	</ul>
+            <ol>
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+        
+    </div>
+	<script src="js/jQuery.js" type="text/javascript"></script>
+	<script src="js/swipe.js" type="text/javascript"></script>
+    <script>
+		$(function(){
+			new Swipe(document.getElementById('banner_box'), {
+				speed:500,
+				auto:3000,
+				callback: function(){
+					var lis = $(this.element).next("ol").children();
+					lis.removeClass("on").eq(this.index).addClass("on");
+				}
+			});
+		});
+	</script>
+    <div class="menu_box">
+    	<ul class="menu clearfix">
+        	<li class="infoBox"><a class="nav_about" href="about.html"><span class="icon"></span><p>关于我们</p></a></li>
+            <li class="infoBox"><a class="nav_honour" href="honour.html"><span class="icon"></span><p>公司荣誉</p></a></li>
+            <li class="infoBox"><a class="nav_news" href="news.html"><span class="icon"></span><p>新闻资讯</p></a></li>
+        </ul>
+    	<ul class="menu clearfix">
+        	<li class="infoBox"><a class="nav_product" href="product.html"><span class="icon"></span><p>产品展示</p></a></li>
+            <li class="infoBox"><a class="nav_service" href="service.html"><span class="icon"></span><p>联系我们</p></a></li>
+            <li class="infoBox"><a class="nav_demo" href="demo.html"><span class="icon"></span><p>案例展示</p></a></li>
+        </ul>
+        <ul class="menu clearfix">
+        	<li class="infoBox"><a class="nav_support" href="support.html"><span class="icon"></span><p>服务与支持</p></a></li>
+            <li class="infoBox"><a class="nav_canvass" href="canvass.html"><span class="icon"></span><p>招商加盟</p></a></li>
+            <li class="infoBox"><a class="nav_backfeed" href="backfeed.html"><span class="icon"></span><p>问题反馈</p></a></li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="js/common.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        resizeWindow();
+          });
+	</script>
+    <div class="list_box">
+    	<h3 class="list_box_title">今日热销产品</h3>
+        <ul class="hot_list clearfix">
+        	<li class="hot-iteml i1" productlink='product_detail.html'> <!-- li上面的productlink属性，直接指向产品详情页面-->
+            	<div class="pic"><img src="images/pic.jpg" /></div>
+                <div class="cen">
+                	<p><a>跟团上海旅游</a></p>
+                    <div class="price"><span>单价：</span>¥288.00</div>
+                </div>
+            </li>
+            <li class="hot-itemr" productlink='product_detail.html'>
+            	<div class="pic"><img src="images/pic.jpg" /></div>
+                <div class="cen">
+                	<p><a href="#">跟团上海旅游</a></p>
+                    <div class="price"><span>单价：</span>¥288.00</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="list_box">
+    	<h3 class="list_box_title">今日推荐产品</h3>
+        <ul class="hot_list clearfix">
+        	<li class="hot-iteml i1" productlink='product_detail.html'>
+            	<div class="pic"><img src="images/pic.jpg" /></div>
+                <div class="cen">
+                	<p><a href="#">跟团上海旅游</a></p>
+                    <div class="price"><span>单价：</span>¥288.00</div>
+                </div>
+            </li>
+            <li class="hot-itemr" productlink='product_detail.html'>
+            	<div class="pic"><img src="images/pic.jpg" /></div>
+                <div class="cen">
+                	<p><a href="#">跟团上海旅游</a></p>
+                    <div class="price"><span>单价：</span>¥288.00</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="list_box">
+    	<h3 class="list_box_title"><a class="moer" href="#">查看更多产品</a></h3>
+    </div>
+</div>
+</body>
+</html>

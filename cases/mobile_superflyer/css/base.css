@@ -2,7 +2,7 @@
 html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
 body {color: #000;font: 16px/1.5 "Microsoft Yahei","helvetica","arial";min-width: 320px;overflow-x:hidden}
-html,body{ min-height:99%;letter-spacing:0.05em}
+html,body{ min-height:99%;}
 h1, h2, h3, h4, h5, h6 {font-size: 100%;}
 form {display: inline;}
 ul, ol {list-style: outside none none;}

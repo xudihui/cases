@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+.showbjbox,.showbjbox1,.showbjbox2{ width:100%; height:100%; position:fixed;top:0;bottom:0; background:rgba(0,0,0,0.5);z-index:99;}
+.openboxs{ width:260px; height:150px; position:fixed;left:50%;top:50%;margin:-75px 0 0 -130px;z-index:100; background:#fff; border-radius:4px;}
+.tip-dialog{ display:block; text-align:center; padding:20px;margin-top:25px;}
+.ui-btn{ width:105px; margin:0 10px; display:inline-block; height:30px; background:#cc6666; text-align:center; line-height:30px; color:#fff;}
+.no_btn{background:#ccc;}
+.btn-box{ position:absolute;bottom:10px;width:100%; text-align:center;}
+.openboxs-warn,.openboxs-mask{ width:260px; height:50px; line-height:50px; text-align:center; position:fixed;left:50%;top:50%;margin:-25px 0 0 -130px;z-index:100; background:#666; border-radius:4px;}
+.openboxs-warn .tip-dialog,.openboxs-mask .tip-dialog{ padding:0; margin:0;color:#fff;}
+.openboxs-warn .btn-box,.openboxs-mask .btn-box{right:0;top:3px;}
+.nos_btn{width:40px;height:40px; display:inline-block; position:absolute; background:url(../images/close-icon.png) 9px 8px no-repeat; background-size:20px;position:absolute;right:0;top:3px;}
+.openboxs-mask{ background:none;}
+.openboxs-mask img{ width:150px;}
+
+.showbjbox1{background:rgba(255,255,255,0.8);}
+
+.openboxs-code{width:250px;height:250px;background:#fff;position:fixed;left:50%;top:50%;margin:-125px 0 0 -125px;z-index:100;border:1px solid #eee;}
+.openboxs-code .nos_btn{ background:url(../images/close-icon1.png) no-repeat;background-size:28px;top:-72px;right:-39px; }
+.openboxs-code .tip-dialog{color:#444;margin-top:0;}
+
+
+
+
+
+
+
+
+
+

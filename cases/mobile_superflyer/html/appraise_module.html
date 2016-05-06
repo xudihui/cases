@@ -41,7 +41,7 @@
 	<div class="wrap_20 appraise_list"></div>
 	<div class="wrap_20">
 	    <div class="appraise_wrap">
-		  <i id='appraise_number'></i>
+		  <i>还可以添加<em id='appraise_number'></em>个印象</i>
 		</div>
 	</div>	
 	<div class="wrap_20">
@@ -82,7 +82,7 @@
 		   this.list = $('.appraise_list'); //存放初始标签的容器
 		   this.number = $('#appraise_number'); //存放总数目的容器
 		   this.wrap = $('.appraise_wrap'); //存放评价的目标容器
-		   this.setNumber();
+		   this.number.html( this.config.number);
 		   var self = this;
 		   this.config.tips.forEach(function(el){
 		      self.list.append($(' <span class="appraise_tips"></span>').html(el));
@@ -93,8 +93,8 @@
 		initEvents: function () {
 		      var self = this;
 			  $('i','.appraise_top').bind('click',function(){ //评价五角星事件
-				  var index = $(this).index(),
-		              i = $(this).parent().children();
+				  var index = $(this).index();
+				  var i = $(this).parent().children();
 				  i.removeClass('on bounceIn');
 				  while(index>0){
 					 i.eq(index--).addClass('on bounceIn');
@@ -123,83 +123,44 @@
 			   
 		     self.wrap.delegate('span.appraise_tips','click',function(e){//存放评价的目标容器绑定事件
 					e ? e.stopPropagation() : window.event.cancelBubble = true; //阻止冒泡
-					var state = $(this).hasClass('appraise_tips_self');
 					var html = $(this).html();
 					$(this).remove();
 					var el = '.appraise_list span[html='+ html + ']';
 					$(el).removeClass('selected');
-					if(state){
-					 self.setInput(html);
-					}
-					else{
-					 self.setNumber();
-					}
-					
-					
+					self.setNumber();
 	          });
 			  
+	  
 			  self.wrap.bind('click',function(){//自定义输入印象事件
-					if($('.appraise_wrap span.appraise_tips_self').length==0 && $('.appraise_wrap span.appraise_tips').length<self.config.number ){
-					 self.setInput();
-					}
-			  });			  
-		},
-		
-		//设置自定义标签
-		setInput: function (html) {             
-		             var self = this,
-					     html = html||'',
-						 b = $('<b></b>'),
-						 input = $('<input type="text" value="" maxlength="'+self.config.limit+'" />'),
-						 wrap = $('<span class="appraise_tips appraise_input appraise_tips_self"></span>'),
-					     em = $('<em>'+html+'</em>');
-					 b.append(input);
-					 console.log(b.html())
-					 //wrap.append(em);
-					 wrap.append(b);
-					 wrap.prepend(em);
-					 self.wrap.append(wrap);
-					 input.val('');
+					 if($('.appraise_wrap span.appraise_tips_self').length==0 && $('.appraise_wrap span.appraise_tips').length<self.config.number ){
+					 var input = $('<input type="text" />');
+					 var wrap = $('<span class="appraise_tips appraise_input appraise_tips_self"></span>');
+					 var em = $('<em></em>');
+					 wrap.append(em).append(input);
+					 $(this).append(wrap);
 					 input.focus();
-					 input.val(html);//重新赋值，让焦点跑到文本框的末尾
-					 
-					 
-					 self.setLimitNumber();
-					 input.bind('input',function(){ 
-					
+					 input.bind('input',function(){
 					   wrap.find('em').remove();
 					   em.html(input.val().slice(0,self.config.limit));
-					   b.before(em);
-					   self.setLimitNumber();
+					   input.before(em);
 					 })
 					 .bind('blur',function(){
-					 var val = em.html().replace( / /g, '' );
-					 if(val==''){
+					 if(em.html()==''){
 					  wrap.remove();
-					  self.setNumber();
 					  return;
 					 }
 					 wrap.removeClass('appraise_input');
 					 wrap.html(em.html());
 					 input.remove();
+					 });
 					 self.setNumber();
-					 
-					 })
-					 .bind('focus',function(){	
-					 })
-					 .bind('click',function(evt){
-					 evt ? evt.stopPropagation() : window.event.cancelBubble = true
-					 });				 
-		},			
+					 }
+			  });			  
+		},
 		
 		//设置剩余个数
 		setNumber: function () {
-			this.number.html('还可以添加<em>'+((this.config.number-$('.appraise_wrap span.appraise_tips').length)||0)+'</em>个印象');			 
-		},	
-		
-		//设置剩余字数
-		setLimitNumber: function () {
-		    this.number.html('还可以输入<em>'+(this.config.limit-$('.appraise_tips_self em').html().length||0)+'</em>个字');
+			this.number.html(this.config.number-$('.appraise_wrap span.appraise_tips').length);			 
 		},	
 		
 		//获取页面数据

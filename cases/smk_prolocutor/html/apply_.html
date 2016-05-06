@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>合伙人申请</title>
+<link href="../css/base.css" type="text/css" rel="stylesheet">
+<link href="../css/indentInfo.css" type="text/css" rel="stylesheet">
+<link href="../css/index.new.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+</head>
+
+<body class="bgbody">
+<header class='nopadding'>
+	<div class="pic"><img src="../images/hyg_logo.png" height="80"></div>
+</header>
+
+<div class="pl pr pb pb40">
+	
+    <div class="applysearch">
+        <div class="tianxie">
+            <p><input type="text" placeholder="请填写姓名" class="text"></p>
+            <p><input type="tel" placeholder="请填写手机号" class="text"></p>
+			<p style='border-top:10px solid #f2f2f2'><input type="tel" style='width:50%' placeholder="请填写验证码" class="text">
+			
+			</p>
+        </div>
+        <div class="sqbtn sqbtn2" ><a class="bgred" id='yzm'>获取验证码</a></div>
+        <div class="sqbtn"><a class="bgred" href="#">申请成为合伙人</a></div>
+	</div>
+    
+   <!-- <div class="applyload colorred hide">
+    	<i class="icon"></i>申请已提交，等待审核...
+        <p><a href="#">关注好易购公众号，及时获取收益通知<i class="icon1"></i></a></p>
+    </div>-->
+    
+    <div class="jmeng clear">
+        <div class="jmeng-top clear">
+            <div class="fl w100"><img src="../images/qy.jpg" width="100"><a href="" class="colorred">WWW.BEST1.COM</a></div>
+        </div>
+        
+        <img src="../images/hyg_n.png" alt="" width="100%" />
+    </div>
+
+    </div>
+
+
+<footer class="footers">
+     <ul class="clear">
+         <li class="current"><a href=""><i class="icon_new"></i><p>加盟</p></a></li>
+         <li><a href=""><i class="home icon_new"></i><p>店铺</p></a></li>
+         <li><a href=""><i class="order icon_new"></i><p>订单</p></a></li>
+		 <li><a href=""><i class="mession icon_new"><span class="num bgred">3</span></i><p>任务中心</p></a></li>
+     </ul>
+</footer>
+
+
+
+<script type="text/javascript">
+	$(function(){
+	  var getNumber = null;
+	  $('#yzm').bind('click',function(){//获取验证码事件
+	     //do something
+		var i = 60;
+		var that = $(this);
+		that.addClass('bggray');
+	    alert('验证码已经发送到您的手机!');
+		if (getNumber) { //重复点击直接返回，此处还可以选择其它解决方式，重新请求。
+			return
+		}
+		getNumber = setInterval(function(){
+		      if(i>1){
+			   i=i-1;
+			   that.html(i+'s后重新发送');
+			  }
+			  else{
+			   that.html('点击重新发送');
+			   that.removeClass('.bggray');
+			   clearInterval(getNumber);
+			  }
+		      
+		},1000)
+	  });	
+	
+				/*
+					$('.sqbtn').click(function(){
+						$('.applysearch').hide();
+						$('.applyload').show();
+					});
+				*/
+	});
+</script>
+
+</body>
+</html>

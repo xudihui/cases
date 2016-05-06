@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>我的订单</title>
+<link href="../css/base.css" type="text/css" rel="stylesheet">
+<link href="../css/indentInfo.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+</head>
+
+<body class="bgbody">
+
+<header>
+   <div class="banner bgred clear">
+     	<a href="#" class="tixn fr"><i class="tiicon"></i>收货地址</a>
+   		<img src="../images/toux1.png" width="40">
+        <strong>妞妞的订单</strong>
+   </div>
+</header>
+
+<nav class="nav pb40">
+   <ul class="order-ul clear">
+       <li class="current bordercolor colorred">全部</li>
+       <li class="colorred bordercolor">未完成</li>
+       <li class="colorred bordercolor">已完成</li>
+   </ul>
+   
+   <div class="orderbox">
+   		<div class="orderlist clear">
+        	<img src="../images/info3.jpg" width="60" height="65">
+        	<h3><a href="#">精选9包零食特产年货礼盒1996g</a></h3>
+        	<p><span class="fr colorred">待付款</span><strong class="colorred">￥36.9</strong></p>
+        	<div class="order-btm clear">
+                <a href="#" class="fukn bgred fr">付款</a><a href="#" class="quxiao fr">取消订单</a>共2件商品
+            </div>
+        </div>
+        
+        <div class="orderlist clear">
+        	<img src="../images/info3.jpg" width="60" height="65">
+        	<h3><a href="#">精选9包零食特产年货礼盒1996g</a></h3>
+        	<p><span class="fr">已付款</span><strong class="colorred">￥36.9</strong></p>
+        	<div class="order-btm clear">
+                <a href="#" class="quxiao fr">查看物流</a>共2件商品 
+            </div>
+        </div>
+   </div><!--orderbox-->
+   
+   <div class="orderbox hide">
+   		<div class="orderlist clear">
+        	<img src="../images/info3.jpg" width="60" height="65">
+        	<h3><a href="#">精选9包零食特产年货礼盒1996g</a></h3>
+        	<p><span class="fr colorred">待付款</span><strong class="colorred">￥56.9</strong></p>
+        	<div class="order-btm clear">
+                <a href="#" class="fukn bgred fr">付款</a><a href="#" class="quxiao fr">取消订单</a>共2件商品
+            </div>
+        </div>
+        
+        <div class="orderlist clear">
+        	<img src="../images/info3.jpg" width="60" height="65">
+        	<h3><a href="#">精选9包零食特产年货礼盒1996g</a></h3>
+        	<p><span class="fr">已付款</span><strong class="colorred">￥36.9</strong></p>
+        	<div class="order-btm clear">
+                <a href="#" class="quxiao fr">查看物流</a>共2件商品 
+            </div>
+        </div>
+   </div><!--orderbox-->
+   
+   <div class="orderbox hide">
+   		<div class="orderlist clear">
+        	<img src="../images/info3.jpg" width="60" height="65">
+        	<h3><a href="#">精选9包零食特产年货礼盒1996g</a></h3>
+        	<p><span class="fr colorred">待付款</span><strong class="colorred">￥46.9</strong></p>
+        	<div class="order-btm clear">
+                <a href="#" class="fukn bgred fr">付款</a><a href="#" class="quxiao fr">取消订单</a>共2件商品
+            </div>
+        </div>
+        
+        <div class="orderlist clear">
+        	<img src="../images/info3.jpg" width="60" height="65">
+        	<h3><a href="#">精选9包零食特产年货礼盒1996g</a></h3>
+        	<p><span class="fr">已付款</span><strong class="colorred">￥36.9</strong></p>
+        	<div class="order-btm clear">
+                <a href="#" class="quxiao fr">查看物流</a>共2件商品 
+            </div>
+        </div>
+   </div><!--orderbox-->
+        
+       
+   
+
+</nav>
+
+
+<footer class="footers">
+     <ul class="clear">
+         <li><a href="成为分销商.html"><i class="fxs"></i><p>成为分销商</p></a></li>
+         <li><a href="首页.html"><i class="home"></i><p>店铺首页</p></a></li>
+         <li class="current"><a href="我的订单.html"><i class="dgdan"></i><p>我的订单</p></a></li>
+     </ul>
+</footer>
+
+<script type="text/javascript">
+	$(function(){
+		$(".order-ul li").click(function(){
+			var _index = $(this).index();
+			var _div = $(this).parents(".nav").find('.orderbox');
+			$(this).addClass('current').siblings().removeClass('current');
+			_div.eq(_index).show().siblings(".orderbox").hide();
+		});
+	});
+</script>
+
+</body>
+</html>

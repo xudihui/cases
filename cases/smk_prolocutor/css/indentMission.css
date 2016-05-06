@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+header h1{ font-weight:normal; font-size:18px;border-bottom:10px solid #f2f2f2}
+p.center{text-align:center}
+span.red{color:#c75c5c;	}
+.Integral-list2 ul{padding:20px 10px 10px 10px}
+.Integral-list2 ul li{position:relative;height:56px;background-color:#f2f2f2;border-radius:56px;margin-bottom:10px;border:1px solid #76c2af }
+.Integral-list2 ul li span{float:left;width:56px;height:56px;background-size:56px 56px;display:inline-block;background-repeat:no-repeat}
+.Integral-list2 ul li span.qd{background-image:url(../images/rwzx04.png)}
+.Integral-list2 ul li span.yd{background-image:url(../images/rwzx05.png)}
+.Integral-list2 ul li span.ty{background-image:url(../images/rwzx06.png)}
+.Integral-list2 ul li span.tj{background-image:url(../images/rwzx03.png)}
+.Integral-list2 ul li .content_list2{float:left;padding-left:10px;}
+.Integral-list2 ul li p{color:#7d7d7d;font-size:14px;}
+.Integral-list2 ul li h3{font-size: 16px;font-weight: normal;height: 30px;line-height: 35px;text-indent:0em;}
+.Integral-list2 ul li i{position:absolute;top:10px;right:10px;width:37px;height:37px;background:#db5252;border-radius:50%;color:#fff;font-style:normal}
+.Integral-list2 ul li i:before{content:'GO';width:37px;height:37px;text-align:center;font-weight:bold;line-height:37px;padding-left:6px;}
+.Integral-list2 h3{font-size: 20px;font-weight: normal;height: 30px;line-height: 35px;text-indent:1em;}
+.Integral-list2 ul li.done i{background:#7d7d7d}
+.Integral-list2 ul li.done i:before{content:'完成';padding-left:2px;font-size:15px;}
+.Integral-list2 .bottom{border-top:1px solid #cacaca;height:33px;line-height:33px;font-size:14px;width:100%;position:absolute;left:0;bottom:0}
+.Integral-list2 .bottom span{color:#c75c5c;padding-left:10px;}
+.Integral-list2 .bottom .igno{float:right;margin-right:20px;color:#333}
+.Integral-list2 .bottom .igno input{zoom:1.5}
+.Integral-list2 ul li:nth-child(2){border:1px solid #f0c574}
+.Integral-list2 ul li:nth-child(3){border:1px solid #77b3d4}
+.Integral-list2 ul li:nth-child(4){border:1px solid #c75c5c}
+.wrap_10{margin:0 10px;padding-top:60px;}
+#indentMission_frame{background:rgba(0,0,0,0.5);height:100%;position:fixed;top:0;left;0}
+#indentMission_dialog{background:#fff;height:360px;border-radius:10px;overflow:hidden;position:absolute;width:100%;}
+#indentMission_dialog .close{cursor:pointer;width:15px;height:15px;background:url(../images/close.png) 0 0 no-repeat;background-size:15px 15px;position:absolute;top:10px;right:10px;}
+#indentMission_frame{display:none}
+@media (max-width:320px) { 
+.Integral-list2 .bottom{font-size:12px}
+}
+
+

@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>手机报名</title>
+<link href="../css/base.css" type="text/css" rel="stylesheet">
+<link href="../css/indentInfo.css" type="text/css" rel="stylesheet">
+<link href="../css/index.new.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+</head>
+
+
+<body class="gray_f2" style='padding-bottom:105px'>
+	<ul class="shopping_cart">
+		<li>
+		 <img src="../images/banner.jpg" alt="" />
+		 <h3 class='setover'>小松鼠腰果</h3>
+		 <h6 class='setover'><span>方形</span><b class="fr colorred"><i class="price_normal">￥900.00</i>￥<i class='item_price'>18.25</i></b></h6>
+		 <p><span class="gmright fl"><a class="deljs" href="javascript:void(0)">-</a><input type="tel" value="1" class="text"><a class="addjs" href="javascript:void(0)">+</a></span></p>
+		 <a class='del icon_new'></a>
+		</li>
+		
+		<li>
+		 <img src="../images/banner.jpg" alt="" />
+		 <h3 class='setover'>小松鼠松果</h3>
+		 <h6 class='setover'><span>方形</span><b class="fr colorred"><i class="price_normal">￥900.00</i>￥<i class='item_price'>45.89</i></b></h6>
+		 <p><span class="gmright fl"><a class="deljs" href="javascript:void(0)">-</a><input type="tel" value="1" class="text"><a class="addjs" href="javascript:void(0)">+</a></span></p>
+		 <a class='del icon_new'></a>
+		</li>
+
+		<li>
+		 <img src="../images/banner.jpg" alt="" />
+		 <h3 class='setover'>小松鼠达拉会计师的费卢卡斯剪短发了卡机说服力卡斯小松鼠达拉会计师的费卢卡斯剪短发了卡机说服力卡斯极度分裂卡视角极度分裂卡视角</h3>
+		 <h6 class='setover'><span>方形</span><b class="fr colorred"><i class="price_normal">￥900.00</i>￥<i class='item_price'>1.80</i></b></h6>
+		 <p><span class="gmright fl"><a class="deljs" href="javascript:void(0)">-</a><input type="tel" value="1" class="text"><a class="addjs" href="javascript:void(0)">+</a></span></p>
+		 <a class='del icon_new'></a>
+		</li>
+	</ul>
+
+	<ul class="count_cart">
+		<li>全选<a id='count' class="fr">结算</a><span class="fr">合计:<b class="colorred" ><i id='count_money'>￥0.00</i></b> </span></li>
+	</ul>
+<footer class="footers">
+     <ul class="clear">
+         <li><a href=""><i class="icon_new"></i><p>加盟</p></a></li>
+         <li><a href=""><i class="home icon_new"></i><p>店铺</p></a></li>
+         <li class="current"><a href=""><i class="cart icon_new"></i><p>购物车</p></a></li>
+		 <li><a href=""><i class="mession icon_new"><span class="num bgred">3</span></i><p>任务中心</p></a></li>
+     </ul>
+</footer>
+
+
+
+</body>
+
+<script type="text/javascript">
+	$(function(){
+	
+	
+	    //计算总金额
+	    function count(){
+		   var m = 0;
+		   $('.item_price').each(function(){
+		     var li =  $(this).parents('li').first();
+			 if(!li.hasClass('selected')) return;
+		     var temp_price = $(this).html()*li.find('.text').val();
+		     m += temp_price;
+		   })
+		   
+		   $('#count_money').html('￥'+m.toFixed(2));
+		}
+	
+		
+		$('ul.shopping_cart li').click(function(){
+			$(this).toggleClass('selected');	
+			count();
+		});
+		
+		$('ul.count_cart li').click(function(){
+			$(this).toggleClass('selected');
+            if($(this).hasClass('selected')){
+				$('ul.shopping_cart li').addClass('selected')
+			}	
+            else{
+			    $('ul.shopping_cart li').removeClass('selected')
+			}
+       		count();	
+		});
+		$("#count").click(function(evt){
+		    evt ? evt.stopPropagation() : window.event.cancelBubble = true;
+		    alert('结算');
+		});
+		
+		$(".deljs").click(function(evt){
+		    evt ? evt.stopPropagation() : window.event.cancelBubble = true;
+		    var text = $(this).parent().children(".text");
+			var _val = text.val();
+			if(_val > 0){
+				_val--;
+				$(this).parent().children(".text").val(_val);
+				count();
+			}
+		});
+		
+		$(".addjs").click(function(evt){
+		    evt ? evt.stopPropagation() : window.event.cancelBubble = true;		
+		    var text = $(this).parent().children(".text");
+			var _val = text.val();
+			_val++;
+			$(this).parent().children(".text").val(_val);
+			count();
+		});
+		
+		$("a.del").click(function(evt){
+		    evt ? evt.stopPropagation() : window.event.cancelBubble = true;	
+			var li = $(this).parent();
+			var title = li.children('h3').html();
+			if(confirm('确认删除'+title+'吗？')){
+			 li.remove();
+			 count();
+			}
+		});		
+	});
+</script>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>首页－互动中心</title>
+<link href="../css/base.css" type="text/css" rel="stylesheet">
+<link href="../css/index.css" type="text/css" rel="stylesheet">
+<link href="../css/index.new.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/yxMobileSlider.js"></script>
+</head>
+
+
+<body style='border-bottom: 58px solid #f8f8f8'>
+<header style='height:auto;padding-bottom: 40px;'>
+  	
+	<div class="slider" style='margin-top:40px'>
+          <ul>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+          </ul>
+	</div>
+  <script>
+     $(function(){
+		var ws= $(window).width();
+        var hs = ws * 0.4375;		
+   		$(".slider").yxMobileSlider({width:ws,height:hs,during:3000});
+	 });
+  </script>
+	<div class="header-box"><img class="toux" src="../images/dianpu.jpg"><h2>好易购合伙人小松鼠</h2></div>
+    <a class="ppgss" href="#"><span>880</span>积分</a>
+</header>
+
+<div class="list-mutual">
+   兑换专区<a href="#">更多</a>
+</div>
+<a href="#" class="list-mutual-image"><img src="../images/1.jpg"></a>
+
+
+<div class="list-mutual">
+   赚取积分<a href="#">更多</a>
+</div>
+
+<div class="list-mutual-box">
+   <a href="#"><b>好玩的游戏</b><span>玩游戏得积分</span></a>
+   <a href="#"><b>每日签到</b><span>连续签到有惊喜</span></a>
+   
+</div>
+
+<div class="list-mutual-box list-mutual-box2">
+   <a href="#"><b>有奖阅读</b><span>看好文赚积分</span></a>
+   <a href="#"><b>我的二维码</b><span>分享德奖励</span></a>
+   
+</div>
+
+<div class="list-mutual">
+   <p class='setover'>赚取积分赚取积分赚取积分赚取积分赚取积分赚取积分赚取积分赚取积分赚取积分</p>
+</div>
+<footer class="footers">
+     <ul class="clear">
+         <li><a href=""><i class="icon_new"></i><p>个人中心</p></a></li>
+         <li><a href=""><i class="home icon_new"></i><p>店铺</p></a></li>
+         <li><a href=""><i class="cart icon_new"></i><p>购物车</p></a></li>
+		 <li class="current"><a href=""><i class="mession icon_new"><span class="num bgred">3</span></i><p>积分中心</p></a></li>
+     </ul>
+</footer>
+
+</body>
+</html>

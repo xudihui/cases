@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>产品详情</title>
+<link href="../css/base.css" type="text/css" rel="stylesheet">
+<link href="../css/productInfo.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/yxMobileSlider.js"></script>
+</head>
+
+<body>
+<header>
+	<div class="slider">
+          <ul>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+          </ul>
+	</div>
+  <script>
+     $(function(){
+		var ws= $(window).width(); 
+   		$(".slider").yxMobileSlider({width:ws,height:180,during:3000});
+	 });
+  </script>
+</header>
+
+<div class="unit-price clear">
+    <span class="unit-price-l">
+       <h3>坚果货手剥薄壳杏仁235g×2袋</h3>
+       <p>原价：<span class="jine">￥58.90</span></p>
+    </span>
+    <span class="unit-price-r">
+       <b class="colorred">￥36.90</b>
+    </span>
+</div><!--unit-price-->
+
+<div class="prdinfo p10">
+    <h4>商品详情</h4>
+	<p>松鼠家的热销坚果，大部分为20天生产日期，确保主人享受到线下商超无法做到的新鲜坚果。</p>
+	<p>松鼠家每一颗手剥巴旦木都精挑细选，品质卓越，当然更好吃！</p>
+    <img src="../images/info2.jpg" width="100%">
+</div><!--prdinfo-->
+
+<footer>
+     <ul class="clear">
+         <li><a href="首页.html" class="colorred"><i class="home"></i><span>店铺首页</span></a></li>
+         <li class="current"><a href="javascript:void(0)" class="bgred ljgm">立即购买</a></li>
+         <li><a href="#" class="colorred"><i class="gnzhu"></i><span>关注我们</span></a></li>
+     </ul>
+</footer>
+
+<div class="openbox hide">
+    <div class="openbox-bg"></div>
+	<div class="openbox-nr">
+        <div class="closebox"></div>
+    	<div class="openbox-top m10 clear">
+        	<img src="../images/info3.jpg" width="60px">
+            <h5>精选9包零食特产年货礼盒1996g</h5>
+            <p><span class="gray fr">(库存99)</span><b class="colorred">￥198.00</b></p>
+        </div>
+        
+        <div class="listdaiz clear">
+        	<span>红色袋装</span>
+            <span>红色袋装</span>
+            <span class="onn">红色袋装</span>
+            <span>红色袋装</span>
+            <span>红色袋装</span>
+            <span>红色袋装</span>
+        
+        </div>
+    	<div class="openbox-m clear m10">
+        	
+            <span class="gmright fr"><a class="deljs" href="javascript:void(0)">-</a><input type="tel" value="1" class="text"><a class="addjs" href="javascript:void(0)">+</a></span>
+            <strong>购买数量</strong>
+        </div>
+        <div class="m10"><button type="button" onClick="window.open('订单详情.html')" class="btn bgred">确定</button></div>
+    </div><!--openbox-nr-->
+
+
+</div><!--openbox-->
+
+<script type="text/javascript">
+	$(function(){
+		$(".ljgm").click(function(){
+			$(".openbox").show();	
+		});
+		$(".closebox").click(function(){
+			$(".openbox").hide();	
+		});
+		var _val = $(".text").val();
+		$(".deljs").click(function(){
+			if(_val > 0){
+				_val--;
+				$(".text").val(_val);
+			}
+		});
+		$(".addjs").click(function(){
+			_val++;
+			$(".text").val(_val);
+		});
+		$('.listdaiz span').click(function(){
+			$(this).addClass('onn').siblings().removeClass('onn');
+		});
+	});
+</script>
+
+</body>
+</html>

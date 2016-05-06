@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>首页</title>
+<link href="../css/base.css" type="text/css" rel="stylesheet">
+<link href="../css/index.css" type="text/css" rel="stylesheet">
+<link href="../css/index.new.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/yxMobileSlider.js"></script>
+</head>
+
+<script type='text/javascript'>
+$(function(){
+ var c = $('.classification');
+ $('.top_s_left').bind('click',function(evt){
+     evt ? evt.stopPropagation() : window.event.cancelBubble = true
+     c.fadeToggle(200);
+ });
+ $('body').bind('click',function(){
+     c.css('display','none');
+ });
+
+
+})
+
+</script>
+
+<body>
+<header class='padding'>
+  	<div class="top_s">
+          <div class="top_s_left" ><i class='icon_new'></i>分类</div>
+		  <div class="top_s_search"></div>
+		  <div class="top_s_right"><i class='icon_new'></i><input type="" placeholder='温暖过冬' /></div>
+	</div>  
+  	<div class="classification" >
+          <div class="classification_content">
+		  <a href="" class='setover active'>类目1类目1类目1</a>
+		  <a href="" class='setover'>类目2</a>
+		  <a href="" class='setover'>类目3</a> 
+		  <a href="" class='setover'>类目4</a>
+		  <a href="" class='setover'>类目2</a>
+		  <a href="" class='setover'>类目3</a> 
+		  <a href="" class='setover'>类目2</a>
+		  <a href="" class='setover'>类目3</a> 
+		  <a href="" class='setover'>类目4</a>
+		  <a href="" class='setover'>类目2</a>
+		  <a href="" class='setover'>类目3</a> 
+		  </div>
+	</div>	
+	<div class="slider" style='margin-top:40px'>
+          <ul>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+            <li><a href="#"><img src="../images/info.jpg"></a></li>
+          </ul>
+	</div>
+  <script>
+     $(function(){
+		var ws= $(window).width();
+        var hs = ws * 0.4375;		
+   		$(".slider").yxMobileSlider({width:ws,height:hs,during:3000});
+	 });
+  </script>
+	<div class="header-box"><img class="toux" src="../images/dianpu.jpg"><h2>好易购合伙人小松鼠</h2></div>
+    <a class="ppgs" href="#">品牌故事</a>
+</header>
+
+<div class="list-box clear">
+     <a onclick='alert(1)' class="telNumber"></a><!--售后 -->
+     <div class='full_first'>
+          <a href="">
+		   <img src="../images/temp.png"><!--尺寸 194*140 -->
+		  </a>
+          <a href="">
+		   <img src="../images/temp.png">
+		  </a>
+          <a href="">
+		   <img src="../images/temp.png">
+		  </a>
+     </div>
+     <ul class='full'>
+          <li><a href="产品详情.html"><img src="../images/1.jpg"> <!-- 图像建议大小616*224 -->
+          		  <p class="poper_">内格拉尔庄园 维波利 红葡萄酒 意大利原瓶进口维波利 红葡萄酒 意大利原瓶进口</p>
+                  <p><span class="price colorred"><i class="colorgray">原价¥188</i>￥108</span></p>
+		  </a>
+          </li>
+     </ul>
+     <ul>
+          <li>
+			  <section>
+				  <a href="产品详情.html"><img src="../images/index1.jpg">
+				  <p class="poper_">内格拉尔庄园 维波利 红葡萄酒 意大利原瓶进口</p>
+                  <p>
+					  <span class="coupon"></span>
+					  <span class="price colorred"><i class="colorgray">原价¥188</i>￥108</span>
+				  </p>
+				  </a>
+			  </section>
+          </li>
+          <li>
+			  <section>
+				  <a href="产品详情.html"><img src="../images/index1.jpg">
+				  <p class="poper_">零食坚果炒货特产</p>
+                  <p>
+					  <span class="coupon"></span>
+					  <span class="price colorred"><i class="colorgray">原价¥188</i>￥108</span>
+				  </p>
+				  </a>
+			  </section>
+          </li>
+          <li>
+			  <section>
+				  <a href="产品详情.html"><img src="../images/index1.jpg">
+				  <p class="poper_">零食坚果炒货特产</p>
+                  <p>
+					  <span class="coupon"></span>
+					  <span class="price colorred"><i class="colorgray">原价¥188</i>￥108</span>
+				  </p>
+				  </a>
+			  </section>
+          </li>
+          <li>
+			  <section>
+				  <a href="产品详情.html"><img src="../images/index1.jpg">
+				  <p class="poper_">零食坚果炒货特产</p>
+                  <p><span class="price colorred"><i class="colorgray">原价¥188</i>￥108</span></p>
+				  </a>
+			  </section>
+          </li>		  
+     </ul>
+	
+     <ul class='full'>
+          <li><a href="产品详情.html"><img src="../images/1.jpg"> <!-- 图像建议大小616*224 -->
+          		  <p class="poper_">零食坚果炒货特产</p>
+                  <p><span class="price colorred"><i class="colorgray">原价¥188</i>￥108</span></p>
+		  </a>
+          </li>
+     </ul>	 
+	 
+     <ul>
+          <li>
+			  <section>
+				  <a href="产品详情.html"><img src="../images/index1.jpg">
+				  <p class="poper_">内格拉尔庄园 维波利 红葡萄酒 意大利原瓶进口</p>
+                  <p><span class="price colorred"><i class="colorgray">原价¥188</i>￥108</span></p>
+				  </a>
+			  </section>
+          </li>
+          <li>
+			  <section>
+				  <a href="产品详情.html"><img src="../images/index1.jpg">
+				  <p class="poper_">零食坚果炒货特产</p>
+                  <p><span class="price colorred"><i class="colorgray">原价¥188</i>￥108</span></p>
+				  </a>
+			  </section>
+          </li>	  
+     </ul>
+	 
+     <ul class='full'>
+          <li><a href="产品详情.html"><img src="../images/1.jpg"> <!-- 图像建议大小616*224 -->
+          		  <p class="poper_">零食坚果炒货特产</p>
+                  <p><span class="price colorred"><i class="colorgray">原价¥188</i>￥108</span></p>
+		  </a>
+          </li>
+     </ul>	
+</div><!--list-box-->
+
+<div class="column">
+    <p><a href="#">售后服务</a>|<a href="#">品牌故事</a>|<a href="#">关注我们</a></p>
+    <p>本商铺由<strong class="colorred">何乐不为</strong>提供技术支持</p>
+    <p><img src="../images/biaoyu_foot.png" width='195'></p>
+</div>
+
+<footer class="footers">
+     <ul class="clear">
+         <li class="current"><a href=""><i class="icon_new"></i><p>个人中心</p></a></li>
+         <li><a href=""><i class="home icon_new"></i><p>店铺</p></a></li>
+         <li><a href=""><i class="cart icon_new"></i><p>购物车</p></a></li>
+		 <li><a href=""><i class="mession icon_new"><span class="num bgred">3</span></i><p>任务中心</p></a></li>
+     </ul>
+</footer>
+
+</body>
+</html>

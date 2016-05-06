@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>确认订单</title>
+<link href="../css/base.css" type="text/css" rel="stylesheet">
+<link href="../css/indentInfo.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+</head>
+
+<body>
+
+<header>
+	<h1 class="p10"><a href="#"><i class="goback"></i>确认订单</a></h1>
+</header>
+
+<div class="openbox-top openbox-top1 p10 clear">
+        <img src="../images/info3.jpg" width="60px">
+        <h5>精选9包零食特产年货礼盒1996g</h5>
+        <p><b class="fr colorred">￥198.00</b><span class="">共2件商品</span></p>
+</div>
+    
+
+<div class="indent-btm m10 pb40">
+    <div class="indent-btm-li indent-btm-li2">
+    	<div class="openbox-m clear">
+        	
+            <span class="gmright fr"><a class="deljs" href="javascript:void(0)">-</a><input type="tel" value="1" class="text"><a class="addjs" href="javascript:void(0)">+</a></span>
+            <strong>购买数量</strong>
+        </div>
+    </div>
+    <div class="indent-btm-li">
+    	<p class="shrn widg"><span class="fr">13555555555</span>收货人：<span>张三</span></p>
+    	<p class="widg">收货地址：<span>浙江省杭州市上城区望江门建国南苑5幢1单元502室</span><i class="edit"></i></p>
+    </div>
+   <div class="indent-btm-li">
+    	<p><span class="fr colorred">快递6.00元</span>运送方式</p>
+    </div>
+     <div class="indent-btm-li">
+    	<p><span class="gray">备注：</span><span></span></p>
+    </div>
+   
+    
+    
+    
+</div><!--indent-btm-->
+
+<footer class="footer">
+     <ul class="clear">
+         <li class="heji"><strong class="colorred">合计：</strong><strong class="colorred">￥198.00</strong></li>
+         <li class="current"><a href="#" class="btn bgred">确认订单</a></li>
+     </ul>
+</footer>
+
+<div class="openbox hide">
+    <div class="openbox-bg"></div>
+	<div class="openbox-nr">
+      <div class="p10">
+      	<h3>请选择支付方式</h3>
+        <div class="listradio"><div class="iconmg"><span class="bgred"></span></div><input type="radio" id="radio" name="name"><label for="radio"><i class="weixin"></i>微信客户端支付</label></div>
+        <div class="listradio"><div class="iconmg on"><span class="bgred"></span></div><input type="radio" checked="true" id="radio1" name="name"><label for="radio1"><i class="zfpay"></i>支付宝移动快捷支付</label></div>
+        <div class="listradio"><div class="iconmg"><span class="bgred"></span></div><input type="radio" id="radio2" name="name"><label for="radio2"><i class="yinl"></i>银联手机支付</label></div>
+        <div class="opeat"><button type="button"  class="counter">取消</button><button type="button" class="confirm bgred">确定</button></div>
+        </div>
+    </div><!--openbox-nr-->
+
+
+</div><!--openbox-->
+
+<script type="text/javascript">
+	$(function(){
+		$(".btn").click(function(){
+			$(".openbox").show();	
+		});
+		$(".closebox ,.confirm ,.counter").click(function(){
+			$(".openbox").hide();	
+		});
+		var _val = $(".text").val();
+		$(".deljs").click(function(){
+			if(_val > 0){
+				_val--;
+				$(".text").val(_val);
+			}
+		});
+		$(".addjs").click(function(){
+			_val++;
+			$(".text").val(_val);
+		});
+		$(".listradio").click(function(){
+			$(this).find(".iconmg").addClass('on');
+			$(this).siblings().find(".iconmg").removeClass('on');
+		});
+	});
+</script>
+
+
+
+</body>
+</html>

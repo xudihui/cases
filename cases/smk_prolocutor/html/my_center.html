@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>成为分销商</title>
+<link href="../css/base.css" type="text/css" rel="stylesheet">
+<link href="../css/indentInfo.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+</head>
+
+<body>
+
+<header>
+   <div class="banner banner01 bgred ">
+   		<img src="../images/toux1.png" width="40">
+        <p><strong>妞妞</strong></p>
+        <button type="button" class="mail bgred1"><i class="sets"></i></button>
+		<div>收益:￥<span>0.00</span>积分:0</div>
+   </div>
+</header>
+
+<nav class="nav pb40">
+   <ul class="nav-ul clear nav-icon">
+       <li class="colorred bordercolor spokesperson"><i></i><p>我的团队</p></li>   
+       <li class="colorred bordercolor spokesperson"><i></i><p>我的收益</p></li>
+       <li class="colorred bordercolor spokesperson"><i></i><p>排行榜</p></li>
+   </ul>
+   <ul class="nav-ul clear  nav-icon">
+       <li class="colorred bordercolor spokesperson"><i></i><p>我要提现</p></li>
+       <li class="colorred bordercolor spokesperson"><i></i><p>设置</p></li>
+       <li class="colorred bordercolor spokesperson"><i></i><p>新手指南</p></li>
+   </ul>
+  
+   
+   
+   <div class="content phbbox fixed_bottom">
+   	
+   
+    <div class="lxwm-box"><a class="colorgray" href="#"> 平台技术支持 | <i></i></a></div>
+   
+   </div><!--content-->
+</nav>
+
+
+<footer class="footers footers4">
+     <ul class="clear">
+         <li  class="current"><a href="成为分销商.html"><i class="fxs"></i><p>代言人中心</p></a></li>
+         <li><a href="首页.html"><i class="home"></i><p>店铺首页</p></a></li>
+         <li><a href="我的订单.html"><i class="dgdan"></i><p>我的订单</p></a></li>
+         <li><a href="任务中心.html"><i class="renwu"><span class="num bgred">3</span></i><p>任务中心</p></a></li>
+     </ul>
+</footer>
+
+<script type="text/javascript">
+	$(function(){
+
+		$(".phb-ul li").click(function(){
+			var _index = $(this).index();
+			var _div = $(this).parents(".content").find('.table');
+			$(this).addClass('current').siblings().removeClass('current');
+			_div.eq(_index).show().siblings(".table").hide();
+		});
+	});
+</script>
+
+</body>
+</html>

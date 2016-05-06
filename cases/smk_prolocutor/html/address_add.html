@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>添加地址</title>
+<link href="../css/base.css" type="text/css" rel="stylesheet">
+<link href="../css/indentInfo.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script src="../js/Area.js" type="text/javascript"></script>
+<script src="../js/AreaData_min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function (){
+	initComplexArea('seachprov', 'seachcity', 'seachdistrict', area_array, sub_array, '33', '0', '0'); //默认显示地址
+});
+
+//得到地区码
+function getAreaID(){
+	var area = 0;          
+	if($("#seachdistrict").val() != "0"){
+		area = $("#seachdistrict").val();                
+	}else if ($("#seachcity").val() != "0"){
+		area = $("#seachcity").val();
+	}else{
+		area = $("#seachprov").val();
+	}
+	return area;
+}
+
+function showAreaID() {
+	//地区码
+	var areaID = getAreaID();
+	//地区名
+	var areaName = getAreaNamebyID(areaID) ;
+	return areaName;
+	alert("您选择的地区码：" + areaID + "      地区名：" + areaName);            
+}
+
+//根据地区码查询地区名
+function getAreaNamebyID(areaID){
+	var areaName = "";
+	if(areaID.length == 2){
+		areaName = area_array[areaID];
+	}else if(areaID.length == 4){
+		var index1 = areaID.substring(0, 2);
+		areaName = area_array[index1] + " - " + sub_array[index1][areaID];
+	}else if(areaID.length == 6){
+		var index1 = areaID.substring(0, 2);
+		var index2 = areaID.substring(0, 4);
+		areaName = area_array[index1] + " - " + sub_array[index1][index2] + " - " + sub_arr[index2][areaID];
+	}
+	return areaName;
+};
+
+function assignment(){
+	
+};
+
+function changesval(){
+	var strs = showAreaID();
+	$('.text2').val(strs);
+};
+
+</script>
+</head>
+
+<body>
+
+<header>
+	<h1 class="p10 addlocat"><a href="#"><i class="goback"></i>添加地址</a></h1>
+</header>
+
+<div class="locatlist pb40">
+    <p>送货人姓名<input type="text" class="text"></p>
+    <p>收货人联系电话<input type="tel" class="text text3"></p>
+    <p>选择省份<select id="seachprov" name="seachprov" onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict');"></select></p>
+    <p>选择城市<select id="seachcity" name="homecity" onChange="changeCity(this.value,'seachdistrict','seachdistrict');"></select></p>
+    <p>选择区/县<span id="seachdistrict_div"><select onChange="changesval()" id="seachdistrict" name="seachdistrict"></select></span></p>
+    <p>详细地址<input type="text" class="text text2"></p>
+    <p>邮政编码<input type="tel" class="text"></p>
+
+</div>
+    
+
+    
+    
+    
+
+
+<footer class="footer srecc">
+     <ul class="clear">
+         <li><a href="#" class="bgred">完成</a></li>
+     </ul>
+</footer>
+
+
+
+</body>
+</html>

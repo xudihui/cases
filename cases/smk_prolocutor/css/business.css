@@ -1,0 +1,8 @@
+header.business{width:100%;text-align:center;line-height: 40px;padding-top:8px;height:60px;background: #f2f2f2 url(../images/business/business_top_bg.png) 0 0 repeat-x;background-size:18px 60px;}
+header.business img{max-width:320px;}
+img.business_img{width:100%}
+table.business_table tr td:nth-child(odd){width:7px;background:#f2f2f2;}
+table.business_table tr td{vertical-align: top;}
+table.business_table tr td:nth-child(even){background:#fff;}
+.setover{white-space:nowrap;text-overflow: ellipsis;overflow: hidden;}
+.business_company{font-size:14px;letter-spacing:0.1em;padding-bottom:0.5em;text-indent:0.5em}

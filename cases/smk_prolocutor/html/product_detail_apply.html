@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>产品详情</title>
+<link href="../css/base.css" type="text/css" rel="stylesheet">
+<link href="../css/productInfo.css" type="text/css" rel="stylesheet">
+<link href="../css/index.new.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/yxMobileSlider.js"></script>
+</head>
+
+<body>
+<header class='nopadding'>
+	<div class="slider">
+          <ul>
+            <li><a href="#"><img src="../images/banner_bg.jpg"></a></li>
+            <li><a href="#"><img src="../images/banner_bg.jpg"></a></li>
+            <li><a href="#"><img src="../images/banner_bg.jpg"></a></li>
+            <li><a href="#"><img src="../images/banner_bg.jpg"></a></li>
+          </ul>
+	</div>
+  <script>
+     $(function(){
+		var ws= $(window).width();
+        var hs = ws * 0.4375;		
+   		$(".slider").yxMobileSlider({width:ws,height:hs,during:3000});
+	 });
+  </script>
+</header>
+
+<div class="unit-price clear">
+    <span class="unit-price-l">
+       <h3>坚果货手剥薄壳杏仁235g×2袋</h3>
+       <p>原价：<span class="jine">￥58.90</span></p>
+    </span>
+    <span class="unit-price-r">
+       <b class="colorred">￥36.90</b>
+    </span>
+</div><!--unit-price-->
+
+
+<div class="unit-ticket clear">
+  <a class='gray'><i>￥20</i><span>手机专享，满200使用</span></a>
+  <a><i>￥20</i><span>手机专享，满200使用</span></a>
+  <a><i>￥20</i><span>手机专享，满200使用</span></a>
+</div><!--unit-ticket-->
+
+
+<div class="prdinfo p10">
+    <h4>商品详情</h4>
+	<p>松鼠家的热销坚果，大部分为20天生产日期，确保主人享受到线下商超无法做到的新鲜坚果。</p>
+	<p>松鼠家每一颗手剥巴旦木都精挑细选，品质卓越，当然更好吃！</p>
+    <img src="../images/info2.jpg" width="100%">
+</div><!--prdinfo-->
+
+<footer class='footer_detail'>
+     <ul class="clear">
+         <li class='footer_detail_home'><a style='padding-top:0' href=""><i  class=" icon_new"></i><p>店铺</p></a></li>
+		 <li class='footer_detail_marked'><a style='padding-top:0' ><i  class=" icon_new"></i></i><p>已收藏</p></a></li>
+		 <!--<li class='footer_detail_mark'><a style='padding-top:0' ><i  class=" icon_new"></i></i><p>收藏</p></a></li> -->
+         <li class="current"><a href="javascript:void(0)" class="bgred ljgm">立即购买</a></li>
+         <li><a href="#" ><span class="red">加入购物车</span></a></li>
+     </ul>
+</footer>
+
+
+<div class="frame">
+ <div class="frame_d" id='creat_id' >
+  <p>您还不是好易购会员，是否创建？</p>
+  <input type="text" placeholder='请填写姓名' />
+  <input type="text" placeholder='请填写手机号' />
+  <p><a id='show_bind' class='colorred fr size12'>绑定已有好易购会员</a></p>
+  <a class="cancel">取消</a>
+  <a class="commit">提交</a>
+ </div>
+
+ <div class="frame_d" id='bind_id' >
+  <p>绑定好易购会员账号</p>
+  <p><a class="tab"><span class='selected'>身份证号</span></a><a class="tab"><span>手机号</span></a></p>
+  <input type="text" placeholder='请输入号码' />
+  <a class="cancel">取消</a>
+  <a class="commit">绑定</a>
+ </div>
+</div>
+
+
+
+
+<div class="openbox hide">
+    <div class="openbox-bg"></div>
+	<div class="openbox-nr">
+        <div class="closebox"></div>
+    	<div class="openbox-top m10 clear">
+        	<img src="../images/info3.jpg" width="60px">
+            <h5>精选9包零食特产年货礼盒1996g</h5>
+            <p><span class="gray fr">(库存99)</span><b class="colorred">￥198.00</b></p>
+        </div>
+        
+        <div class="listdaiz clear">
+        	<span>红色袋装</span>
+            <span>红色袋装</span>
+            <span class="onn">红色袋装</span>
+            <span>红色袋装</span>
+            <span>红色袋装</span>
+            <span>红色袋装</span>
+        
+        </div>
+    	<div class="openbox-m clear m10">
+            <span class="gmright fr"><a class="deljs" href="javascript:void(0)">-</a><input type="tel" value="1" class="text"><a class="addjs" href="javascript:void(0)">+</a></span>
+            <strong>购买数量</strong>
+        </div>
+        <div class="m10"><button type="button" onClick="window.open('订单详情.html')" class="btn bgred">确定</button></div>
+    </div><!--openbox-nr-->
+
+
+</div><!--openbox-->
+
+<script type="text/javascript">
+	$(function(){
+	    var span = $('.frame_d .tab span');
+		//tab 切换
+	    span.click(function(){
+			span.removeClass('selected');	
+			$(this).addClass('selected');	
+		});
+		
+		//显示会员对话框
+        var show = function(el){
+		    $('#creat_id,#bind_id').css('display','none');
+		    el.css('display','block');
+		    el.parent().fadeIn();
+		}
+		
+		//隐藏会员对话框
+        var hide = function(){
+		    $('.frame').fadeOut(100);
+		}
+
+
+        //执行，参数直接是jQ对象		
+        show($('#creat_id'));		
+		
+
+		$('#show_bind').click(function(){
+			show($('#bind_id'));	
+		});
+		
+		$('body,.cancel').click(function(){
+		    hide();
+		});
+		
+		$('.frame_d').click(function(evt){
+		   evt ? evt.stopPropagation() : window.event.cancelBubble = true;
+		});		
+		
+	
+		$(".ljgm").click(function(){
+			$(".openbox").show();	
+		});
+		$(".closebox").click(function(){
+			$(".openbox").hide();	
+		});
+		var _val = $(".text").val();
+		$(".deljs").click(function(){
+			if(_val > 0){
+				_val--;
+				$(".text").val(_val);
+			}
+		});
+		$(".addjs").click(function(){
+			_val++;
+			$(".text").val(_val);
+		});
+		$('.listdaiz span').click(function(){
+			$(this).addClass('onn').siblings().removeClass('onn');
+		});
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+header{ position:relative; height:123px;}
+.header-box{ height:30px; position:absolute;bottom:0;width:100%; background:rgba(0,0,0,0.5);}
+.header-box .toux{ width:50px; position:absolute;top:-24px;left:10px; border-radius:50%;border:1px solid #fff;}
+header .bgimg{width:100%; height:123px;}
+.header-box h2{ color:#fff; font-size:16px; padding-left:74px; line-height:30px;}
+header .ppshow{ position:absolute;bottom:10px;right:10px; width:40px; height:40px;}
+
+.list-box{ padding-bottom:10px; background:#f2f3f4;}
+.list-box ul li{ float:left; width:46%;margin:10px 0 0 10px; background:#fff;height:205px; overflow:hidden;}
+.list-box ul li img{ width:100%;}
+.list-box ul li p{ font-size:12px; padding-right:5px; overflow: hidden;}
+.list-box ul li .price{float:right;}
+
+.ppgs{ width:80px; height:28px; padding-left:7px; line-height:25px; color:#fff; font-size:14px; bottom:0; position:absolute; right:10px; background:url(../images/ppgs-bg.png) no-repeat; background-size:80px;}
+.column{ padding:20px 0 70px;background:#f2f3f4; text-align:center; color:#666; }
+
+.column p{ line-height:25px; font-size:14px;}
+.column p a{ font-size:14px; color:#666;padding:0 10px;}
+@media only screen and (min-width: 350px) and (max-width: 400px){
+    .list-box ul li{ min-height:235px;}
+    header{ position:relative; height:144px;}
+    header .bgimg{width:100%; height:144px;}
+}
+
+@media only screen and (min-width: 400px) and (max-width: 450px){
+    .list-box ul li{ min-height:260px;}
+    header{ position:relative; height:159px;}
+    header .bgimg{width:100%; height:159px;}
+}
+
+article.public_words{color:#c55000;background: #ffecb1 url(../images/sound.png) 10px 8px no-repeat;letter-spacing:0.1em;overflow:hidden;height:24px;line-height:24px; background-size:9px 10px;}
+article.public_words span {white-space:nowrap;font-size:12px;padding-left:25px;}
+i.colorgray{color:#ccc;padding-right:3px;font-style:normal;text-decoration:line-through;font-size:12px;}
+.list-box ul li .poper_{ width:97%; display:block;height:37px;overflow:hidden;padding:5px 5px 0 5px}
+
+/* 2015-11-17 new */
+.list-box{background:#f2f3f4;padding:0 10px}
+.list-box ul li{ float:left; width:50%;margin:10px 0 0 0; background:#fff; height:auto;min-height:185px!important;padding-bottom:5px;overflow:hidden;}
+.list-box ul li:nth-child(even) section{padding-left:5px;}
+.list-box ul li:nth-child(odd) section{padding-right:5px;}
+.list-box ul.full li{ width:100%;}
+a.telNumber{width:72px;height:25px;background:url(../images/telNumber.png) 0 0 no-repeat;background-size:72px 25px;position:fixed;right:0;top:220px}
+/* 2015-11-17 end */

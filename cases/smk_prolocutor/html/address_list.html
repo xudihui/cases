@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>地址列表</title>
+<link href="../css/base.css" type="text/css" rel="stylesheet">
+<link href="../css/indentInfo.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery.js"></script>
+</head>
+
+<body class="bgbody">
+
+<header>
+	<h1 class="p10 bgwhite"><a href="#"><i class="goback"></i>地址列表</a></h1>
+</header>
+
+<div class="indent-btm-li indent-btm-li1 bgwhite onn">
+    <div class="current"></div>
+    <p class="widg mb"><span class="fr">13555555555</span>收货人：<span>张三</span></p>
+    <p class="widg">收货地址：<span>浙江省杭州市上城区望江门建国南苑5幢1单元502室</span></p>
+</div>
+<div class="indent-btm-li indent-btm-li1 bgwhite">
+    <div class="current"></div>
+    <p class="widg mb"><span class="fr">13555555555</span>收货人：<span>张三</span></p>
+    <p class="widg">收货地址：<span>浙江省杭州市上城区望江门建国南苑5幢1单元502室</span></p>
+</div>
+
+<div class="m10"><a href="#" class="bgred adddz">添加地址</a></div>
+
+<footer class="footers">
+     <ul class="clear">
+         <li><a href="#"><i class="fxs"></i><p>成为分销商</p></a></li>
+         <li><a href="#"><i class="home"></i><p>店铺首页</p></a></li>
+         <li class="current"><a href="#"><i class="dgdan"></i><p>我的订单</p></a></li>
+     </ul>
+</footer>
+
+<script type="text/javascript">
+	$(function(){
+		$(".indent-btm-li1").click(function(){
+			$(this).addClass('onn');
+			$(this).siblings(".indent-btm-li1").removeClass('onn');
+		});
+	});
+</script>
+
+</body>
+</html>

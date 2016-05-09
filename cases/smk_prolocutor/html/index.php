@@ -1,3 +1,3 @@
 <?php 
-require('../i.php');
+require('../../i.php');
 ?>

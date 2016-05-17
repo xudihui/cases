@@ -69,12 +69,6 @@ $scope.games = [   //dataModel
 		 "lib": "Jq",	
 		 "time": "2014/08/02"
 		 },
-		{"id": "a08",
-		 "href": "mobile_find_big_white",
-		 "name": "房地产宣传页",
-		 "lib": "Jq",	
-		 "time": "2014/02/20"
-		 },
 		{"id": "a09",
 		 "href": "mobile_smk05",
 		 "name": "杭州通优惠",

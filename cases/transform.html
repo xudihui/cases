@@ -17,7 +17,7 @@ h3{padding:5px;background:#f1f1f1;color:#333;font-weight:normal;border:1px solid
 .con{border:1px solid #ddd;padding:20px;overflow:hidden;margin-bottom:20px;}
 .i01{width:100px;height:100px;background:#cc0000;}
 .i02{width:80px;height:80px;background:#cc0000;color:#fff;line-height:80px;text-align:center;font-size:12px}
-.i03{width:80px;height:80px;border:1px dashed #ccc;color:#000;line-height:80px;text-align:center;font-size:12px}
+.i03{width:80px;height:80px;border:1px dashed #ccc;color:#000;line-height:80px;text-align:center;font-size:12px;transition:3s}
 .Scale{animation:Scale ease-in 6s infinite;}
 .Translate{animation:Translate ease-in 6s infinite;}
 .RotateX{animation:RotateX ease-in 6s infinite;}
@@ -139,7 +139,7 @@ h3{padding:5px;background:#f1f1f1;color:#333;font-weight:normal;border:1px solid
 
 .transform{margin-top:-82px;border-color:#cc0000;color:#cc0000}
 .floatL{float:left;margin-right:40px;}
-.i03.floatL{border-color:#cc0000}
+.i03.floatL{border-color:#cc0000;}
 </style>
 <body >
 
@@ -188,6 +188,16 @@ h3{padding:5px;background:#f1f1f1;color:#333;font-weight:normal;border:1px solid
 	<div class="i03 floatL SkewY">skewY</div>		
 </div>
 
+
+
+<h3>box</h3>
+<div class="con" style=''>
+	<div class="i03" style_='transform: skewX(-45deg) scaleY(.3);transform-origin: left bottom;'></div>	
+	<div class="i03 "></div>
+	<div class="i03 " style_='transform-origin: left top;transform: skewX(-45deg) scaleY(.3) rotateX(190deg);border-bottom-color:transparent'></div>
+	<div class="i03 " style_='transform-origin: left bottom;transform: translate3d(25px,-189px,0px);border-left-color:rgba(0,0,0,.1);border-bottom-color:rgba(0,0,0,.1)' ></div>
+</div>
+
 <h3>transition</h3>
 <div class="con">
 	<div class="i02 trans_list ease">ease</div>
@@ -198,17 +208,11 @@ h3{padding:5px;background:#f1f1f1;color:#333;font-weight:normal;border:1px solid
 
 
 
-
-<div class="flex-con">
-	<div class="content" ></div>
-	<div class="content "></div>
-	<div class="content "></div>
-	<div class="content "></div>
-</div>
 	
 </body>
 
 <script type="text/javascript">
+/*
    var content = document.querySelectorAll('.content');
    var i = 0;
    var t = setInterval(function(){
@@ -220,7 +224,18 @@ h3{padding:5px;background:#f1f1f1;color:#333;font-weight:normal;border:1px solid
 	    console.log('class添加完毕！');
 		clearInterval(t);
 	   }
-   },700)
+   },700);
+   */
+   var i03 = document.querySelectorAll('.i03');
+   setTimeout(function(){
+   for(i in i03){
+       var temp = i03[i].getAttribute('style_');
+	   if(temp){
+	       i03[i].setAttribute('style',temp)
+	   }
+   }   
+   },0)
+
 
 </script>
 </html>

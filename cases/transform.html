@@ -1,0 +1,226 @@
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>transform 测试</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<style type="text/css">
+body{padding:10px;}
+*{margin:0;padding:0;font-family: "klavika-web", "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif !important;}
+h3{padding:5px;background:#f1f1f1;color:#333;font-weight:normal;border:1px solid #ddd;border-bottom:0}
+.flex-con{display:flex;align-items:center}
+.flex-item{flex:1;width:0%;text-align:center;color:#fff}
+.con{border:1px solid #ddd;padding:20px;overflow:hidden;margin-bottom:20px;}
+.i01{width:100px;height:100px;background:#cc0000;}
+.i02{width:80px;height:80px;background:#cc0000;color:#fff;line-height:80px;text-align:center;font-size:12px}
+.i03{width:80px;height:80px;border:1px dashed #ccc;color:#000;line-height:80px;text-align:center;font-size:12px}
+.Scale{animation:Scale ease-in 6s infinite;}
+.Translate{animation:Translate ease-in 6s infinite;}
+.RotateX{animation:RotateX ease-in 6s infinite;}
+.RotateY{animation:RotateY ease-in 6s infinite;}
+.RotateZ{animation:RotateZ ease-in 6s infinite;}
+.SkewX{animation:SkewX ease-in 6s infinite;}
+.SkewY{animation:SkewY ease-in 6s infinite;}
+@keyframes Scale{
+   0%{
+     opacity:1; 
+   }  
+   50%{
+     opacity:.5;
+	 transform:scale(1.1,1.1);
+   }
+   100%{
+     opacity:1;
+   }   
+}
+
+@keyframes Translate{
+   0%{
+     opacity:1; 
+   }
+   50%{
+     opacity:.5;
+	 transform:translate(10px,10px) ;
+   }
+   100%{
+     opacity:1;
+   }   
+}
+
+@keyframes RotateX{
+   0%{
+     opacity:1; 
+   }
+   50%{
+     opacity:.5;
+	 transform:rotateX(360deg) ;
+   }
+   100%{
+     opacity:1;
+   }   
+}
+
+@keyframes RotateY{
+   0%{
+     opacity:1; 
+   }
+   50%{
+     opacity:.5;
+	 transform:rotateY(360deg) ;
+   }
+   100%{
+     opacity:1;
+   }   
+}
+
+@keyframes RotateZ{
+   0%{
+     opacity:1; 
+   }
+   50%{
+     opacity:.5;
+	 transform:rotateZ(360deg) ;
+   }
+   100%{
+     opacity:1;
+   }   
+}
+
+@keyframes SkewX{
+   0%{
+     opacity:1; 
+   }
+   50%{
+     opacity:.5;
+	 transform:skewX(20deg) ;
+   }
+   100%{
+     opacity:1;
+   }   
+}
+
+@keyframes SkewY{
+   0%{
+     opacity:1; 
+   }
+   50%{
+     opacity:.5;
+	 transform:skewY(20deg) ;
+   }
+   100%{
+     opacity:1;
+   }   
+}
+
+
+
+.trans_list{margin-bottom:10px;}
+.ease {
+    transition: all 4s ease;    /*越来越慢*/
+}
+.ease-in {
+    transition: all 4s ease-in;/*先慢*/
+}
+.ease-out {
+    transition: all 4s ease-out;/*后慢*/
+}
+.ease-in-out {
+    transition: all 4s ease-in-out;/*先慢后慢*/
+}
+.con:hover .trans_list{
+   transform:rotate(360deg);
+   margin-left:80%;
+}
+
+
+.transform{margin-top:-82px;border-color:#cc0000;color:#cc0000}
+.floatL{float:left;margin-right:40px;}
+.i03.floatL{border-color:#cc0000}
+</style>
+<body >
+
+<h3>transform</h3>
+<div class="con">
+   <div class="floatL">
+	<div class="i03"></div>
+	<div class="i03 transform" style='transform:scale(1.1,1.1);'>scale</div>   
+   </div>
+   <div class="floatL">
+	<div class="i03"></div>
+	<div class="i03 transform" style='transform:translate(10px,10px);'>translate</div>   
+   </div>
+   <div class="floatL">
+	<div class="i03"></div>
+	<div class="i03 transform" style='transform:rotateX(45deg);'>rotateX</div>   
+   </div>
+   <div class="floatL">
+	<div class="i03"></div>
+	<div class="i03 transform" style='transform:rotateY(45deg);'>rotateY</div>   
+   </div>   
+   <div class="floatL">
+	<div class="i03"></div>
+	<div class="i03 transform" style='transform:rotate(45deg);'>rotateZ</div>   
+   </div>
+   <div class="floatL">
+	<div class="i03"></div>
+	<div class="i03 transform" style='transform:skewX(30deg);'>skewX</div>   
+   </div> 
+   <div class="floatL">
+	<div class="i03"></div>
+	<div class="i03 transform" style='transform:skewY(20deg);'>skewY</div>   
+   </div>    
+</div>
+
+
+
+<h3>animation</h3>
+<div class="con">
+	<div class="i03 floatL Scale">scale</div>
+	<div class="i03 floatL Translate">translate</div>
+	<div class="i03 floatL RotateX">rotateX</div>	
+	<div class="i03 floatL RotateY">rotateY</div>		
+	<div class="i03 floatL RotateZ">rotateZ</div>	
+	<div class="i03 floatL SkewX">skewX</div>
+	<div class="i03 floatL SkewY">skewY</div>		
+</div>
+
+<h3>transition</h3>
+<div class="con">
+	<div class="i02 trans_list ease">ease</div>
+	<div class="i02 trans_list ease-in">ease-in</div>
+	<div class="i02 trans_list ease-out">ease-out</div>
+	<div class="i02 trans_list ease-in-out">ease-in-out</div>	
+</div>
+
+
+
+
+<div class="flex-con">
+	<div class="content" ></div>
+	<div class="content "></div>
+	<div class="content "></div>
+	<div class="content "></div>
+</div>
+	
+</body>
+
+<script type="text/javascript">
+   var content = document.querySelectorAll('.content');
+   var i = 0;
+   var t = setInterval(function(){
+       content[i].setAttribute('class','content go');
+
+	   i++;
+	   console.log('添加第'+i+'个class成功！'); 	   
+	   if(i==content.length){
+	    console.log('class添加完毕！');
+		clearInterval(t);
+	   }
+   },700)
+
+</script>
+</html>

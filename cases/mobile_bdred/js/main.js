@@ -1,7 +1,7 @@
 ﻿
-var $actUrl = "http://192.168.23.200:8082/smk_activity/";
-var $actChanceUrl= $actUrl+"extGetBdChance.ext";
-var $actBdRedUrl= $actUrl+"extGetBdRed.ext";
+var $actUrl = "http://localhost/mobile_bdred/";
+var $actChanceUrl= $actUrl+"js/extGetBdChance.js";
+var $actBdRedUrl= $actUrl+"js/extGetBdRed.js";
 	
 var $ = function(el){
   return document.querySelector(el);

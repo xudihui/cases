@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang = "zh-CN" ng-app = 'smkApp' style='font-size:16px'>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="" name="Keywords">
+	<meta content="" name="Description">
+	<!-- Mobile Devices Support @begin -->
+	<title>公交充值红包</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+    <link rel="stylesheet" href="css/css.css" />
+</head>
+<body ng-controller = 'Main'>
+ <!-- sorry -->
+ <div class="sorry">
+   <div class="top">
+   </div>
+   <p>
+         非常遗憾,您还未取得抽奖机会<br>
+	 请在公交充值下单获得抢红包机会。此次互动准备了超过20000个红包等您来抢!
+   </p>
+	<p class='rule' ><i ng-click='openRule()'>活动规则</i></p>  
+ </div>
+ 
+ <!-- 等待 -->
+ <div class="load">
+      <img src="img/xiaohongbao.png" alt="" />
+	  <p class='p3' id='p3'>正在加载</p>
+ </div>
+ 
+ <!-- 去登录 --> 
+ <div class="login">
+      <img src="img/hongbao.png" alt="" />
+	  <p class='p3'>快去登录/注册，让红包带你飞</p>
+	  <a href="smknative:openLoginView()">去登录/注册</a>
+ </div> 
+ 
+ <!-- 主体 --> 
+ <div class="main" >
+    <div class="envelope">
+	   <div class="open" ng-click='open()'>
+	    <div class="inner"></div>
+	   </div>
+	   <div class="open win" ng-show='win'></div>	   
+	</div>
+	<!-- 初始化 -->
+	<p ng-show='beforeOpen' >恭喜您，获得一次抽奖机会!</p>
+	<p class='rule' ng-show='beforeOpen'><i ng-click='openRule()'>活动规则</i></p>	
+	<div class="footer" ng-show='beforeOpen'></div>
+	
+	
+	<!-- 中奖 -->
+	<p ng-show='win' class='p1'>恭喜您，获得公交充值红包<br><span ng-bind='money' ></span>元</p>
+	<div  ng-show='win' class="footer_win">前往交易记录<br><span>请进入"公交充值-交易记录"收取</span></div>	
+
+
+	<!-- 未中奖 -->
+	<p ng-show='fail' class='p2'>未中奖，谢谢参与</p>	
+	
+ </div>
+ 
+  <!-- 弹出框模块 -->
+ <div class="modal-overlay"></div>
+ <div class="modal">
+   <div class="modal-inner"><div class="modal-text"></div></div>
+   <div class="modal-buttons"><span class="modal-button modal-button-bold">关闭</span></div>
+ </div>
+    <!-- 活动规则 -->
+ <div class="modal-overlay modal-overlay-visible _rule_bg" ng-show='rule' style='z-index:14000;display:none'></div>
+  <div class="_rule" ng-show='rule' style='display:none'>
+    <div class="_rule_title">活动规则<i ng-click='closeRule()'></i></div>
+	<div class="_rule_content">
+		<div>一、活动时间：
+		2016年11月15日0:00至2016年12月31日23:59
+		二、活动范围：	
+		杭州市民卡新老注册用户
+		三、活动说明：
+		活动期间，新老用户只要使用杭州市民卡公交充值，支付成功就能够获得一次抽奖机会；活动入口在杭州市民卡APP首页底部“公交充值红包”活动链接；每位用户仅有一次抽奖机会。
+		四、奖项发放：
+		1、本次活动红包设置5元、10元、20元、50元、200元；抽奖以后，系统实时发放，以APP端公交充值钱包订单的方式发放，请用户进入市民卡APP》》公交充值》》查询》》交易记录 查询红包订单；公交充值红包订单需要用户自行到市民卡自助机拍卡补登。
+		2、所获得公交充值红包需在一个月内拍卡补登，超时以后，红包将过期失效。
+		3、本次活动红包数量超过20000个，先到先得。
+		</div>
+		<div class='_rule_know' ng-click='closeRule()'>知道了</div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</html>

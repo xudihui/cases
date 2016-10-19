@@ -459,6 +459,7 @@
 			._rule ._rule_title{text-align:center;padding-bottom:10px;padding-left:10px;}
 			._rule ._rule_title span{padding:0 10px;position:Relative;top:-2px;}
 			._rule ._rule_title i{float:right;width:30px;margin-top:-10px;margin-right:-10px;height:30px;background: url(../img/ic_close.png) center center no-repeat;background-size:10px 10px;}
-			._rule ._rule_content{font-size:14px;line-height:1.5;max-height:300px;overflow:auto;}
+			._rule ._rule_content{font-size:14px;line-height:1.5;max-height:300px;overflow:auto;color:#555;}
+			._rule ._rule_content span{color:#000}
 			._rule_know{margin:10px 30px;background:#ea3935;height:30px;line-height:30px;color:#fff;display:block;text-align:center;border-radius:5px;}
 		

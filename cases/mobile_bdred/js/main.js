@@ -125,7 +125,16 @@ else{
 				  $('.main').style.display = 'block';
 				  $('._rule_bg').style.display = 'block';
 				  $('._rule').style.display = 'block';
-			  };		  
+			  };	
+			  		  
+			  $scope.reset = function(){ //初始化
+			      $('.load').style.display = 'block';
+				  $scope.win = false;
+				  $scope.beforeOpen = false;
+				  $('.main').style.display = 'none';
+				  $('._rule_bg').style.display = 'none';
+				  $('._rule').style.display = 'none';
+			  };
 			  
 			  $scope.open = function(){ //开奖动作
 				  $timeout(function(){ 
@@ -136,9 +145,13 @@ else{
 						  $scope.success(data.response.money);
 						  $('.open').style.display = 'none';
 						}
-						else{  //没有中奖
+						else if(data.code == '-1001'){  //没有中奖
 						  $scope.loose();
 						  $('.open').style.display = 'none';
+						}
+						else{
+							$scope.reset();
+							alert(data.msg);
 						}
 					}).error(function(data){});	
 				  },880);

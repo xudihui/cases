@@ -1,4 +1,9 @@
-﻿
+﻿/*
+var $actUrl = "http://localhost/mobile_bdred/";
+var $actChanceUrl= $actUrl+"js/extGetBdChance.js";
+var $actBdRedUrl= $actUrl+"js/extGetBdRed.js";
+*/
+
 var $actUrl = "http://localhost/mobile_bdred/";
 var $actChanceUrl= $actUrl+"js/extGetBdChance.js";
 var $actBdRedUrl= $actUrl+"js/extGetBdRed.js";

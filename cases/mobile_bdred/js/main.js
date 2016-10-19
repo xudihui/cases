@@ -116,8 +116,6 @@ else{
 						});							
 					}	
 				}
-
-			  
 			  $scope.init = function(){ //初始化
 			      $('.load').style.display = 'none';
 				  $scope.win = false;

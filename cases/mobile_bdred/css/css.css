@@ -455,9 +455,10 @@
 			}
 			p.rule{position:absolute;bottom:0px;margin:0!important;padding-bottom:30px;color:#ff9600!important;width:100%;font-size:12px;text-align:center}
 			p.rule i{font-style:normal;background: url(../img/ic_activity.png) left center no-repeat;background-size:10px 10px;padding-left:12px;}
-			._rule{border-radius:5px;position:absolute;background:#fff;left:50px;top:50px;right:50px;z-index:14000;padding:10px;letter-spacing:.05em}
-			._rule ._rule_title{text-align:center;padding-bottom:10px;}
+			._rule{border-radius:5px;position:absolute;background:#fff;left:50px;top:90px;right:50px;z-index:14000;padding:10px;letter-spacing:.05em}
+			._rule ._rule_title{text-align:center;padding-bottom:10px;padding-left:10px;}
+			._rule ._rule_title span{padding:0 10px;position:Relative;top:-2px;}
 			._rule ._rule_title i{float:right;width:30px;margin-top:-10px;margin-right:-10px;height:30px;background: url(../img/ic_close.png) center center no-repeat;background-size:10px 10px;}
 			._rule ._rule_content{font-size:14px;line-height:1.5;max-height:300px;overflow:auto;}
-			._rule_know{margin:10px 50px;background:#ea3935;height:30px;line-height:30px;color:#fff;display:block;text-align:center;border-radius:5px;}
+			._rule_know{margin:10px 30px;background:#ea3935;height:30px;line-height:30px;color:#fff;display:block;text-align:center;border-radius:5px;}
 		

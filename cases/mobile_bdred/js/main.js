@@ -91,6 +91,8 @@ else{
 	            var userData = {redCode:8888} //传递给后台的数据
 				window.getDataFromApp = function(data){
 					//判断是否有抽奖机会
+					
+					$('#p3').innerHTML = data;
 					var o = JSON.parse(data);
 					userData.userId = o.userId;
 					userData.userName = o.userName;
@@ -106,10 +108,7 @@ else{
 										$scope.init();
 									  }	
 									  else { //无抽奖机会
-										  $('._rule_bg').style.display = 'block';
-										  $('._rule').style.display = 'block';									  
-										 $('.load').style.display = 'none';
-						                 $('.sorry').style.display = 'block';				  
+										 $scope.noChance();	  
 									  }									
 							}
 							else{
@@ -138,6 +137,14 @@ else{
 				  $('._rule_bg').style.display = 'none';
 				  $('._rule').style.display = 'none';
 			  };
+			  
+			  $scope.noChance = function(){ //初始化
+			        $('.main').style.display = 'none';
+					$('._rule_bg').style.display = 'block';
+					$('._rule').style.display = 'block';									  
+					$('.load').style.display = 'none';
+					$('.sorry').style.display = 'block';
+			  };			  										 	
 			  
 			  $scope.open = function(){ //开奖动作
 				  $timeout(function(){ 

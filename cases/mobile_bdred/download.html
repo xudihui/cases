@@ -22,9 +22,11 @@
 			html,body{height:100%;background:#d0021b;font-family:'微软雅黑';}
 			.main{height:100%;text-align:center;position:relative;font-size:0.75rem;color:#fff;letter-spacing:.05em}
 			.top img{width:100%;}
+
 			p{padding-bottom:20px;padding-top:20px;}
 			p span{font-size:1.3125rem;padding:0 5px;color:#f8e71c}
 			p.bottom{padding-bottom:0}
+		
 			a{width:150px;height:27px;background:#ff9600;color:#fff;display:block;margin:10px auto;text-decoration:none;border-radius:20px;line-height:27px;font-size:0.875rem}
 			p.rule{margin:-23px 0 0 0;color:#ff9600!important;width:100%;font-size:12px;text-align:center}
 			p.rule i{font-style:normal;background: url(img/ic_activity.png) left center no-repeat;background-size:10px 10px;padding-left:12px;}
@@ -35,7 +37,9 @@
 			._rule ._rule_content{font-size:14px;text-align:left;line-height:1.5;max-height:300px;overflow:auto;color:#555;}
 			._rule ._rule_content span{color:#000}
 			._rule_know{margin:10px 30px;background:#ea3935;height:30px;line-height:30px;color:#fff;display:block;text-align:center;border-radius:5px;}
-		
+			@media screen and (max-height: 481px) { p{padding-bottom:10px;padding-top:10px;}
+			p.rule{margin-top:-14px}
+			} 			
 			.modal-overlay,
 			.preloader-indicator-overlay,
 			.popup-overlay {

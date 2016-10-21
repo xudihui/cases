@@ -101,7 +101,6 @@ else{
 	            var userData = {redCode:8888} //传递给后台的数据
 				window.getDataFromApp = function(data){
 					//判断是否有抽奖机会
-					//$('#p3').innerHTML = data;
 					var o = JSON.parse(data);
 					userData.userId = o.userId;
 					userData.userName = o.userName;

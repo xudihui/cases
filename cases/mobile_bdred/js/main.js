@@ -1,13 +1,14 @@
-﻿/*
+﻿
 var $actUrl = "http://localhost/mobile_bdred/";
 var $actChanceUrl= $actUrl+"js/extGetBdChance.js";
 var $actBdRedUrl= $actUrl+"js/extGetBdRed.js";
+
+/*
+var $actUrl = "http://192.168.23.200:8082/smk_activity/";
+var $actChanceUrl= $actUrl+"extGetBdChance.ext";
+var $actBdRedUrl= $actUrl+"extGetBdRed.ext";
 */
 
-var $actUrl = "http://localhost/mobile_bdred/";
-var $actChanceUrl= $actUrl+"js/extGetBdChance.js";
-var $actBdRedUrl= $actUrl+"js/extGetBdRed.js";
-	
 var $ = function(el){
   return document.querySelector(el);
 }
@@ -71,6 +72,7 @@ var base64decode = function(str){   //base64解码
     }  
     return out;  
 }  
+
 var L = location.href;
 var BASE = L.slice(0,L.lastIndexOf('/')+1);
 
@@ -91,8 +93,7 @@ else{
 	            var userData = {redCode:8888} //传递给后台的数据
 				window.getDataFromApp = function(data){
 					//判断是否有抽奖机会
-					
-					$('#p3').innerHTML = data;
+					//$('#p3').innerHTML = data;
 					var o = JSON.parse(data);
 					userData.userId = o.userId;
 					userData.userName = o.userName;
@@ -108,7 +109,10 @@ else{
 										$scope.init();
 									  }	
 									  else { //无抽奖机会
-										 $scope.noChance();	  
+										  $('._rule_bg').style.display = 'block';
+										  $('._rule').style.display = 'block';									  
+										 $('.load').style.display = 'none';
+						                 $('.sorry').style.display = 'block';				  
 									  }									
 							}
 							else{
@@ -137,14 +141,6 @@ else{
 				  $('._rule_bg').style.display = 'none';
 				  $('._rule').style.display = 'none';
 			  };
-			  
-			  $scope.noChance = function(){ //初始化
-			        $('.main').style.display = 'none';
-					$('._rule_bg').style.display = 'block';
-					$('._rule').style.display = 'block';									  
-					$('.load').style.display = 'none';
-					$('.sorry').style.display = 'block';
-			  };			  										 	
 			  
 			  $scope.open = function(){ //开奖动作
 				  $timeout(function(){ 

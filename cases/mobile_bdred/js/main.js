@@ -82,11 +82,19 @@ if(ua.toLowerCase().indexOf("micromessenger") > -1)  //微信打开
 {
     location.href = BASE + 'download.html';
 }
+
 else if(location.hash != '#smkV3.4.1'){  //有交互老版本App打开，提示用户更新
 	//alert('请下载最新版APP')
 
 	$('#p3').innerHTML = '地址：'+location.href+'本活动仅针对app3.4.1版本及以上用户参与，'+ (location.hash.indexOf('smkV3.3') == -1 ? '<a href="smknative:openAppstore()">点击此处</a>':'请') +'升级至最新版。';
 }
+
+/*
+else if(location.href.split('?')[1] != undefined && location.href.split('?')[1] != 'smkV3.4.1'){  //有交互老版本App打开，提示用户更新
+	$('#p3').innerHTML = '地址：'+location.href+'本活动仅针对app3.4.1版本及以上用户参与，'+ (location.href.indexOf('smkV3.3') == -1 ? '<a href="smknative:openAppstore()">点击此处</a>':'请') +'升级至最新版。';
+}
+*/
+
 else{
 	var smkApp = angular.module('smkApp',['ngSanitize']); //先把应用定义成一个模块名
 	smkApp.controller('Main',function($scope,$timeout,$http){ //主控制器

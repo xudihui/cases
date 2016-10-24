@@ -20,49 +20,15 @@
     <link rel="stylesheet" href="css/css.css" />
 </head>
 <body ng-controller = 'Main'>
- <!-- sorry -->
- <div class="sorry">
-   <div class="top">
-   </div>
-   <p>
-         非常遗憾,您还未取得抽奖机会<br>
-	 请在公交充值下单获得抢红包机会。此次互动准备了超过20000个红包等您来抢!
-   </p>
-	<p class='rule' ><i ng-click='openRule()'>活动规则</i></p>  
- </div>
- 
- 
- <!-- 主体 --> 
- <div class="main" >
-    <div class="envelope">
-	   <div class="open" ng-click='open()'>
-	    <div class="inner"></div>
-	   </div>
-	   <div class="open win" ng-show='win'></div>	   
+  <div class="main" style='display:block'>
+    <div class="envelope" >
 	</div>
 	<!-- 初始化 -->
-	<p ng-show='beforeOpen' >恭喜您，获得一次抽奖机会!</p>
-	<p class='rule' ng-show='beforeOpen'><i ng-click='openRule()'>活动规则</i></p>	
-	<div class="footer" ng-show='beforeOpen'></div>
-	
-	
-	<!-- 中奖 -->
-	<p ng-show='win' class='p1'>恭喜您，获得公交充值红包<br><span ng-bind='money' ></span>元</p>
-	<div  ng-show='win' class="footer_win">前往交易记录<br><span>请进入"公交充值-交易记录"收取</span></div>	
-
 
 	<!-- 未中奖 -->
-	<p ng-show='fail' class='p2'>未中奖，谢谢参与</p>	
+	<p style='display:block' ng-show='fail' class='p2'>未中奖，谢谢参与</p>	
 	
  </div>
- 
-  <!-- 弹出框模块 -->
- <div class="modal-overlay"></div>
- <div class="modal">
-   <div class="modal-inner"><div class="modal-text"></div></div>
-   <div class="modal-buttons"><span class="modal-button modal-button-bold">关闭</span></div>
- </div>
-    <!-- 活动规则 -->
  <div class="modal-overlay modal-overlay-visible _rule_bg" ng-show='rule' style='z-index:14000;display:none'></div>
   <div class="_rule" ng-show='rule' style='display:none'>
     <div class="_rule_title"><img src="img/img_redbage.png" width='26' alt="" /><span>活动规则</span><img src="img/img_redbage.png" width='26' alt="" /><i ng-click='closeRule()'></i></div>
@@ -80,9 +46,6 @@
 		</div>
 		<div class='_rule_know' ng-click='closeRule()'>知道了</div>
     </div>
-  </div>
+  </div> 
 </body>
-<script type="text/javascript" src="js/angular.min.js"></script>
-<script type="text/javascript" src="js/angular-sanitize.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
 </html>

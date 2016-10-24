@@ -122,6 +122,11 @@ else{
 						                 $('.sorry').style.display = 'block';				  
 									  }									
 							}
+							else if(data_.code == '-1003'){  //没有中奖
+							  $scope.reset();
+							  $('.done').style.display = 'block';
+							  $('.done_p').innerHTML = data_.msg;
+							}								
 							else{
 								alert(data_.msg);
 								//location.href = BASE + 'sorry.html';	

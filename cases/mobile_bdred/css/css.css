@@ -6,24 +6,24 @@
 			.envelope{width:130%;margin-left:-15%;background:#ea3935;border-radius:50%;height:300px;margin-top:-150px;position:relative;box-shadow:0px -1px 2px 0px rgba(0,0,0,0.10), 0px 1px 2px 0px rgba(0,0,0,0.10);}
 			.open{width:105px;height:105px;border-radius:50%;background:#edc47f;position:absolute;left:50%;bottom:0%;/*transform: translate(-50%,50%)*/;margin-bottom:-45px;margin-left:-52px;box-sizing:border-box;padding:5px;}
 			.open .inner{border:1px solid #DBB575;width:94px;height:94px;border-radius:50%;text-align:center;color:#fff;line-height:85px;font-size:55px;background:url(../img/ic_chai.png) center center no-repeat;background-size:42px 47px}
-			.win{width:66px;height:54px;background:url(../img/img_money.png) center center no-repeat;background-size:66px 54px;border-radius:0;margin-bottom:-26px;margin-left:-33px;}			
+			.win{width: 120px;height: 90px;background:url(../img/img_money.png) center center no-repeat;background-size: 120px 90px;border-radius:0;margin-bottom: -46px;margin-left: -66px;}			
 			.footer{position: absolute;bottom:0px;width:100%;left:0;background: url(../img/img_hw.png) center 0 no-repeat;background-size:50px 12px;height:20px;}
 			.footer_win{position: absolute;bottom:0px;width:100%;left:0;color:#ef8c22;font-size:0.875rem;padding-bottom:10px;}
 			.footer_win span{color:#fff;font-size:1rem}
 			p{color:#fff;margin-top:100px;font-size:1.1875rem}
-			p.p1{margin-top:42px}
+			p.p1{margin-top:42px;line-height: 1.7;}
 			p.p2{padding-top:220px;margin-top:42px;background: url(../img/img_cry.png) center 0 no-repeat;background-size:294px 160px;}
 			p.p3{margin-top:10px;color:#676766;font-size:.875rem}
 			p span{font-size:2rem;padding:0 5px;}
 			.sorry{text-align:center;padding:0px;height:100%;position:absolute;width:100%;background:#fffbc8;left:0;top:0;box-sizing:border-box;display:none}
 			.sorry .top{margin-top:60px;margin-right:60px;background:url(../img/img_fly.png) right top no-repeat;background-size:183px 162px;height:183px;}
-			.sorry p{padding-bottom:20px;padding-top:20px;color:#333;margin:0 10px;font-size:0.8rem;}
+			.sorry p{line-height:1.5;padding-bottom:20px;padding-top:20px;color:#666;margin:0 10px;font-size:0.8rem;}
 			.sorry p.bottom{position:absolute;bottom:0px;color:#9a9a9a;padding-bottom:10px;text-align:center;font-size:0.5rem;width:100%;padding:0 10px;box-sizing:border-box;margin:0;padding-bottom:5px}
 				
 			.load{text-align:center;padding-top:150px;height:100%;position:absolute;width:100%;background:#fffbc8;left:0;top:0;box-sizing:border-box}
 			.load img{width:81px;height:60px;position:relative;-webkit-filter: drop-shadow(0px 2px 1px #888);animation:move 2s infinite;-webkit-animation:move 2s infinite;-webkit-transform:translateZ(0);}
 			.login{text-align:center;padding:10px;height:100%;position:absolute;width:100%;background:#fffbc8;left:0;top:0;box-sizing:border-box;display:none}
-			.login img{width:100%;}
+			.login img{width:100%;margin-top: 15px;}
 			.login a{display:block;margin:50px 5px 0 5px;background:#e93834;height:44px;line-height:44px;color:#fff;border-radius:5px;text-decoration:none}			
 			p#p3{margin:10px 15px 0 15px;word-break:break-all}
 			@keyframes move
@@ -71,7 +71,7 @@
 			  z-index: 13900;
 			  left: 50%;
 			  margin-left: -135px;
-			  margin-top: -150px;
+			  margin-top: -110px;
 			  top: 50%;
 			  text-align: center;
 			  overflow: hidden;
@@ -454,7 +454,7 @@
 			  appearance: none;
 			}
 			p.rule{position:absolute;bottom:0px;margin:0!important;padding-bottom:30px;color:#ff9600!important;width:100%;font-size:12px;text-align:center}
-			p.rule i{font-style:normal;background: url(../img/ic_activity.png) left center no-repeat;background-size:10px 10px;padding-left:12px;}
+			p.rule i{font-size:10px;position:relative;top:0px;padding-right:1px;}
 			._rule{border-radius:5px;position:absolute;background:#fff;left:50px;top:90px;right:50px;z-index:14000;padding:10px;letter-spacing:.05em}
 			._rule ._rule_title{text-align:center;padding-bottom:10px;padding-left:10px;}
 			._rule ._rule_title span{padding:0 10px;position:Relative;top:-2px;}
@@ -467,4 +467,6 @@
 			p.p1 {margin-top: 52px;}
 			._rule{top:50px;}
 			._rule ._rule_content{max-height:250px}
-			} 		
+			} 	
+
+		

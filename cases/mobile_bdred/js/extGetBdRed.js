@@ -1,1 +1,1 @@
-{"code": -1002,"msg": "已经抽奖，感谢参与!","response": {"money": "50000"},"systemDate": "2016-09-14"}
+{"code": 0,"msg": "已经抽奖，感谢参与!","response": {"money": "50000"},"systemDate": "2016-09-14"}

@@ -17,6 +17,7 @@
 	<meta name="format-detection" content="telephone=no, address=no">
 	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
 	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+	<link rel="stylesheet" href="css/iconfont.css" />
     <style type="text/css">
 			*{margin:0;padding:0}
 			html,body{height:100%;background:#d0021b;font-family:'微软雅黑';}
@@ -28,8 +29,8 @@
 			p.bottom{padding-bottom:0}
 		
 			a{width:150px;height:27px;background:#ff9600;color:#fff;display:block;margin:10px auto;text-decoration:none;border-radius:20px;line-height:27px;font-size:0.875rem}
-			p.rule{margin:-23px 0 0 0;color:#ff9600!important;width:100%;font-size:12px;text-align:center}
-			p.rule i{font-style:normal;background: url(img/ic_activity.png) left center no-repeat;background-size:10px 10px;padding-left:12px;}
+			p.rule{margin:-20px 0 0 0;color:#ff9600!important;width:100%;font-size:12px;text-align:center}
+			p.rule i{font-size:10px;position:relative;top:-1px;}
 			._rule{border-radius:5px;color:#000;position:absolute;background:#fff;left:50px;top:90px;right:50px;z-index:14000;padding:10px;letter-spacing:.05em}
 			._rule ._rule_title{text-align:center;padding-bottom:10px;font-size:16px;padding-left:10px;}
 			._rule ._rule_title i{float:right;width:30px;margin-top:-10px;margin-right:-10px;height:30px;background: url(img/ic_close.png) center center no-repeat;background-size:10px 10px;}
@@ -82,7 +83,7 @@
      请下载最新版市民卡APP参加公交充值抢红包活动！
    </p> 
    <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.smk">下载APP</a> 
-	<p class='rule' ><i  id='know'>活动规则</i></p>  
+	<p class='rule' ><lable id='know'><i  class="icon iconfont">&#xe600;</i>活动规则</lable></p>  
     <!-- 活动规则 -->
  <div class="modal-overlay modal-overlay-visible _rule_bg"  style='z-index:14000;display:none'></div>
   <div class="_rule" style='display:none'>

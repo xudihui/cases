@@ -17,6 +17,7 @@
 	<meta name="format-detection" content="telephone=no, address=no">
 	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
 	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+	<link rel="stylesheet" href="css/iconfont.css" />	
     <link rel="stylesheet" href="css/css.css" />
 </head>
 <body ng-controller = 'Main'>
@@ -28,7 +29,7 @@
          非常遗憾,您还未取得抽奖机会<br>
 	 请在公交充值下单获得抢红包机会。此次互动准备了超过20000个红包等您来抢!
    </p>
-	<p class='rule' ><i ng-click='openRule()'>活动规则</i></p>  
+	<p class='rule' ><lable ng-click='openRule()'><i  class="icon iconfont">&#xe600;</i>活动规则</lable></p>  
  </div>
  
  <!-- 等待 -->
@@ -54,13 +55,13 @@
 	</div>
 	<!-- 初始化 -->
 	<p ng-show='beforeOpen' >恭喜您，获得一次抽奖机会!</p>
-	<p class='rule' ng-show='beforeOpen'><i ng-click='openRule()'>活动规则</i></p>	
+	<p class='rule' ng-show='beforeOpen'><lable ng-click='openRule()'><i  class="icon iconfont">&#xe600;</i>活动规则</lable></p>	
 	<div class="footer" ng-show='beforeOpen'></div>
 	
 	
 	<!-- 中奖 -->
 	<p ng-show='win' class='p1'>恭喜您，获得公交充值红包<br><span ng-bind='money' ></span>元</p>
-	<div  ng-show='win' class="footer_win">前往交易记录<br><span>请进入"公交充值-交易记录"收取</span></div>	
+	<div  ng-show='win' class="footer_win"><span>请进入"公交充值-交易记录"收取</span></div>	
 
 
 	<!-- 未中奖 -->

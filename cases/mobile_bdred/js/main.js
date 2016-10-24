@@ -162,6 +162,11 @@ else{
 						  $scope.loose();
 						  $('.open').style.display = 'none';
 						}
+						else if(data.code == '-1003'){  //没有中奖
+						  $scope.reset();
+						  $('.done').style.display = 'block';
+						  $('.done_p').innerHTML = data.msg;
+						}	
 						else{
 							$scope.reset();
 							alert(data.msg);

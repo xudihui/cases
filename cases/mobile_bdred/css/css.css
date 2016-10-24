@@ -20,6 +20,11 @@
 			.sorry p{line-height:1.5;padding-bottom:20px;padding-top:20px;color:#666;margin:0 10px;font-size:0.8rem;}
 			.sorry p.bottom{position:absolute;bottom:0px;color:#9a9a9a;padding-bottom:10px;text-align:center;font-size:0.5rem;width:100%;padding:0 10px;box-sizing:border-box;margin:0;padding-bottom:5px}
 				
+			.done{text-align:center;padding:0px;height:100%;position:absolute;width:100%;background:#fffbc8;left:0;top:0;box-sizing:border-box;display:none}
+			.done img{margin-top:100px;}
+			.done p{line-height:1.5;padding-bottom:20px;padding-top:20px;color:#666;margin:0 10px;font-size:0.8rem;}
+								
+				
 			.load{text-align:center;padding-top:150px;height:100%;position:absolute;width:100%;background:#fffbc8;left:0;top:0;box-sizing:border-box}
 			.load img{width:81px;height:60px;position:relative;-webkit-filter: drop-shadow(0px 2px 1px #888);animation:move 2s infinite;-webkit-animation:move 2s infinite;-webkit-transform:translateZ(0);}
 			.login{text-align:center;padding:10px;height:100%;position:absolute;width:100%;background:#fffbc8;left:0;top:0;box-sizing:border-box;display:none}

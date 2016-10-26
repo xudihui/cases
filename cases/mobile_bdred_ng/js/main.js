@@ -49,7 +49,7 @@ mainApp.config([ '$routeProvider', function($routeProvider) {
 
 //loading加载
 mainApp.controller('Load', ['$scope', '$location', '$http', function($scope, $location, $http) {
- var userData = {redCode:8888} //传递给后台的数据
+                var userData = {redCode:8888} //传递给后台的数据
 				getDataFromApp = function(data){
 					//判断是否有抽奖机会
 					var o = JSON.parse(data);

@@ -9,6 +9,7 @@ var $actBdRedUrl= $actUrl+"js/extGetBdRed.js";
 var $ = function(el){
   return document.querySelector(el);
 }
+var hash = location.hash;
  
 var mainApp = angular.module('mainApp', [ 'ngRoute', 'ngResource' ]);
 
@@ -49,7 +50,7 @@ mainApp.config([ '$routeProvider', function($routeProvider) {
 
 //loading加载
 mainApp.controller('Load', ['$scope', '$location', '$http', function($scope, $location, $http) {
-                var userData = {redCode:8888} //传递给后台的数据
+                window.userData = {redCode:8888} //传递给后台的数据
 				getDataFromApp = function(data){
 					//判断是否有抽奖机会
 					var o = JSON.parse(data);
@@ -81,7 +82,6 @@ mainApp.controller('Load', ['$scope', '$location', '$http', function($scope, $lo
 						});							
 					}	
 				}	
-    getDataFromApp('{"userId": "13000000200", "userName": "13000000022", "userNo": "13000000022"}')
     $scope.gotoAdd = function() {
     	$location.path('/done.do');
     };
@@ -95,6 +95,14 @@ mainApp.controller('Done', ['$scope', '$location', function($scope, $location) {
 
 mainApp.controller('Main',function($scope,$timeout,$http,$location){ //主控制器
 	           
+				//打开动画
+				$('.open').onclick = function(){
+				   var self = this;
+				   this.setAttribute('class','open flip animated');
+				   setTimeout(function(){
+					self.setAttribute('class','open zoomOut animated');
+				   },780)
+				}
 			  $scope.init = function(){ //初始化
 				  $scope.win = false;
 				  $scope.beforeOpen = true;
@@ -123,9 +131,7 @@ mainApp.controller('Main',function($scope,$timeout,$http,$location){ //主控制
 						  $('.open').style.display = 'none';
 						}
 						else if(data.code == '-1003'){  //没有中奖
-						  $scope.reset();
-						  $('.done').style.display = 'block';
-						  $('.done_p').innerHTML = data.msg;
+						  $location.path('/done.do').replace();  //history.replaceState()
 						}	
 						else{
 							$scope.reset();

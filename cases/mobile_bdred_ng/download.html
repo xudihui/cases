@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang = "zh-CN"  style='font-size:16px'>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="" name="Keywords">
+	<meta content="" name="Description">
+	<!-- Mobile Devices Support @begin -->
+	<title>公交充值红包</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
+	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+	<link rel="stylesheet" href="css/iconfont.css" />
+    <style type="text/css">
+			*{margin:0;padding:0}
+			html,body{height:100%;background:#d0021b;font-family:'微软雅黑';}
+			.main{height:100%;text-align:center;position:relative;font-size:0.75rem;color:#fff;letter-spacing:.05em}
+			.top img{width:100%;}
+
+			p{padding-bottom:20px;padding-top:20px;}
+			p span{font-size:1.3125rem;padding:0 5px;color:#f8e71c}
+			p.bottom{padding-bottom:0}
+		
+			a{width:150px;height:27px;background:#ff9600;color:#fff;display:block;margin:10px auto;text-decoration:none;border-radius:20px;line-height:27px;font-size:0.875rem}
+			p.rule{margin:-20px 0 0 0;color:#ff9600!important;width:100%;font-size:12px;text-align:center}
+			p.rule i{font-size:10px;position:relative;top:-1px;}
+			._rule{border-radius:5px;color:#000;position:absolute;background:#fff;left:50px;top:90px;right:50px;z-index:14000;padding:10px;letter-spacing:.05em}
+			._rule ._rule_title{text-align:center;padding-bottom:10px;font-size:16px;padding-left:10px;}
+			._rule ._rule_title i{float:right;width:30px;margin-top:-10px;margin-right:-10px;height:30px;background: url(img/ic_close.png) center center no-repeat;background-size:10px 10px;}
+			._rule ._rule_title span{padding:0 10px;position:Relative;top:-2px;}
+			._rule ._rule_content{font-size:14px;text-align:left;line-height:1.5;max-height:300px;overflow:auto;color:#555;}
+			._rule ._rule_content span{color:#000}
+			._rule_know{margin:10px 30px;background:#ea3935;height:30px;line-height:30px;color:#fff;display:block;text-align:center;border-radius:5px;}
+			@media screen and (max-height: 481px) { 
+			p{padding-bottom:0px;padding-top:10px;}
+			p.rule{margin-top:-14px}
+			.main{zoom:.8}
+			._rule ._rule_content{max-height:250px}
+			} 			
+			.modal-overlay,
+			.preloader-indicator-overlay,
+			.popup-overlay {
+			  position: absolute;
+			  left: 0;
+			  top: 0;
+			  width: 100%;
+			  height: 100%;
+			  background: rgba(0, 0, 0, 0.4);
+			  z-index: 13000;
+			  visibility: hidden;
+			  opacity: 0;
+			  -webkit-transition-duration: 400ms;
+			  transition-duration: 400ms;
+			}
+			.modal-overlay.modal-overlay-visible,
+			.preloader-indicator-overlay.modal-overlay-visible,
+			.popup-overlay.modal-overlay-visible {
+			  visibility: visible;
+			  opacity: 1;
+			}							
+	</style>
+</head>
+<body >
+ <div class="main" >
+   <div class="top">
+     <img src="img/img_bg.jpg" alt="" />
+   </div>
+   <p>
+     在线充公交卡、充杭州通、充钱包、充月票;更有机会<br>
+	 获得<span>200</span>元红包哦！
+   </p>
+   <p>
+     活动准备了超过<span>20000</span>个红包等您来抢！
+   </p>
+   <p class='bottom'>
+     请下载最新版市民卡APP参加公交充值抢红包活动！
+   </p> 
+   <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.smk">下载APP</a> 
+	<p class='rule' ><lable id='know'><i  class="icon iconfont">&#xe600;</i>活动规则</lable></p>  
+    <!-- 活动规则 -->
+ <div class="modal-overlay modal-overlay-visible _rule_bg"  style='z-index:14000;display:none'></div>
+  <div class="_rule" style='display:none'>
+    <div class="_rule_title"><img src="img/img_redbage.png" width='26' alt="" /><span>活动规则</span><img src="img/img_redbage.png" width='26' alt="" /><i class='close'></i></div>
+	<div class="_rule_content">
+		<div><span>一、活动时间：</span><br/>
+		2016年11月15日0:00至2016年12月31日23:59<br/>
+		<span>二、活动范围：</span><br/>	
+		杭州市民卡新老注册用户<br/>
+		<span>三、活动说明：</span><br/>
+		活动期间，新老用户只要使用杭州市民卡公交充值，支付成功就能够获得一次抽奖机会；活动入口在杭州市民卡APP首页底部“公交充值红包”活动链接；每位用户仅有一次抽奖机会。
+		<br/><span>四、奖项发放：</span><br/>
+		1、本次活动红包设置5元、10元、20元、50元、200元；抽奖以后，系统实时发放，以APP端公交充值钱包订单的方式发放，请用户进入市民卡APP》》公交充值》》查询》》交易记录 查询红包订单；公交充值红包订单需要用户自行到市民卡自助机拍卡补登。
+		<br/>2、所获得公交充值红包需在一个月内拍卡补登，超时以后，红包将过期失效。
+		<br/>3、本次活动红包数量超过20000个，先到先得。
+		</div>
+		<div class='_rule_know'>知道了</div>
+    </div>
+  </div>	
+ </div>
+</body>
+<script type="text/javascript">
+var $ = function(el){
+  return document.querySelector(el);
+}
+$('#know').onclick = function(){
+   $('._rule_bg').style.display = 'block';
+   $('._rule').style.display = 'block';
+}
+$('._rule_know').onclick = function(){
+   $('._rule_bg').style.display = 'none';
+   $('._rule').style.display = 'none';
+}
+$('.close').onclick = function(){
+   $('._rule_bg').style.display = 'none';
+   $('._rule').style.display = 'none';
+}
+</script>
+</html>

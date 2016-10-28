@@ -1,14 +1,14 @@
  <div class="main" >
     <div class="envelope">
-	   <div class="open" ng-click='open()'>
+	   <div class="open" ng-click='open()' ng-show='open_'>
 	    <div class="inner"></div>
 	   </div>
 	   <div class="open win" ng-show='win'></div>	   
 	</div>
 	<!-- 初始化 -->
-	<p  >恭喜您，获得一次抽奖机会!</p>
-	<p class='rule' ><lable ng-click='openRule()'><i  class="icon iconfont">&#xe600;</i>活动规则</lable></p>	
-	<div class="footer" ></div>
+	<p ng-show='open_p' >恭喜您，获得一次抽奖机会!</p>
+	<p class='rule' ng-show='open_p' ><lable ng-click='openRule()'><i  class="icon iconfont">&#xe600;</i>活动规则</lable></p>	
+	<div class="footer" ng-show='open_p' ></div>
 	
 	
 	<!-- 中奖 -->

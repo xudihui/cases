@@ -3,7 +3,7 @@
  */
  
 
-var $actUrl = "http://localhost/mobile_bdred/";
+var $actUrl = "http://localhost/mobile_bdred_ng/";
 var $actChanceUrl= $actUrl+"js/extGetBdChance.js";
 var $actBdRedUrl= $actUrl+"js/extGetBdRed.js";
 var $ = function(el){
@@ -25,7 +25,7 @@ mainApp.config([ '$routeProvider', function($routeProvider) {
 		controller : 'Login'
 	});
 
-	$routeProvider.when('/main.do', {
+	$routeProvider.when('/main.do/:video_type', {
 		templateUrl : 'main.html',
 		controller : 'Main'
 	});
@@ -64,7 +64,7 @@ mainApp.controller('Load', ['$scope', '$location', '$http', function($scope, $lo
 						$http.post($actChanceUrl,userData).success(function(data_){
 							if(data_.code == 0){
 								  if(data_.response.surplus > 0){  //有抽奖机会
-										$location.path('/main.do');	
+										$location.path('/main.do/beforeOpen');	
 									  }	
 									  else { //无抽奖机会
 										$location.path('/sorry.do');				  
@@ -93,20 +93,22 @@ mainApp.controller('Done', ['$scope', '$location', function($scope, $location) {
     $scope.msg = '感谢！'
 }]);
 
-mainApp.controller('Main',function($scope,$timeout,$http,$location){ //主控制器
-	           
+mainApp.controller('Main',function($scope,$timeout,$http,$location,$routeParams){ //主控制器
+
 				//打开动画
-				$('.open').onclick = function(){
-				   var self = this;
-				   this.setAttribute('class','open flip animated');
-				   setTimeout(function(){
-					self.setAttribute('class','open zoomOut animated');
-				   },780)
-				}
-			  $scope.init = function(){ //初始化
-				  $scope.win = false;
-				  $scope.beforeOpen = true;
-			  };	
+			  $('.open').onclick = function(){
+			   var self = this;
+			   this.setAttribute('class','open flip animated');
+			   setTimeout(function(){
+				self.setAttribute('class','open zoomOut animated');
+			   },780)
+			  }
+			  $scope.init = function(flag){ //初始化
+				  $scope.open_ = flag;
+			      $scope.open_p = flag;
+			  };
+
+              $scope.init(true);			  
 			  		  
 			  $scope.reset = function(){ //初始化
 			      $('.load').style.display = 'block';
@@ -124,7 +126,7 @@ mainApp.controller('Main',function($scope,$timeout,$http,$location){ //主控制
 					$http.post($actBdRedUrl,userData).success(function(data){
 						if(data.code == '0'){  //中奖了
 						  $scope.success(data.response.money);
-						  $('.open').style.display = 'none';
+						  $scope.init(false);
 						}
 						else if(data.code == '-1001'){  //没有中奖
 						  $scope.loose();

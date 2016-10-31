@@ -49,14 +49,7 @@ mainApp.config([ '$routeProvider', function($routeProvider) {
 
 //已抽奖
 mainApp.controller('Parent', ['$scope', '$location', function($scope, $location) {
-
-			  $scope.openRule = function(){ //打开规则
-					$scope.rule = true;
-			  };
-			  
-			  $scope.closeRule = function(){ //关闭规则
-					$scope.rule = false;
-			  };
+	          $scope.rule={out:false};
 }]);
 
 
@@ -154,6 +147,17 @@ mainApp.controller('Main',function($scope,$timeout,$http,$location,$routeParams)
 				  },880);
 			  };
 			  
+
+
+			  $scope.openRule = function(){ //打开规则
+			        alert(1);
+					$scope.rule.out = true;
+					console.log($scope.rule)
+			  };
+			  
+			  $scope.closeRule = function(){ //关闭规则
+					$scope.rule.out = false;
+			  };
 			  
 			  $scope.success = function(money){ //中奖
 					$scope.win = true;

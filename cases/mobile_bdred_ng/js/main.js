@@ -47,6 +47,19 @@ mainApp.config([ '$routeProvider', function($routeProvider) {
 
 } ]);
 
+//已抽奖
+mainApp.controller('Parent', ['$scope', '$location', function($scope, $location) {
+
+			  $scope.openRule = function(){ //打开规则
+					$scope.rule = true;
+			  };
+			  
+			  $scope.closeRule = function(){ //关闭规则
+					$scope.rule = false;
+			  };
+}]);
+
+
 
 //loading加载
 mainApp.controller('Load', ['$scope', '$location', '$http', function($scope, $location, $http) {
@@ -77,7 +90,6 @@ mainApp.controller('Load', ['$scope', '$location', '$http', function($scope, $lo
 								alert(data_.msg);
 								//location.href = BASE + 'sorry.html';	
 							}
-						  
 						}).error(function(data_) {
 						});							
 					}	
@@ -130,7 +142,6 @@ mainApp.controller('Main',function($scope,$timeout,$http,$location,$routeParams)
 						}
 						else if(data.code == '-1001'){  //没有中奖
 						  $scope.loose();
-						  $('.open').style.display = 'none';
 						}
 						else if(data.code == '-1003'){  //没有中奖
 						  $location.path('/done.do').replace();  //history.replaceState()
@@ -143,13 +154,6 @@ mainApp.controller('Main',function($scope,$timeout,$http,$location,$routeParams)
 				  },880);
 			  };
 			  
-			  $scope.openRule = function(){ //打开规则
-					$scope.rule = true;
-			  };
-			  
-			  $scope.closeRule = function(){ //关闭规则
-					$scope.rule = false;
-			  };
 			  
 			  $scope.success = function(money){ //中奖
 					$scope.win = true;
@@ -158,6 +162,8 @@ mainApp.controller('Main',function($scope,$timeout,$http,$location,$routeParams)
 		
 			  $scope.loose = function(){ //无奖
 					$scope.fail = true;
+					$scope.open_p = false;
+					
 			  };	
 	})	
  

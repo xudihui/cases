@@ -467,6 +467,8 @@
 			._rule ._rule_content{font-size:14px;line-height:1.5;max-height:300px;overflow:auto;color:#555;}
 			._rule ._rule_content span{color:#000}
 			._rule_know{margin:10px 30px;background:#ea3935;height:30px;line-height:30px;color:#fff;display:block;text-align:center;border-radius:5px;}
+			.show{display:block!important}
+			.hide{display:none!important}
 			@media screen and (max-height: 481px) {
 			.main{zoom:.8}
 			p.p1 {margin-top: 52px;}

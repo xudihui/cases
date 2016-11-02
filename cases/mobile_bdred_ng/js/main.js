@@ -49,7 +49,11 @@ mainApp.config([ '$routeProvider', function($routeProvider) {
 
 //已抽奖
 mainApp.controller('Parent', ['$scope', '$location', function($scope, $location) {
-	          $scope.rule={out:false};
+	          $scope.rule={out:'hide'};
+
+			  $scope.closeRule = function(){ //关闭规则
+					$scope.rule.out = 'hide';
+			  };			  
 }]);
 
 
@@ -70,14 +74,14 @@ mainApp.controller('Load', ['$scope', '$location', '$http', function($scope, $lo
 						$http.post($actChanceUrl,userData).success(function(data_){
 							if(data_.code == 0){
 								  if(data_.response.surplus > 0){  //有抽奖机会
-										$location.path('/main.do/beforeOpen');	
+										$location.path('/main.do/beforeOpen').replace();	
 									  }	
 									  else { //无抽奖机会
-										$location.path('/sorry.do');				  
+										$location.path('/sorry.do').replace();				  
 									  }									
 							}
 							else if(data_.code == '-1003'){  //没有中奖
-							  $location.path('/done.do');
+							  $location.path('/done.do').replace();
 							}								
 							else{
 								alert(data_.msg);
@@ -94,9 +98,17 @@ mainApp.controller('Load', ['$scope', '$location', '$http', function($scope, $lo
 
 //已抽奖
 mainApp.controller('Done', ['$scope', '$location', function($scope, $location) {
-     
     $scope.msg = '感谢！'
 }]);
+
+//抱歉
+mainApp.controller('Sorry', ['$scope', '$location', function($scope, $location) {
+			  $scope.openRule = function(){ //打开规则
+					$scope.rule.out = 'show';
+			  };
+}]);
+
+
 
 mainApp.controller('Main',function($scope,$timeout,$http,$location,$routeParams){ //主控制器
 
@@ -150,14 +162,9 @@ mainApp.controller('Main',function($scope,$timeout,$http,$location,$routeParams)
 
 
 			  $scope.openRule = function(){ //打开规则
-			        alert(1);
-					$scope.rule.out = true;
-					console.log($scope.rule)
+					$scope.rule.out = 'show';
 			  };
 			  
-			  $scope.closeRule = function(){ //关闭规则
-					$scope.rule.out = false;
-			  };
 			  
 			  $scope.success = function(money){ //中奖
 					$scope.win = true;

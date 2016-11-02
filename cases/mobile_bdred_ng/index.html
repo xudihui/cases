@@ -28,8 +28,8 @@
 <body ng-controller = 'Parent'>
  <div ng-view style='height:100%'></div>
   <!-- 活动规则 -->
- <div class="modal-overlay modal-overlay-visible _rule_bg" ng-show='{{rule.out}}' style='z-index:14000;display:none'></div>
-  <div class="_rule" ng-show='{{rule.out}}' style='display:none'>
+ <div class="modal-overlay modal-overlay-visible _rule_bg {{rule.out}}"  style='z-index:14000'></div>
+  <div class="_rule {{rule.out}}"  style=''>
     <div class="_rule_title"><img src="img/img_redbage.png" width='26' alt="" /><span>活动规则</span><img src="img/img_redbage.png" width='26' alt="" /><i ng-click='closeRule()'></i></div>
 	<div class="_rule_content">
 		<div><span>一、活动时间：</span><br/>

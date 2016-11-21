@@ -685,21 +685,7 @@ i.icon {
     -webkit-transform-origin: 50% 0;
     transform-origin: 50% 0;
 }
-.list-block ul:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: auto;
-    top: auto;
-    height: 1px;
-    width: 100%;
-    background-color: #eee;
-    display: block;
-    z-index: 15;
-    -webkit-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
-}
+
 .list-block .item-content {
     box-sizing: border-box;
     /*padding-left: 15px;*/
@@ -816,6 +802,7 @@ i.icon.icon-eye-open{
     z-index: 15;
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
+    -webkit-transform: scaleY(.5);	
 }
 
 .aboutuser{

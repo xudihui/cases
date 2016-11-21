@@ -71,7 +71,7 @@ var activitycode = GetQueryString('activitycode')||'';
 var getDataAjax = function(option){
 		$.ajax({
 			type: 'POST',
-			headers :{appId:'com.smk.h5.tg',channelId:channelId,activitycode:activitycode},	
+			headers :{appId:'com.smk.h5.tg',channelId:channelId,activitycode:activitycode},	  //活动号：activitycode   渠道号:channelId
 			url: option.url,
 			contentType:"application/x-www-form-urlencoded; charset=utf-8",
 			data: {request:AES(option.request,'tg1117@tg7654321')},
@@ -198,53 +198,6 @@ if (typeof localStorage === 'object') {
 }
 
 //alert(aesEncrypt(plaintText,keyStr,'1234567ab2345678'))
-var base64decode = function(str){   //base64解码
-    var c1, c2, c3, c4;  
-    var i, len, out;  
-    len = str.length;  
-    i = 0;  
-    out = "";  
-    while (i < len) {  
-        /* c1 */  
-        do {  
-            c1 = base64DecodeChars[str.charCodeAt(i++) & 0xff];  
-        }  
-        while (i < len && c1 == -1);  
-        if (c1 == -1)   
-            break;  
-        /* c2 */  
-        do {  
-            c2 = base64DecodeChars[str.charCodeAt(i++) & 0xff];  
-        }  
-        while (i < len && c2 == -1);  
-        if (c2 == -1)   
-            break;  
-        out += String.fromCharCode((c1 << 2) | ((c2 & 0x30) >> 4));  
-        /* c3 */  
-        do {  
-            c3 = str.charCodeAt(i++) & 0xff;  
-            if (c3 == 61)   
-                return out;  
-            c3 = base64DecodeChars[c3];  
-        }  
-        while (i < len && c3 == -1);  
-        if (c3 == -1)   
-            break;  
-        out += String.fromCharCode(((c2 & 0XF) << 4) | ((c3 & 0x3C) >> 2));  
-        /* c4 */  
-        do {  
-            c4 = str.charCodeAt(i++) & 0xff;  
-            if (c4 == 61)   
-                return out;  
-            c4 = base64DecodeChars[c4];  
-        }  
-        while (i < len && c4 == -1);  
-        if (c4 == -1)   
-            break;  
-        out += String.fromCharCode(((c3 & 0x03) << 6) | c4);  
-    }  
-    return out;  
-}  
 
 var L = location.href;
 var BASE = L.slice(0,L.lastIndexOf('/')+1);

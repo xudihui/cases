@@ -435,7 +435,7 @@ if(location.hash == '#H5')  //App外部打开
 }
 
 else if(location.hash != '#smkV3.4.1' && location.hash != '#smkV3.5.1'){  //有交互老版本App打开，提示用户更新
-	$$('#p3').innerHTML = '地址：'+location.href+'本活动仅针对app3.4.1版本及以上用户参与，'+ (location.hash.indexOf('smkV3.3') == -1 ? '<a href="smknative:openAppstore()">点击此处</a>':'请') +'升级至最新版。';
+	$$('#p3').innerHTML = '本活动仅针对app3.4.1版本及以上用户参与，'+ (location.hash.indexOf('smkV3.3') == -1 ? '<a href="smknative:openAppstore()">点击此处</a>':'请') +'升级至最新版。';
 	//return false;
 }
 

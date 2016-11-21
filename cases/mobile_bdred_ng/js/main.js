@@ -4,7 +4,9 @@
  
 
 var $actUrl = "http://localhost/mobile_bdred_ng/";
-var $actChanceUrl= $actUrl+"js/extGetBdChance.js";
+//var $actChanceUrl= $actUrl+"js/extGetBdChance.js";
+
+var $actChanceUrl = 'http://192.168.161.80:8080/smk_activity/extTestKy.ext';
 var $actBdRedUrl= $actUrl+"js/extGetBdRed.js";
 var $ = function(el){
   return document.querySelector(el);

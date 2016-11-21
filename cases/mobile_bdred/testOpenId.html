@@ -1,0 +1,37 @@
+<html> 
+ <head> 
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+ <title>Test Cross-domain communication using HTML5</title> 
+ <script type="text/JavaScript"> 
+	 function sendIt(){ 
+		 // 通过 postMessage 向子窗口发送数据
+		 document.getElementById("otherPage").contentWindow 
+			 .postMessage( 
+				 document.getElementById("message").value, 
+				"http://www.xudihui.com/"
+			 ); 
+	 } 
+	 
+	 window.addEventListener('message',function(e){
+	 	
+	    setTimeout(function(){
+            var color=e.data;
+            document.getElementById("content").innerHTML = color; 	    	
+	    },3000)
+
+     },false);
+	 
+	 
+ </script> 
+ </head> 
+ <body> 
+	 <!-- 通过 iframe 嵌入子页面 --> 
+	 <iframe src="http://www.xudihui.com/child.html" 
+				 id="otherPage"></iframe> 
+	 <br/><br/> 
+	 <input type="text" id="message"><input type="button" 
+			 value="Send to child.com" onclick="sendIt()" /> 
+			 
+			  <div id="content"></div> 
+ </body> 
+ </html>

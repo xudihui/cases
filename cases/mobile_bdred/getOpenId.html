@@ -1,0 +1,25 @@
+<html> 
+ <head> 
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+ <title>获取OpenId测试</title> 
+
+ </head> 
+ <body> 
+			  <div id="content"></div> 
+ </body> 
+  <script type="text/JavaScript"> 
+    // if(!localStorage.getItem('openId')){
+	     var iframe = document.createElement('iframe');
+         iframe.setAttribute('src','https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7286a3d6caa9688a&redirect_uri=http://192.168.161.97:28080/weixin/wechat/smkGet&response_type=code&scope=snsapi_base&state=1#wechat_redirect');
+		 iframe.setAttribute('style','height:0;width:0');
+		 iframe.setAttribute('name','getOpenId');
+		 document.body.appendChild(iframe); 
+		 iframe.onload=function(){
+			alert('载入成功');
+			 window.addEventListener('message',function(e){
+					document.getElementById("content").innerHTML ='openId:' + e.data; 
+			 },false);			
+			};
+	// }
+ </script> 
+ </html>

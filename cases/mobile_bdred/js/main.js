@@ -365,7 +365,7 @@ if(location.hash == '#H5')  //App外部打开
 {
 	
     //location.href = BASE + 'download.html';
-	$$('.load').style.display = 'none';
+	//$$('.load').style.display = 'none';
 	$$('.login').style.display = 'block';
 	$('.login').attr('class','login zoomIn animated');	  	
     var J_sendCode = $$('.J_sendCode');

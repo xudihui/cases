@@ -367,6 +367,7 @@ if(location.hash == '#H5')  //App外部打开
     //location.href = BASE + 'download.html';
 	$$('.load').style.display = 'none';
 	$$('.login').style.display = 'block';
+	//$('.login img').attr('style','display:inline-block;height:auto').attr('class','login bounceInRight animated');	  	
     var J_sendCode = $$('.J_sendCode');
 	var page_form = $$('.page-form');
 	var J_submit = $$('.J_submit');

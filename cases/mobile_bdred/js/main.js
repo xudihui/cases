@@ -218,7 +218,7 @@ var webLogin = function(text){
 					})
 	});
 	
-	J_submit.addEventListener("touchstart", function(){
+	J_submit.addEventListener("click", function(){  //此处用tap会穿透
 		if (!checkform.phone()){
 			return
 		};

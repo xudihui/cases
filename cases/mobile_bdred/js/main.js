@@ -413,7 +413,7 @@ if(location.hash == '#H5')  //App外部打开
 else if(location.hash != '#smkV3.4.1'){  //有交互老版本App打开，提示用户更新,3.5.0开始不再使用hash传递版本号
     var appV = GetAppVersion("smkVersion") || '';
 	if(appV !='3.5.0' && appV !='3.5.1'){
-		webLogin('亲,您当前App版本过低，暂不支持自动登录');
+		webLogin('快去登录/注册，让红包带你飞！');
 		//$$('#p3').innerHTML = '本活动仅针对app3.4.1版本及以上用户参与，'+'请升级至最新版。';
 	}
 }

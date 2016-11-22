@@ -34,7 +34,9 @@ var $$actBdRedUrl= $$actUrl+"js/extGetBdRed.js";
 
 //var $$actUrl = "http://192.168.2.155:8080/smk_activity/";
 
-var $$actUrl = "http://192.168.23.200:8082/smk_activity/";
+//var $$actUrl = "http://192.168.23.200:8082/smk_activity/";
+
+var $$actUrl = "http://127.0.0.1:8080/smk_activity/";
 var $$actChanceUrl= $$actUrl+"extGetBdChance.ext";
 var $$actBdRedUrl= $$actUrl+"extGetBdRed.ext";
 var $$actLoginSendUrl = $$actUrl + 'loginSend.ext';

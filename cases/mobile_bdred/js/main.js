@@ -36,7 +36,8 @@ var $$actBdRedUrl= $$actUrl+"js/extGetBdRed.js";
 
 //var $$actUrl = "http://192.168.23.200:8082/smk_activity/";
 
-var $$actUrl = "http://127.0.0.1:8080/smk_activity/";
+//var $$actUrl = "http://192.168.2.11:8080/smk_activity/";
+var $$actUrl = "http://192.168.23.200:8082/smk_activity/";
 var $$actChanceUrl= $$actUrl+"extGetBdChance.ext";
 var $$actBdRedUrl= $$actUrl+"extGetBdRed.ext";
 var $$actLoginSendUrl = $$actUrl + 'loginSend.ext';
@@ -283,7 +284,7 @@ var BASE = L.slice(0,L.lastIndexOf('/')+1);
 var ua = window.navigator.userAgent;
 
 	var smkApp = angular.module('smkApp',['ngSanitize']); //先把应用定义成一个模块名
-	smkApp.controller('Main',function($scope,$timeout,$http){ //主控制器
+	smkApp.controller('Main',['$scope','$timeout','$http',function($scope,$timeout,$http){ //主控制器
 	            var userData = {redCode:"8888"} //传递给后台的数据
 				var request = '';
 				window.getDataFromApp = function(data){
@@ -406,7 +407,7 @@ var ua = window.navigator.userAgent;
 			  $scope.loose = function(){ //无奖
 					$scope.fail = true;
 			  };	
-	})	
+	}])	
 if(location.hash == '#H5')  //App外部打开
 {
 	webLogin();   

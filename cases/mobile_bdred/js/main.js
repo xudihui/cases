@@ -284,7 +284,7 @@ var BASE = L.slice(0,L.lastIndexOf('/')+1);
 var ua = window.navigator.userAgent;
 
 	var smkApp = angular.module('smkApp',['ngSanitize']); //先把应用定义成一个模块名
-	smkApp.controller('Main',['$scope','$timeout','$http',function($scope,$timeout,$http){ //主控制器
+	smkApp.controller('Main',['$scope','$timeout','$http',function($scope,$timeout,$http){ //主控制器,第二个参数一定要用数组注入，不然在文件压缩的时候会直接被替换变量名直接报错
 	            var userData = {redCode:"8888"} //传递给后台的数据
 				var request = '';
 				window.getDataFromApp = function(data){

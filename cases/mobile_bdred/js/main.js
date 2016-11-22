@@ -104,8 +104,7 @@ ui.$countTime = $('.countTime');
 ui.$count = $('#count');
 var countTime = function() {
   // 提示已发送验证码
-  showTips('验证码已发送到您的手机，请注意查收！')
-
+  showTips('验证码已发送到您的手机，请注意查收！');
   var h = 60;
   if(time){
 	  clearInterval(time)
@@ -215,6 +214,7 @@ var webLogin = function(text){
 					url:$$actLoginSendUrl,
 					request:JSON.stringify(obj),
 					success:function(data){
+                        _czc.push(['_trackEvent', '登录/注册框', '验证码获取成功']);						
 						countTime();
 						sessionStorage.setItem('sendType',data.sendType);
 					}
@@ -247,11 +247,10 @@ var webLogin = function(text){
 					url:$$actLoginNoPwdUrl,
 					request:JSON.stringify(obj),
 					success:function(data){
-						//countTime();
+						_czc.push(['_trackEvent', '登录/注册框', sessionStorage.getItem('sendType')+'成功']);
 						if(data.code == '0000'){
 							sessionStorage.removeItem('sendType');
 							getDataFromApp('{"userId":"'+obj.mobile+'"}')
-							
 						}
 						else{
 							showTips(data.retMsg);
@@ -288,6 +287,7 @@ var ua = window.navigator.userAgent;
 	            var userData = {redCode:"8888"} //传递给后台的数据
 				var request = '';
 				window.getDataFromApp = function(data){
+				  _czc.push(['_trackEvent', '补登红包参与环境', '不限']);				
                   $$('.load').style.display = 'block';
 				  $$('.login').style.display = 'none';
 				  $$('.page-form').style.display = 'none';					
@@ -307,9 +307,11 @@ var ua = window.navigator.userAgent;
 						$http.post($$actChanceUrl,'request='+request,{headers:{'appId':'com.smk.h5.bdred','Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}}).success(function(data_){
 							if(data_.code == 0){
 								  if(data_.response.surplus > 0){  //有抽奖机会
+								  	    _czc.push(['_trackEvent', '补登红包', '有抽奖机会']);
 										$scope.init();
 									  }	
 									  else { //无抽奖机会
+									  	 _czc.push(['_trackEvent', '补登红包', '无抽奖机会']);
 										 $$('._rule_bg').style.display = 'block';
 										 $$('._rule').style.display = 'block';									  
 										 $$('.load').style.display = 'none';
@@ -318,6 +320,7 @@ var ua = window.navigator.userAgent;
 							}
 							else if(data_.code == '-1002' ){  //没有抽奖机会，但是通过参与补登可以获得抽奖机会
 							   if(location.hash=='#H5'){
+							   	 _czc.push(['_trackEvent', '补登红包', '提示下载APP']);
 								 location.href = 'download.html';  
 							   }
 							   else{
@@ -361,9 +364,11 @@ var ua = window.navigator.userAgent;
 			  };
 			  
 			  $scope.open = function(){ //开奖动作
+			  	  
 			      if($('.open').eq(0).attr('class').indexOf('flip')>-1){
 					   return;
 				  }
+			      _czc.push(['_trackEvent', '补登红包', '拆红包']);
 				  $('.open').eq(0).attr('class','open flip animated infinite');				  
 				  $timeout(function(){ 
 	                $http.post($$actBdRedUrl,'request='+request,{headers:{'appId':'com.smk.h5.bdred','Content-Type':'application/x-www-form-urlencoded; charset=utf-8'}}).success(function(data){
@@ -392,6 +397,7 @@ var ua = window.navigator.userAgent;
 			  };
 			  
 			  $scope.openRule = function(){ //打开规则
+			  	    _czc.push(['_trackEvent', '活动规则', '查看']);	
 					$scope.rule = true;
 			  };
 			  
@@ -400,22 +406,26 @@ var ua = window.navigator.userAgent;
 			  };
 			  
 			  $scope.success = function(money){ //中奖
+			  	    _czc.push(['_trackEvent', '补登红包', '中奖']);
 					$scope.win = true;
 					$scope.money = money||0;
 			  };	  
 		
 			  $scope.loose = function(){ //无奖
+			  	    _czc.push(['_trackEvent', '补登红包', '谢谢惠顾']);
 					$scope.fail = true;
 			  };	
 	}])	
 if(location.hash == '#H5')  //App外部打开
 {
+	_czc.push(['_trackEvent', '补登红包参与环境', 'APP外部打开']);
 	webLogin();   
 }
 
 else if(location.hash != '#smkV3.4.1'){  //有交互老版本App打开，提示用户更新,3.5.0开始不再使用hash传递版本号
     var appV = GetAppVersion("smkVersion") || '';
 	if(appV !='3.5.0' && appV !='3.5.1'){
+		_czc.push(['_trackEvent', '补登红包参与环境', '在老版本APP中打开,不自动登录']);
 		webLogin('快去登录/注册，让红包带你飞！');
 		//$$('#p3').innerHTML = '本活动仅针对app3.4.1版本及以上用户参与，'+'请升级至最新版。';
 	}

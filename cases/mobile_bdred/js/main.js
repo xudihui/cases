@@ -26,18 +26,9 @@ var AES = (function(){
 
 
 
-/*
-var $$actUrl = "http://192.168.2.94/mobile_bdred/";
-var $$actChanceUrl= $$actUrl+"js/extGetBdChance.js";
-var $$actBdRedUrl= $$actUrl+"js/extGetBdRed.js";
-*/
-
-//var $$actUrl = "http://192.168.2.155:8080/smk_activity/";
-
-//var $$actUrl = "http://192.168.23.200:8082/smk_activity/";
-
 //var $$actUrl = "http://192.168.2.11:8080/smk_activity/";
-var $$actUrl = "http://192.168.23.200:8082/smk_activity/";
+//var $$actUrl = "http://192.168.23.200:8082/smk_activity/";
+var $$actUrl = "http://activity.96225.com/smk_activity/";
 var $$actChanceUrl= $$actUrl+"extGetBdChance.ext";
 var $$actBdRedUrl= $$actUrl+"extGetBdRed.ext";
 var $$actLoginSendUrl = $$actUrl + 'loginSend.ext';
@@ -84,7 +75,8 @@ var getDataAjax = function(option){
 				option.success(data);
 			},
 			error: function(xhr, type){
-			  showTips('Ajax error!')
+			   _czc.push(['_trackEvent', '数据请求', '返回失败']);
+			   showTips('操作失败，请稍后再试!')
 			}
 			})	
 }

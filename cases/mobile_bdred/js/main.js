@@ -28,7 +28,7 @@ var AES = (function(){
 
 //var $$actUrl = "http://192.168.2.11:8080/smk_activity/";
 //var $$actUrl = "http://192.168.23.200:8082/smk_activity/";
-var $$actUrl = "http://activity.96225.com/smk_activity/";
+var $$actUrl = "http://activity.96225.com/ext_smk_activity/";
 var $$actChanceUrl= $$actUrl+"extGetBdChance.ext";
 var $$actBdRedUrl= $$actUrl+"extGetBdRed.ext";
 var $$actLoginSendUrl = $$actUrl + 'loginSend.ext';
@@ -75,7 +75,7 @@ var getDataAjax = function(option){
 				option.success(data);
 			},
 			error: function(xhr, type){
-			   _czc.push(['_trackEvent', '数据请求', '返回失败']);
+			   _czc.push(['_trackEvent', '个人中心', '请求失败','登录/注册']);	
 			   showTips('操作失败，请稍后再试!')
 			}
 			})	
@@ -202,12 +202,13 @@ var webLogin = function(text){
 			mobile:$('.J_phone').val(),
 			userSystem:''
 		}
+		_czc.push(['_trackEvent', '个人中心', '点击','验证码']);			
+		countTime();		
 		getDataAjax({
 					url:$$actLoginSendUrl,
 					request:JSON.stringify(obj),
 					success:function(data){
-                        _czc.push(['_trackEvent', '登录/注册框', '验证码获取成功']);						
-						countTime();
+                        _czc.push(['_trackEvent', '个人中心', '获取成功','验证码']);	
 						sessionStorage.setItem('sendType',data.sendType);
 					}
 					})
@@ -234,12 +235,13 @@ var webLogin = function(text){
 			channelId:channelId,
 			activitycode:activitycode,
 			sendType:sessionStorage.getItem('sendType')
-		}		
+		}	
+		_czc.push(['_trackEvent', '个人中心', '点击','登录/注册 按钮']);	
 		getDataAjax({
 					url:$$actLoginNoPwdUrl,
 					request:JSON.stringify(obj),
 					success:function(data){
-						_czc.push(['_trackEvent', '登录/注册框', sessionStorage.getItem('sendType')+'成功']);
+						_czc.push(['_trackEvent', '个人中心', sessionStorage.getItem('sendType'),'登录/注册 按钮']);
 						if(data.code == '0000'){
 							sessionStorage.removeItem('sendType');
 							getDataFromApp('{"userId":"'+obj.mobile+'"}')
@@ -278,8 +280,7 @@ var ua = window.navigator.userAgent;
 	smkApp.controller('Main',['$scope','$timeout','$http',function($scope,$timeout,$http){ //主控制器,第二个参数一定要用数组注入，不然在文件压缩的时候会直接被替换变量名直接报错
 	            var userData = {redCode:"8888"} //传递给后台的数据
 				var request = '';
-				window.getDataFromApp = function(data){
-				  _czc.push(['_trackEvent', '补登红包参与环境', '不限']);				
+				window.getDataFromApp = function(data){			
                   $$('.load').style.display = 'block';
 				  $$('.login').style.display = 'none';
 				  $$('.page-form').style.display = 'none';					
@@ -410,16 +411,21 @@ var ua = window.navigator.userAgent;
 	}])	
 if(location.hash == '#H5')  //App外部打开
 {
-	_czc.push(['_trackEvent', '补登红包参与环境', 'APP外部打开']);
+	_czc.push(['_trackEvent', '补登红包', '打开','APP外部']);
 	webLogin();   
 }
 
 else if(location.hash != '#smkV3.4.1'){  //有交互老版本App打开，提示用户更新,3.5.0开始不再使用hash传递版本号
     var appV = GetAppVersion("smkVersion") || '';
 	if(appV !='3.5.0' && appV !='3.5.1'){
-		_czc.push(['_trackEvent', '补登红包参与环境', '在老版本APP中打开,不自动登录']);
+		_czc.push(['_trackEvent', '补登红包', '打开','旧版本App内部']);
 		webLogin('快去登录/注册，让红包带你飞！');
 		//$$('#p3').innerHTML = '本活动仅针对app3.4.1版本及以上用户参与，'+'请升级至最新版。';
 	}
 }
+
+else{  
+    _czc.push(['_trackEvent', '补登红包', '打开','新版本App内部']);
+}
+
 

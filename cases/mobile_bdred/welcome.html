@@ -17,14 +17,36 @@
 	<meta name="format-detection" content="telephone=no, address=no">
 	<meta content="yes" name="apple-mobile-web-app-capable"> <!-- apple devices fullscreen -->
 	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>	
+	<script type="text/javascript" src="http://weixin.96225.com/weixin/wechat/getShare"></script>		
 <!--
 	<link rel="stylesheet" href="css/iconfont.css" />	
     <link rel="stylesheet" href="css/css.css" />
 -->	
     <link rel="stylesheet" href="css/lib.css" />
 	<script>
+	
+	wx.config(wx_conf);
+	var shareData = {
+			imgUrl: "http://imglf0.nosdn.127.net/img/bzhzNk9zSWJ0VXZKTkVLMThjdUNOU295ODUxRnJnUDdTTlBIcnZEVVVROERNU2U2aDBHUGV3PT0.jpg",
+			link:'http://activity.96225.com/exthtml/getBdRed/welcome.html?activitycode=bd_red&channelId=bd001#H5',
+		    desc: '杭州通、随时充，最高赠送200元红包！',
+			title: '什么？钱包、月票也能用手机充！', // 分享图标
+		    success: function () { 
+		        console.log('分享成功');
+		    }
+	};
+	
+	wx.ready(function(){
+		 wx.onMenuShareTimeline(
+				shareData
+			);
+		 wx.onMenuShareAppMessage(
+				shareData
+		    );
+	}); 	
 	var _czc = _czc || [];
-	_czc.push(["_setAccount", "1260857880"]);
+	_czc.push(["_setAccount", "1260859684"]);
 	</script>      
 </head>
 <body ng-controller = 'Main'>
@@ -155,6 +177,5 @@
 -->
 
 <script type="text/javascript" src="js/lib.js"></script>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260857880'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260857880%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
-
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260859684'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260859684%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
 </html>

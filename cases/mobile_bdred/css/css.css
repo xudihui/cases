@@ -884,7 +884,10 @@ span.check_gray {
         font-size: 0.875rem;
         display: inline-block;
         margin: 0 10px;
-    }			
+    }	
+    span#cnzz_stat_icon_1260859684{
+    	display:none
+    }	
 			
 			@media screen and (max-height: 481px) {
 			.main{zoom:.8}

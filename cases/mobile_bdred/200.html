@@ -1,10 +1,9 @@
 
 <!DOCTYPE html>
-<html lang = "zh-CN" ng-app = 'smkApp' style='font-size:16px'>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="HandheldFriendly" content="True" />
+<html lang="zh-CN" ng-app="smkApp" style="font-size:16px" class="ng-scope"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-animate){display:none !important;}ng\:form{display:block;}</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta content="" name="Keywords">
 	<meta content="" name="Description">
@@ -23,7 +22,7 @@
 	<link rel="stylesheet" href="css/iconfont.css" />	
     <link rel="stylesheet" href="css/css.css" />
 -->	
-    <link rel="stylesheet" href="css/lib.css" />
+    <link rel="stylesheet" href="css/lib.css">
 	<script>
 	window.onload = function(){
 		if(location.hash=='#H5'){ //safari mac中报错
@@ -56,7 +55,7 @@
 	_czc.push(["_setAccount", "1260859684"]);
 	</script>      
 </head>
-<body ng-controller = 'Main'>
+<body ng-controller="Main" class="ng-scope">
  <!-- sorry -->
  <div class="sorry">
    <div class="top">
@@ -65,21 +64,14 @@
          非常遗憾,您还未取得抽奖机会<br>
 	 请在公交充值下单获得抢红包机会。此次互动准备了超过20000个红包等您来抢!
    </p>
-	<p class='rule' ><lable ng-click='openRule()'><i  class="icon iconfont">&#xe600;</i>活动规则</lable></p>  
+	<p class="rule"><lable ng-click="openRule()"><i class="icon iconfont"></i>活动规则</lable></p>  
  </div>
  
  <!-- 等待 -->
- <div class="load">
-      <img src="img/xiaohongbao.png" alt="" />
-	  <p class='p3' id='p3'>正在加载</p>
- </div>
+ 
  
  <!-- 去登录 --> 
- <div class="login ">
-      <img src="img/hongbao.png" alt="" />
-	  <p class='p3'>快去登录/注册，让红包带你飞</p>
-	  <a href="smknative:openLoginView()" id='goLogin'>去登录/注册</a>
- </div> 
+  
  
   <!-- 去登录 --> 
  <div class="page-form">
@@ -120,32 +112,32 @@
       </div> 
  
  <!-- 已抽奖--> 
-<div class="done" style='display:none'>
-   <img src="img/img_ycj.png" alt="" width='130' height='130'/>
+<div class="done" style="display:none">
+   <img src="img/img_ycj.png" alt="" width="130" height="130">
    <p class="done_p"></p>
 </div>
  
  <!-- 主体 --> 
- <div class="main" >
-    <div class="envelope">
-	   <div class="open" ng-click='open()'>
-	    <div class="inner"></div>
-	   </div>
-	   <div class="open win" ng-show='win'></div>	   
+ <div class="main" style='display:block'>
+    <div class="envelope" style="
+    overflow: hidden;
+">
+	   
+	   <div class="open win " ng-show="win"></div>	   
 	</div>
 	<!-- 初始化 -->
-	<p ng-show='beforeOpen' >恭喜您，获得一次抽奖机会!</p>
-	<p class='rule' ng-show='beforeOpen'><lable ng-click='openRule()'><i  class="icon iconfont">&#xe600;</i>活动规则</lable></p>	
-	<div class="footer" ng-show='beforeOpen'></div>
+	<p ng-show="beforeOpen" class="ng-hide">恭喜您，获得一次抽奖机会!</p>
+	<p class="rule ng-hide" ng-show="beforeOpen"><lable ng-click="openRule()"><i class="icon iconfont"></i>活动规则</lable></p>	
+	<div class="footer ng-hide" ng-show="beforeOpen"></div>
 	
 	
 	<!-- 中奖 -->
-	<p ng-show='win' class='p1'>恭喜您，获得公交充值红包<br><span ng-bind='money' ></span>元</p>
-	<div  ng-show='win' class="footer_win"><span>请进入"市民卡APP-公交充值-交易记录"收取</span></div>	
+	<p ng-show="win" class="p1 ">恭喜您，获得公交充值红包<br><span ng-bind="money" class="ng-binding">200</span>元</p>
+	<div ng-show="win" class="footer_win "><span>请进入"市民卡APP-公交充值-交易记录"收取</span></div>	
 
 
 	<!-- 未中奖 -->
-	<p ng-show='fail' class='p2'>未中奖，谢谢参与</p>	
+	<p ng-show="fail" class="p2 ng-hide">未中奖，谢谢参与</p>	
 	
  </div>
  
@@ -156,25 +148,25 @@
    <div class="modal-buttons"><span class="modal-button modal-button-bold">关闭</span></div>
  </div>
     <!-- 活动规则 -->
- <div class="modal-overlay modal-overlay-visible _rule_bg" ng-show='rule' style='z-index:14000;display:none'></div>
-  <div class="_rule" ng-show='rule' style='display:none'>
-    <div class="_rule_title"><img src="img/img_redbage.png" width='26' alt="" /><span>活动规则</span><img src="img/img_redbage.png" width='26' alt="" /><i ng-click='closeRule()'></i></div>
+ <div class="modal-overlay modal-overlay-visible _rule_bg ng-hide" ng-show="rule" style="z-index:14000;display:none"></div>
+  <div class="_rule ng-hide" ng-show="rule" style="display:none">
+    <div class="_rule_title"><img src="img/img_redbage.png" width="26" alt=""><span>活动规则</span><img src="img/img_redbage.png" width="26" alt=""><i ng-click="closeRule()"></i></div>
 	<div class="_rule_content">
-		<div><span>一、活动时间：</span><br/>
-		2016年11月23日12:00至2016年12月31日23:59<br/>
-		<span>二、活动范围：</span><br/>	
-		杭州市民卡新老注册用户<br/>
-		<span>三、活动说明：</span><br/>
+		<div><span>一、活动时间：</span><br>
+		2016年11月23日12:00至2016年12月31日23:59<br>
+		<span>二、活动范围：</span><br>	
+		杭州市民卡新老注册用户<br>
+		<span>三、活动说明：</span><br>
 		活动期间，新老用户只要使用杭州市民卡公交充值，支付成功就能够获得一次抽奖机会；活动入口在杭州市民卡APP首页底部“公交充值红包”活动链接；每位用户仅有一次抽奖机会。
-		<br/><span>四、奖项发放：</span><br/>
+		<br><span>四、奖项发放：</span><br>
 		1、本次活动红包设置最高200元；抽奖以后，系统实时发放，以APP端公交充值钱包订单的方式发放，请用户进入市民卡APP》》公交充值》》查询》》交易记录 查询红包订单；公交充值红包订单需要用户自行到市民卡自助机拍卡补登。
-		<br/>2、所获得公交充值红包需在一个月内拍卡补登，超时以后，红包将过期失效。
-		<br/>3、本次活动红包数量超过20000个，先到先得。
+		<br>2、所获得公交充值红包需在一个月内拍卡补登，超时以后，红包将过期失效。
+		<br>3、本次活动红包数量超过20000个，先到先得。
 		</div>
-		<div class='_rule_know' ng-click='closeRule()'>知道了</div>
+		<div class="_rule_know" ng-click="closeRule()">知道了</div>
     </div>
   </div>
-</body>
+
 
 <!--
 <script type="text/javascript" src="js/angular.min.js"></script>
@@ -183,6 +175,4 @@
 <script type="text/javascript" src="js/main.js"></script>
 -->
 
-<script type="text/javascript" src="js/lib.js"></script>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260859684'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260859684%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
-</html>
+</body></html>
